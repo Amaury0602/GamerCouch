@@ -10,10 +10,37 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_29_141921) do
+ActiveRecord::Schema.define(version: 2019_05_29_143529) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "comments", force: :cascade do |t|
+    t.bigint "game_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["game_id"], name: "index_comments_on_game_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
+  create_table "games", force: :cascade do |t|
+    t.string "name"
+    t.integer "year"
+    t.string "category"
+    t.string "platform"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "likes", force: :cascade do |t|
+    t.bigint "game_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["game_id"], name: "index_likes_on_game_id"
+    t.index ["user_id"], name: "index_likes_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -27,4 +54,8 @@ ActiveRecord::Schema.define(version: 2019_05_29_141921) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "comments", "games"
+  add_foreign_key "comments", "users"
+  add_foreign_key "likes", "games"
+  add_foreign_key "likes", "users"
 end
