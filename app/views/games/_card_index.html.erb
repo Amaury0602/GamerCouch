@@ -1,7 +1,7 @@
 
 <% @games.each do |game| %>
   <div class="card-product-index">
-    <%= image_tag ("mario.jpg"), class: "img" %>
+    <%= cl_image_tag game.photo, class: "img" %>
     <div class="card-product-infos">
       <div class="title-date">
         <h1><%= game.name %></h1>

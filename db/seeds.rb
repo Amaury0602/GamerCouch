@@ -62,7 +62,7 @@ end
 #   like.save if like.valid?
 # end
 
-Game.create(name: "Mario Kart Delux 8", year: 2015, category: "race", platform: "Switch")
+# Game.create(name: "Mario Kart Delux 8", year: 2015, category: "race", platform: "Switch")
 
-Game.create(name: "Spiderman", year: 2018, category: "action", platform: "PS4")
-puts ">> It's done"
+# Game.create(name: "Spiderman", year: 2018, category: "action", platform: "PS4")
+# puts ">> It's done"
