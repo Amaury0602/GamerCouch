@@ -1,4 +1,4 @@
-.card-product {
+.card-product-index {
   overflow: hidden;
   margin: 20px;
   height: 125px;
@@ -8,37 +8,37 @@
   display: flex;
 }
 
-.card-product img {
+.card-product-index img {
   height: 100%;
   width: 200px;
   object-fit: cover;
 }
 
-.card-product h1 {
+.card-product-index h1 {
   font-size: 24px;
   font-weight: bold;
   margin: 0;
 }
 
-.card-product h2 {
+.card-product-index h2 {
   font-size: 16px;
   font-weight: bold;
   margin: 0;
 }
 
-.card-product h3 {
+.card-product-index h3 {
   font-size: 16px;
   font-weight: bold;
   margin: 0;
 }
 
-.card-product h4 {
+.card-product-index h4 {
   font-size: 16px;
   font-weight: bold;
   margin: 0;
 }
 
-.card-product .card-product-infos {
+.card-product-index .card-product-infos {
   padding-left: 16px;
   padding-right: 16px;
   padding-top: 8px;
