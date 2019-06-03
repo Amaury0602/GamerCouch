@@ -1,28 +1,3 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
-# uri = URI('https://api.mailchimp.com/3.0/lists/xxxx/members/')
-
-# Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https') do |http|
-#   req = Net::HTTP::Post.new(uri)
-#   req['Content-Type'] = 'application/json'
-#   req.basic_auth 'username', 'password'
-#   req.set_form_data('from' => '2005-01-01', 'to' => '2005-03-31')
-
-#   response = http.request req # Net::HTTPResponse object
-# end
-
-# HTTP.post('', :body => "=&bar=baz")
-
-# open("https://api-v3.igdb.com/games",
-#    "user-key" => "3d5164cf92d5dd00f6d364c5d713d5ab",
-#    "Content-Type" => "application/x-www-form-urlencoded",
-#  }
-
 puts "We are about to destroy the entire DataBase, please remain calm"
 User.destroy_all
 puts ">> Users were all destroyed"
@@ -35,6 +10,7 @@ puts ">> Likes were all destroyed"
 puts ""
 puts ""
 
+puts ">> We add some games :)"
 
 url = "https://api-v3.igdb.com/games"
 data_one = 'fields name, platforms.name, cover.url, release_dates.y;search "mario";'
@@ -85,3 +61,8 @@ end
 #   like = Like.new(game_id: Faker::Number.between(1, 20), user_id: Faker::Number.between(1, 15))
 #   like.save if like.valid?
 # end
+
+Game.create(name: "Mario Kart Delux 8", year: 2015, category: "race", platform: "Switch")
+
+Game.create(name: "Spiderman", year: 2018, category: "action", platform: "PS4")
+puts ">> It's done"

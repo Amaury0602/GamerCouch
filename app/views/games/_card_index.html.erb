@@ -1,0 +1,20 @@
+
+<% @games.each do |game| %>
+  <div class="card-product">
+    <%= image_tag ("mario.jpg"), class: "img" %>
+    <div class="card-product-infos">
+      <div class="title-date">
+        <h1><%= game.name %></h1>
+        <h3><%= game.year %></h3>
+      </div>
+      <div class="platform">
+        <h3><%= game.platform %></h2>
+      </div>
+      <div class="reaction">
+        <h4><i class="far fa-comments">2</i></h4>
+        <h4><i class="far fa-heart">37</i></h4>
+        <h4>Right Choice ?</h4>
+      </div>
+    </div>
+  </div>
+<% end %>
