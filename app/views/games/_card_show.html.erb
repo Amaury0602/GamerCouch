@@ -1,5 +1,5 @@
 <div class="card-product-show">
-  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg">
+  <%= cl_image_tag @game.photo %>
   <div class="card-product-infos">
   <h2 class="text-center"><%= @game.name %> </h2>
     <p><%= @game.year %> </p>
