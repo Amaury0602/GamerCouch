@@ -1,1 +1,67 @@
-_card_index.scss
+.card-product {
+  overflow: hidden;
+  margin: 20px;
+  height: 125px;
+  width: 704px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+}
+
+.card-product img {
+  height: 100%;
+  width: 200px;
+  object-fit: cover;
+}
+
+.card-product h1 {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-product h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-product h3 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-product h4 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-product .card-product-infos {
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  width:100%;
+}
+
+.title-date {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.platform {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 16px;
+  margin-bottom: 32px;
+}
+
+.reaction {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
