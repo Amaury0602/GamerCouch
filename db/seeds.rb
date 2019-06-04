@@ -82,5 +82,5 @@ puts "Creating Likes"
   end
 end
 
-puts ">> It's done""
+puts ">> It's done"
 
