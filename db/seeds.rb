@@ -1,9 +1,9 @@
 puts "We are about to destroy the entire DataBase, please remain calm"
-User.destroy_all
-puts ">> Users were all destroyed"
-puts ""
 Game.destroy_all
 puts ">> Games were all destroyed"
+puts ""
+User.destroy_all
+puts ">> Users were all destroyed"
 puts ""
 Like.destroy_all
 puts ">> Likes were all destroyed"
