@@ -5,4 +5,8 @@ class Game < ApplicationRecord
   validates :name, presence: true, allow_blank: false
   validates :platform, presence: true
   mount_uploader :photo, PhotoUploader
+
+  def match(game)
+    likes.where(user_id: game.users).size.fdiv(likes.size)*100
+  end
 end

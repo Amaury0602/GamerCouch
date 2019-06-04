@@ -14,5 +14,16 @@ class GamesController < ApplicationController
 
   def right_choice
     @game = Game.find(params[:id])
+  #   Game.affinity
+  #   other_users = @game.likes.where.not(user_id: current_user).pluck(:user_id)
+  #   your_likes = []
+  #   your_likes = current_user.likes.map do |like|
+  #     like.game
+  #   end
+  #   other_users.each do |user|
+  #     User.find(user).likes.each do |like|
+  #       affinity(like.game)
+  #     end
+  #   end
   end
 end
