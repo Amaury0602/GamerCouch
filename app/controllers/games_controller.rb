@@ -25,7 +25,7 @@ class GamesController < ApplicationController
 
     hash = {}
     @final_liked_games.each do |game|
-      hash[game.name] = @game.match(game)
+      hash[game] = @game.match(game)
     end
     @likes_hash = hash.sort_by { |_key, value| value }.reverse.to_h
   end

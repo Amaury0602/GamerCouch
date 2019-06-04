@@ -7,7 +7,7 @@
 
 <ul>
 <% @likes_hash.each do |game, score| %>
-  <li> <%= score.round(1) %>%  des gens qui ont aimé <%= game %>  comme toi aiment <%= @game.name %></li>
+  <li> <%= score.round(1) %>%  des gens qui ont aimé <%= game.name %>  comme toi aiment <%= @game.name %></li>
 <% end %>
 </ul>
 
