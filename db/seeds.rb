@@ -66,3 +66,30 @@ end
 
 # Game.create(name: "Spiderman", year: 2018, category: "action", platform: "PS4")
 # puts ">> It's done"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+puts ">> We create one like :)"
+Like.create(game_id: 25, user_id: 17)
+
+
+
+
+
+
+
+
+
