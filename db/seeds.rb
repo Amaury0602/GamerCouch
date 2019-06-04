@@ -53,43 +53,34 @@ request_two.each do |game|
 end
 
 
+Game.create(name: "Mario Kart Delux 8", year: 2015, category: "race", platform: "Switch")
+
+Game.create(name: "Spiderman", year: 2018, category: "action", platform: "PS4")
+
+puts "Creating users"
+
 15.times do
   User.create(email: Faker::Internet.unique.email, password: Faker::Name.unique.name)
 end
 
-# 50.times do
-#   like = Like.new(game_id: Faker::Number.between(1, 20), user_id: Faker::Number.between(1, 15))
-#   like.save if like.valid?
-# end
+game_ids = []
+Game.all.each do |game|
+  game_ids << game.id
+end
 
-# Game.create(name: "Mario Kart Delux 8", year: 2015, category: "race", platform: "Switch")
+user_ids = []
+User.all.each do |user|
+  user_ids << user.id
+end
 
-# Game.create(name: "Spiderman", year: 2018, category: "action", platform: "PS4")
-# puts ">> It's done"
+puts "Creating Likes"
 
+150.times do
+  like = Like.new(game_id: game_ids.sample, user_id: user_ids.sample)
+  if like.valid?
+    like.save
+  end
+end
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-puts ">> We create one like :)"
-Like.create(game_id: 25, user_id: 17)
-
-
-
-
-
-
-
-
+puts ">> It's done""
 
