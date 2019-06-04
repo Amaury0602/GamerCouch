@@ -56,5 +56,3 @@
 <% end %>
 
 
-<h3>Tests</h3>
-<%= User.where.not(id: current_user.id).joins(:likes).where(:game_id).includes %>

@@ -5,4 +5,5 @@ class Game < ApplicationRecord
   validates :name, presence: true, allow_blank: false
   validates :platform, presence: true
   mount_uploader :photo, PhotoUploader
+
 end

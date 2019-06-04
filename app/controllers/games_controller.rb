@@ -15,4 +15,9 @@ class GamesController < ApplicationController
   def right_choice
     @game = Game.find(params[:id])
   end
+
+  def game_alike
+    @game = Game.find(params[:id])
+  end
+
 end
