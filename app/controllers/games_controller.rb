@@ -11,4 +11,8 @@ class GamesController < ApplicationController
     @game = Game.find(params[:id])
     @comment = Comment.new
   end
+
+  def right_choice
+    @game = Game.find(params[:id])
+  end
 end
