@@ -15,7 +15,7 @@
         <% end %>
         <%= game.like_count %></h4>
         <h4><%= link_to "Recommandation", game_alike_path(game) %></h4>
-        <h4>Right Choice ?</h4>
+        <h4><%= link_to "Right choice", right_choice_path(game)%></h4>
       </div>
     </div>
     <%= link_to "", game_path(game) %>

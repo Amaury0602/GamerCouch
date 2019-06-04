@@ -6,6 +6,12 @@ class Game < ApplicationRecord
   validates :platform, presence: true
   mount_uploader :photo, PhotoUploader
 
+
+  def match(game)
+    likes.where(user_id: game.users).size.fdiv(likes.size)*100
+  end
+
+
   def three_most_liked
     liked_games = []
     users.each do |user|
@@ -41,3 +47,4 @@ class Game < ApplicationRecord
   #   #   return key
   #   # end
   end
+
