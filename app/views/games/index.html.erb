@@ -1,3 +1,6 @@
 <div class="container">
-  <%= render 'card_index' %>
+  <% @games.each do |game| %>
+    <%=render "card_index", game: game %>
+  <% end %>
+
 </div>
