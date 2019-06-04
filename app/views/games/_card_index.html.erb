@@ -12,7 +12,8 @@
       </div>
       <div class="reaction">
         <h4><i class="far fa-comments">2</i></h4>
-        <h4><i class="far fa-heart">37</i></h4>
+        <% like = Like.where game_id: game.id %>
+        <h4><i class="far fa-heart"><%= like.size %></i></h4>
         <h4>Right Choice ?</h4>
       </div>
     </div>
