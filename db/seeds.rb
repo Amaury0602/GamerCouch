@@ -76,9 +76,12 @@ end
 puts "Creating Likes"
 
 150.times do
-  like = Like.new(game_id: game_ids.sample, user_id: user_ids.sample)
-  if like.valid?
-    like.save
+  game_sample_id = game_ids.sample
+  game = Game.find(game_sample_id)
+  like = Like.new(game: game, user_id: user_ids.sample)
+  if like.save
+    game.like_count += 1
+    game.save
   end
 end
 puts "Creating Comments"

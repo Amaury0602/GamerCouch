@@ -1,0 +1,13 @@
+<div class="container">
+
+<h1>Top 3 des games</h1>
+
+<ul>
+<% @three_most_liked_games.each do |game| %>
+  <li><%= game.name %></li>
+<% end %>
+</ul>
+
+<%= link_to "Go back", games_path %>
+
+</div>
