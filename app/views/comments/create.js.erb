@@ -1,0 +1,16 @@
+function refreshForm(new_form) {
+  const newCommentForm = document.getElementById('new_comment');
+  newCommentForm.outerHTML = new_form;
+}
+
+function addComment(commentHTML) {
+  const comments = document.getElementById('comments');
+  comments.insertAdjacentHTML('afterbegin', commentHTML);
+}
+
+<% if @comment.errors.any? %>
+  refreshForm('<%= j render "shared/form", game: @game, comment: @comment %>');
+<% else %>
+  addComment('<%= j render "shared/comment_content", comment: @comment %>');
+  refreshForm('<%= j render "shared/form", game: @game, comment: Comment.new %>');
+<% end %>
