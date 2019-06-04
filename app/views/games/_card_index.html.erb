@@ -12,7 +12,7 @@
         <h4><i class="far fa-comments">2</i></h4>
         <h4><i class="far fa-heart"><%= Like.where(game_id: game.id).count %></i></h4>
         <h4>Game alike</h4>
-        <h4>Right Choice ?</h4>
+        <h4><%= link_to "Right choice", right_choice_path(game)%></h4>
       </div>
     </div>
     <%= link_to "", game_path(game) %>

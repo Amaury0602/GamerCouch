@@ -1,57 +1,13 @@
 <h1>Is <%= @game.name %> the Right choice for you ?</h1>
 
 
-<h3>Personnes ayant liké ce jeu</h3>
-<% @game.likes.each do |like| %>
-<%= like.user %>
+<br>
+
+<h3>Autres jeux likés par les users, nombre de like sur les jeux que tu as liké divisé par le nombre total de likes</h3>
+
+<ul>
+<% @likes_hash.each do |game, score| %>
+  <li> <%= score.round(1) %>%  des gens qui ont aimé <%= game %>  comme toi aiment <%= @game.name %></li>
 <% end %>
-
-
-<br>
-<br>
-<br>
-
-<h3>ID des users qui ont liké</h3>
-
-<%= other_users = @game.likes.where.not(user_id: current_user).pluck(:user_id) %>
-
-<br>
-<br>
-<br>
-
-
-
-
-<h3>Jeux likés par le current_user</h3>
-<%= current_user.id %>
-<% your_likes = [] %>
-<% your_likes = current_user.likes.map do |like| %>
-  <% like.game.name %>
-<% end %>
-<%= your_likes %>
-<%= your_likes.size %>
-
-
-<br>
-<br>
-<br>
-
-
-<h3>Autres jeux likés par les users</h3>
-
-
-
-
-
-
-<% all_users = Hash.new(0) %>
-
-
-
-
-<% other_users.each do |user| %>
-  <% User.find(user).likes.uniq.each do |like| %>
-    <%= like.game.name %>
-    <%= @game.match(like.game) %>
-  <% end %>
-<% end %>
+</ul>
+<%= link_to "Go back to index", games_path  %>
