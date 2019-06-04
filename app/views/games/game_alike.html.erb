@@ -1,39 +1,13 @@
+<div class="container">
+
 <h1>Top 3 des games</h1>
 
-<% @users_like = [] %>
-
-<% @game.likes.each do |like| %>
-<% @users_like << like.user %>
+<ul>
+<% @three_most_liked_games.each do |game| %>
+  <li><%= game.name %></li>
 <% end %>
-
-<% @game_like = [] %>
-
-<% @users_like.each do |user| %>
-  <% user.likes.each do |like| %>
-    <% @game_like << like.game.name %>
-  <% end %>
-<% end %>
-
-<% game_selection = @game_like.sort %>
-
-<% counts = Hash.new(0) %>
-<% game_selection.each { |name| counts[name] += 1 } %>
-<% counts %>
-
-<% result_inverse = counts.sort_by {|_key, value| value }.reverse %>
-<br>
-<br>
-
-<% r = result_inverse.delete_if {|key, value| key == @game.name } %>
-
-<% result_top_3 = r.first(3) %>
-
-
-<% result_top_3.each do |key, value| %>
-  <li>
-    <%= key %>
-  </li>
-<% end %>
+</ul>
 
 <%= link_to "Go back", games_path %>
 
+</div>

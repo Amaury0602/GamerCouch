@@ -10,7 +10,10 @@
       </div>
       <div class="reaction">
         <h4><i class="far fa-comments">2</i></h4>
-        <h4><i class="far fa-heart"><%= game.likes.count %></i></h4>
+        <h4> <%= link_to game_likes_path(game), method: :post do %>
+          <i class="far fa-heart"></i>
+        <% end %>
+        <%= game.like_count %></h4>
         <h4><%= link_to "Recommandation", game_alike_path(game) %></h4>
         <h4>Right Choice ?</h4>
       </div>
