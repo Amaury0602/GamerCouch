@@ -1,7 +1,10 @@
 class GamesController < ApplicationController
 
   def index
-    @games = Game.all
+    @games = Game.select("games.*, COUNT(likes.id) like_count")
+      .joins(:likes)
+      .group("games.id")
+      .order("like_count DESC")
   end
 
   def show
