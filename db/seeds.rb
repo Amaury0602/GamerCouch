@@ -81,6 +81,17 @@ puts "Creating Likes"
     like.save
   end
 end
+puts "Creating Comments"
+150.times do
+  comment = Comment.new(game_id: game_ids.sample, user_id: user_ids.sample)
+  comment1 = Faker::Quote.famous_last_words
+  comment2 = Faker::Restaurant.review
+  tab_comment = [comment1 , comment2]
+  comment.content =  tab_comment.sample
+  if comment.valid?
+    comment.save
+  end
+end
 
 puts ">> It's done"
 
