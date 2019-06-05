@@ -1,6 +1,7 @@
 <h1>Does <%= @game.name %> match your taste ?</h1>
 
 
+
 <% @matching_games.each do |game| %>
  <%= render "right_choice", game: game %>
 <% end %>
