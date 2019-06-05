@@ -1,6 +1,10 @@
 <div class="card-product-matching">
   <div class="card-product-index">
-      <%= cl_image_tag game.photo, class: "img" %>
+    <% if game.photo.present? %>
+        <%= cl_image_tag game.photo, class: "img" %>
+      <% else %>
+        <%= image_tag "loading.png" %>
+      <% end %>
       <div class="card-product-infos">
         <div class="title-date">
           <h1><%= game.name %></h1>

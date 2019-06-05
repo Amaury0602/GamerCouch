@@ -1,7 +1,22 @@
+.card-product-top{
+  display: flex;
+}
+
+.card-product-bot {
+  padding-left: 4px;
+  padding-right: 4px;
+  text-align: justify;
+}
+
 .card-product-show {
+  flex-direction: column;
   overflow: hidden;
   margin-top:20px;
+<<<<<<< HEAD
   height: 40vh;
+=======
+  height: 280px;
+>>>>>>> 2b8f4af6088485db513cc338cc6b98ab23e2bb2d
   background: #3C3B44;
   color: #BFD3C1;
   display: flex;
@@ -29,8 +44,9 @@ a {
   font-size: 12px;
   line-height: 1.4;
   opacity: .7;
-  margin-bottom: 0;
-  margin-top: 8px;
+  margin: 8px 1px 0 1px;
+  // margin-bottom: 0;
+  // margin-top: 8px;
 }
 
 .card-product-show  .card-product-infos {

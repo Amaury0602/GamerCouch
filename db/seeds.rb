@@ -62,7 +62,7 @@ Game.create(name: "Spiderman", year: 2018, category: "action", platform: "PS4")
 puts "Creating users"
 
 15.times do
-  User.create(email: Faker::Internet.unique.email, password: Faker::Name.unique.name)
+  User.create(email: Faker::Internet.unique.email, password: Faker::Name.unique.name, username:Faker::Name.unique.name)
 end
 
 game_ids = []

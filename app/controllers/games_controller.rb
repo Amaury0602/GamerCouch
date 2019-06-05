@@ -1,4 +1,6 @@
 class GamesController < ApplicationController
+  skip_after_action :verify_policy_scoped, :only => :index
+
   def index
     if params[:sort] == "like"
       @games = Game.order("like_count DESC")
@@ -14,11 +16,13 @@ class GamesController < ApplicationController
   end
   def show
     @game = Game.find(params[:id])
+    authorize @game
     @comment = Comment.new
   end
 
   def right_choice
     @game = Game.find(params[:id])
+    authorize @game
     user_likes = []
     current_user.likes.each do |like|
       like.game.name
@@ -46,6 +50,7 @@ class GamesController < ApplicationController
 
   def game_alike
     @game = Game.find(params[:id])
+    authorize @game
     @three_most_liked_games = @game.three_most_liked
   end
 end
