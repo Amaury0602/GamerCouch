@@ -5,5 +5,8 @@
     <p><%= @game.year %> </p>
       <p> <%= @game.category %> </p>
       <p><%= @game.platform %> </p>
+  <div class="card-product-description">
+    <p> <%= @game.description[0..250]+"..." %></p>
+  </div>
   </div>
 </div>

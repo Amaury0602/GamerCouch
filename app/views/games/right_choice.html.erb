@@ -1,11 +1,11 @@
-<h1>Does <%= @game.name %> match your taste ?</h1>
+<div class="container">
+  <h1>Does <%= @game.name %> match your taste ?</h1>
 
 
 
-<% @matching_games.each do |game| %>
- <%= render "right_choice", game: game %>
-<% end %>
+  <% @matching_games.each do |game| %>
+   <%= render "right_choice", game: game%>
+  <% end %>
 
-<%= link_to "Go back to index", games_path  %>
-
-
+  <%= link_to "Go back to index", games_path  %>
+</div>
