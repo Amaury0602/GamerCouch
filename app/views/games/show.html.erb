@@ -1,6 +1,6 @@
 <div class="container">
   <%=render "games/card_show" %>
-  <%= render 'games/form', game: @game, comment: @comment%>
+  <%= render 'games/form', game: @game, comment: @comment %>
         <div id="comments">
         <% @game.comments.each do |comment| %>
           <%= render 'games/comment_content', comment: comment %>

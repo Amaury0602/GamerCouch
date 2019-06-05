@@ -1,6 +1,10 @@
+<div class="collapse" id="collapseExample">
+  <div class="card card-body">
 <%= simple_form_for([ game, comment ], remote: true) do |form| %>
-  <%= form.input :content, as: :text, placeholder: 'Write a comment' %>
+  <%= form.input :content, as: :text, placeholder: 'Write something' %>
   <%= hidden_field_tag "from", params[:action] %>
   <%= form.submit "add a comment", class: "btn btn-primary" %>
 <% end %>
+  </div>
+</div>
 

@@ -1,9 +1,22 @@
 <div class="container">
-  <%= link_to "Sort by like", games_path(sort: "like", search_query: params[:search_query]) %>
-  <%= link_to "Sort by comment", games_path(sort: "comment", search_query: params[:search_query]) %>
-
-  <% @games.each do |game| %>
-    <%=render "card_index", game: game %>
-  <% end %>
-
+  <div class="row">
+    <div class="col-2">
+      <div class="row">
+        <div class="col-12 p-2">
+          <%= link_to "Last Games", games_path %>
+        </div>
+        <div class="col-12 p-2">
+          <%= link_to "Sort by like", games_path(sort: "like", search_query: params[:search_query]) %>
+      </div>
+        <div class="col-12 p-2">
+          <%= link_to "Sort by comment", games_path(sort: "comment", search_query: params[:search_query]) %>
+        </div>
+      </div>
+    </div>
+    <div class="col-10">
+      <% @games.each do |game| %>
+        <%=render "card_index", game: game %>
+      <% end %>
+    </div>
+  </div>
 </div>
