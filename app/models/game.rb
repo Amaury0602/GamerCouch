@@ -6,6 +6,13 @@ class Game < ApplicationRecord
   validates :platform, presence: true
   mount_uploader :photo, PhotoUploader
 
+  include PgSearch
+  pg_search_scope :search_all,
+    against: [ :name, :year, :category, :platform ],
+    using: {
+      tsearch: { prefix: true }
+    }
+
   def match(game)
     likes.where(user_id: game.users).size.fdiv(likes.size) * 100
   end

@@ -1,6 +1,16 @@
 class GamesController < ApplicationController
   def index
-    @games = Game.order("like_count DESC")
+    if params[:search_query].present?
+      @games = Game.search_all(params[:search_query])
+    elsif params[:sort].present?
+      if params[:sort] == "like"
+        @games = Game.order("like_count DESC")
+      elsif params[:sort] == "comment" # TO DO -> joint table
+        @games = Game.order("like_count ASC")
+      end
+    else
+      @games = Game.order("name ASC")
+    end
   end
 
   def show
@@ -35,5 +45,4 @@ class GamesController < ApplicationController
     @game = Game.find(params[:id])
     @three_most_liked_games = @game.three_most_liked
   end
-
 end
