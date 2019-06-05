@@ -4,10 +4,16 @@
   margin: 20px;
   height: 125px;
   width: 704px;
-  background: white;
+  background: #3C3B44;
+  color: #BFD3C1;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
   border-radius: 3px;
+
+a {
+  color: #BFD3C1;
+  text-decoration: none;
+}
 }
 
 
@@ -26,19 +32,19 @@
 }
 
 .card-product-index h1 {
-  font-size: 24px;
+  font-size: 20px;
   font-weight: bold;
   margin: 0;
 }
 
 .card-product-index h2 {
-  font-size: 16px;
+  font-size: 12px;
   font-weight: bold;
   margin: 0;
 }
 
 .card-product-index h3 {
-  font-size: 16px;
+  font-size: 12px;
   font-weight: bold;
   margin: 0;
 }
