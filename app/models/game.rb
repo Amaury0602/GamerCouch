@@ -6,11 +6,9 @@ class Game < ApplicationRecord
   validates :platform, presence: true
   mount_uploader :photo, PhotoUploader
 
-
   def match(game)
-    likes.where(user_id: game.users).size.fdiv(likes.size)*100
+    likes.where(user_id: game.users).size.fdiv(likes.size) * 100
   end
-
 
   def three_most_liked
     liked_games = []
@@ -25,7 +23,6 @@ class Game < ApplicationRecord
     r = result_inverse.reject { |game| game[0] == self }
     result_top_3 = r.first(3).map { |result| result[0] }
   end
-
 
   #   liked_games = []
   #   users.each do |user|
