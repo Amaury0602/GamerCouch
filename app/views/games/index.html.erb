@@ -1,4 +1,7 @@
 <div class="container">
+  <%= link_to "Sort by like", games_path(sort: "like") %>
+  <%= link_to "Sort by comment", games_path(sort: "comment") %>
+
   <% @games.each do |game| %>
     <%=render "card_index", game: game %>
   <% end %>

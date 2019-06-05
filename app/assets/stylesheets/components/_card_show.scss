@@ -2,11 +2,17 @@
   overflow: hidden;
   margin-top:20px;
   height: 80vh;
-  background: white;
+  background: #3C3B44;
+  color: #BFD3C1;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
   width:704px;
   border-radius: 3px;
+
+a {
+  color: #BFD3C1;
+  text-decoration: none;
+}
 }
 
 .card-product-show img {
