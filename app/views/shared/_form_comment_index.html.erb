@@ -1,0 +1,6 @@
+<%= simple_form_for([ game, comment ], remote: true) do |form| %>
+  <%= form.input :content, as: :text, placeholder: 'Write a comment' %>
+  <%= hidden_field_tag "from", params[:action] %>
+  <%= form.submit "add a comment", class: "btn btn-primary" %>
+<% end %>
+
