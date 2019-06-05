@@ -1,9 +1,18 @@
 <div class="card-product-show">
-  <%= cl_image_tag @game.photo %>
+  <% if @game.photo.present? %>
+    <%= cl_image_tag @game.photo %>
+  <% else %>
+    <%= image_tag "loading.png" %>
+  <% end %>
   <div class="card-product-infos">
   <h2 class="text-center"><%= @game.name %> </h2>
     <p><%= @game.year %> </p>
       <p> <%= @game.category %> </p>
       <p><%= @game.platform %> </p>
+  <div class="card-product-description">
+    <% if !@game.description.nil? %>
+      <p> <%= @game.description[0..250]+"..." %></p>
+    <% end %>
+  </div>
   </div>
 </div>

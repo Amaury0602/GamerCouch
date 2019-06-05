@@ -1,9 +1,9 @@
 <div class="container">
-  <%=render "card_show" %>
-  <%= render 'shared/form', game: @game, comment: @comment%>
+  <%=render "games/card_show" %>
+  <%= render 'games/form', game: @game, comment: @comment%>
         <div id="comments">
         <% @game.comments.each do |comment| %>
-          <%= render 'shared/comment_content', comment: comment %>
+          <%= render 'games/comment_content', comment: comment %>
         <% end %>
       </div>
 </div>

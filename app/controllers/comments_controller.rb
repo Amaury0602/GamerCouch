@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
   def create
+    @action = params[:from]
     @game = Game.find(params[:game_id])
     @comment = Comment.new(comment_params)
     @comment.game = @game
@@ -12,9 +13,10 @@ class CommentsController < ApplicationController
       game.save
     end
     else
-      respond_to do |format|
-        format.html { render 'games/show' }
-        format.js
+      if @action == "index"
+        render :index
+      else
+        render :show
       end
     end
   end
