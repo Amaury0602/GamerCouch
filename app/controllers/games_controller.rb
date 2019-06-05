@@ -36,9 +36,13 @@ class GamesController < ApplicationController
       end
     end
     @other_like_games.uniq
-
     @matching_games = @other_like_games & user_likes
     @matching_games = @matching_games.reject { |game| game == @game }
+    hash = {}
+    @matching_games.each do |game|
+      hash[game] = @game.match(game)
+    end
+    @game_score_hash = hash.sort_by { |_game, score| score }.flatten
   end
 
   def game_alike
