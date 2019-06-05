@@ -1,5 +1,9 @@
 <div class="card-product-index">
-    <%= cl_image_tag game.photo, class: "img" %>
+    <% if game.photo.present? %>
+      <%= cl_image_tag game.photo, class: "img" %>
+    <% else %>
+      <%= image_tag "loading.png" %>
+    <% end %>
     <div class="card-product-infos">
       <div class="title-date">
         <h1><%= game.name %></h1>
@@ -24,7 +28,7 @@
         <h4><%= link_to "Right choice", right_choice_path(game)%></h4>
       </div>
     </div>
-    <%= link_to "", game_path(game) %>
+    <%= link_to "", game_path(game), class: 'absolute-link' %>
 </div>
 <div class="form-<%= game.id %>">
   <% comment = Comment.new %>
