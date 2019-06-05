@@ -9,20 +9,26 @@
   display: flex;
   border-radius: 3px;
 
-a {
+.reaction a {
   color: #BFD3C1;
   text-decoration: none;
+  transition-duration: 0.3s;
+
+  &:hover {
+    color: #3C3B44;
+    background: #BFD3C1;
+    border-radius: 3px;
+  }
 }
 }
 
-
-// // .card-product-index a {
-//   position: absolute;
-//   top: 0;
-//   bottom: 24px;
-//   right: 0;
-//   left: 0;
-//   }
+a.absolute-link {
+  position: absolute;
+  top: 0;
+  bottom: 24px;
+  right: 0;
+  left: 0;
+  }
 
 .card-product-index img {
   height: 100%;
