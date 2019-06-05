@@ -12,7 +12,6 @@ class GamesController < ApplicationController
       @games = Game.order("name ASC")
     end
   end
-
   def show
     @game = Game.find(params[:id])
     @comment = Comment.new
