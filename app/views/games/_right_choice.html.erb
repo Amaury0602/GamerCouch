@@ -1,5 +1,4 @@
 <div class="card-product-matching">
-
   <div class="card-product-index">
       <%= cl_image_tag game.photo, class: "img" %>
       <div class="card-product-infos">
@@ -22,8 +21,6 @@
       </div>
       <%= link_to "", game_path(game) %>
   </div>
-
-
   <div class="matching-score">
     <h6>Matching Score</h6>
     <h1><%= @game.match(game).round(0) %>%</h1>

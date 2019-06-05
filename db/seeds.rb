@@ -13,8 +13,8 @@ puts ""
 puts ">> We add some games :)"
 
 url = "https://api-v3.igdb.com/games"
-data_one = 'fields name, platforms.name, cover.url, release_dates.y;search "mario";'
-data_two = 'fields name, platforms.name, cover.url, release_dates.y;search "metal gear solid";'
+data_one = 'fields name, platforms.name, cover.url, release_dates.y, summary;search "mario";'
+data_two = 'fields name, platforms.name, cover.url, release_dates.y, summary;search "doom";'
 response_one = RestClient.post(url, data_one, :content_type => "application/x-www-form-urlencoded", :'user-key' => "3d5164cf92d5dd00f6d364c5d713d5ab")
 request_one = JSON.parse(response_one)
 response_two = RestClient.post(url, data_two, :content_type => "application/x-www-form-urlencoded", :'user-key' => "3d5164cf92d5dd00f6d364c5d713d5ab")
@@ -24,13 +24,14 @@ platforms_one = []
 
 request_one.each do |game|
   name = game['name']
+  description = game['summary']
   photo = game['cover']['url'][2..-1]
   date = game['release_dates'][0]['y']
   game['platforms'].each do |platform|
     platforms_one << platform['name']
   end
   platforms = platforms_one.join(", ")
-  game = Game.new(name: name, platform: platforms, year: date )
+  game = Game.new(name: name, platform: platforms, year: date, description: description )
   game.remote_photo_url = "https://#{photo}"
   game.save
   platforms_one.clear
@@ -40,13 +41,14 @@ platforms_two = []
 
 request_two.each do |game|
   name = game['name']
+  description = game['summary']
   photo = game['cover']['url'][2..-1]
   date = game['release_dates'][0]['y']
   game['platforms'].each do |platform|
     platforms_two << platform['name']
   end
   platforms = platforms_two.join(", ")
-  game = Game.new(name: name, platform: platforms, year: date )
+  game = Game.new(name: name, platform: platforms, year: date, description: description )
   game.remote_photo_url = "https://#{photo}"
   game.save
   platforms_two.clear
