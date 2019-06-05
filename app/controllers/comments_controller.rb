@@ -7,9 +7,11 @@ class CommentsController < ApplicationController
     @comment.user = current_user
    if @comment.save
     respond_to do |format|
-        format.html { redirect_to games_path }
-        format.js
-      end
+      format.html { redirect_to game_path(@game) }
+      format.js
+      game.comment_count += 1
+      game.save
+    end
     else
       if @action == "index"
         render :index

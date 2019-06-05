@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 2019_06_05_134835) do
     t.integer "like_count", default: 0
     t.integer "comment_count", default: 0
     t.text "description"
+
   end
 
   create_table "likes", force: :cascade do |t|
