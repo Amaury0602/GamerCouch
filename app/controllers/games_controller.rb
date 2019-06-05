@@ -1,16 +1,30 @@
 class GamesController < ApplicationController
   def index
-    if params[:search_query].present?
-      @games = Game.search_all(params[:search_query])
-    elsif params[:sort].present?
-      if params[:sort] == "like"
-        @games = Game.order("like_count DESC")
-      elsif params[:sort] == "comment" # TO DO -> joint table
-        @games = Game.order("like_count ASC")
-      end
+    if params[:sort] == "like"
+      @games = Game.order("like_count DESC")
+    elsif params[:sort] == "comment"
+      @games = Game.order("comment_count DESC")
     else
-      @games = Game.order("name ASC")
+      @games = Game.order("name ASC") # Change -> name ASC no pertinent
     end
+
+    if params[:search_query].present?
+      @games = @games.search_all(params[:search_query])
+    end
+
+    #  params[:search_query].present? && params[:sort] == "like"
+    #   @games = Game.order("like_count DESC")
+    # elsif params[:search_query].present? && params[:sort] == "comment" # TO DO -> joint table
+    #   @games = Game.order("like_count ASC")
+    # elsif params[:sort].present?
+    #   if params[:sort] == "like"
+
+    #   elsif params[:sort] == "comment" # TO DO -> add migration
+    #     @games = Game.order("comment_count ASC")
+    #   end
+    # else
+
+    # end
   end
 
   def show
