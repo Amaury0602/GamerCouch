@@ -20,24 +20,25 @@ class GamesController < ApplicationController
 
   def right_choice
     @game = Game.find(params[:id])
-    other_users = @game.likes.where.not(user_id: current_user).pluck(:user_id)
-    @liked_games = []
-    other_users.each do |user|
-      User.find(user).likes.distinct.each do |like|
-        @liked_games << like.game
+    user_likes = []
+    current_user.likes.each do |like|
+      like.game.name
+      user_likes << like.game
+    end
+    other_like_users = []
+    @game.likes.where.not(user: current_user).each do |like|
+      other_like_users << like.user
+    end
+    @other_like_games = []
+    other_like_users.each do |user|
+      user.likes.each do |like|
+        @other_like_games << like.game
       end
     end
-    @final_liked_games = []
-    @final_liked_games = @liked_games.delete_if do |game|
-      game == @game
-    end
-    @final_liked_games.uniq!
+    @other_like_games.uniq
 
-    hash = {}
-    @final_liked_games.each do |game|
-      hash[game] = @game.match(game)
-    end
-    @likes_hash = hash.sort_by { |_key, value| value }.reverse.to_h
+    @matching_games = @other_like_games & user_likes
+    @matching_games = @matching_games.reject { |game| game == @game }
   end
 
   def game_alike

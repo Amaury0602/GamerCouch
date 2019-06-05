@@ -1,0 +1,16 @@
+.card-product-matching {
+  display: flex;
+  border-radius: 3px;
+  .matching-score {
+    text-align: center;
+    height: 125px;
+    width: 164px;
+    flex: item;
+    margin: 20px 20px 20px 1px;
+    background: white;
+    box-shadow: 0 13px 15px rgba(0,0,0,0.2);
+    border-radius: 3px;
+    padding-top: 23px;
+  }
+}
+
