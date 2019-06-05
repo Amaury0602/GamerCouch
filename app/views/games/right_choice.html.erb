@@ -1,14 +1,11 @@
-<h1>Is <%= @game.name %> the Right choice for you ?</h1>
+<h1>Does <%= @game.name %> match your taste ?</h1>
 
 
-<br>
 
-<h3>Autres jeux likés par les users, nombre de like sur les jeux que tu as liké divisé par le nombre total de likes</h3>
-
-<ul>
-<% @likes_hash.each do |game, score| %>
-  <li> <%= score.round(1) %>%  des gens qui ont aimé <%= game.name %>  comme toi aiment <%= @game.name %></li>
+<% @matching_games.each do |game| %>
+ <%= render "right_choice", game: game %>
 <% end %>
-</ul>
 
 <%= link_to "Go back to index", games_path  %>
+
+

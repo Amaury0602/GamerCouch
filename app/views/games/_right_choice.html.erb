@@ -1,0 +1,31 @@
+<div class="card-product-matching">
+
+  <div class="card-product-index">
+      <%= cl_image_tag game.photo, class: "img" %>
+      <div class="card-product-infos">
+        <div class="title-date">
+          <h1><%= game.name %></h1>
+          <h3><%= game.year %></h3>
+        </div>
+        <div class="platform">
+          <h3><%= game.platform %></h2>
+        </div>
+        <div class="reaction">
+          <h4><i class="far fa-comments">2</i></h4>
+          <h4> <%= link_to game_likes_path(game), method: :post do %>
+            <i class="far fa-heart"></i>
+          <% end %>
+          <%= game.like_count %></h4>
+          <h4><%= link_to "Recommandation", game_alike_path(game) %></h4>
+          <h4><%= link_to "Right choice", right_choice_path(game)%></h4>
+        </div>
+      </div>
+      <%= link_to "", game_path(game) %>
+  </div>
+
+
+  <div class="matching-score">
+    <h6>Matching Score</h6>
+    <h1><%= @game.match(game).round(0) %>%</h1>
+  </div>
+</div>
