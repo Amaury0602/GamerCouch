@@ -1,18 +1,20 @@
 class CommentsController < ApplicationController
   def create
+    @action = params[:from]
     @game = Game.find(params[:game_id])
     @comment = Comment.new(comment_params)
     @comment.game = @game
     @comment.user = current_user
    if @comment.save
     respond_to do |format|
-        format.html { redirect_to game_path(@game) }
+        format.html { redirect_to games_path }
         format.js
       end
     else
-      respond_to do |format|
-        format.html { render 'games/show' }
-        format.js
+      if @action == "index"
+        render :index
+      else
+        render :show
       end
     end
   end

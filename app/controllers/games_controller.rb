@@ -1,8 +1,8 @@
 class GamesController < ApplicationController
   def index
     @games = Game.order("like_count DESC")
+    @comment = Comment.new
   end
-
   def show
     @game = Game.find(params[:id])
     @comment = Comment.new

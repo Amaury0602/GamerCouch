@@ -9,7 +9,13 @@
         <h3><%= game.platform %></h2>
       </div>
       <div class="reaction">
-        <h4><i class="far fa-comments">2</i></h4>
+        <div class="index-comments-counter">
+          <%= link_to game_comments_path(game), method: :post do %>
+            <i class="far fa-comments"></i>
+          <% end %>
+          <p class= "comments-<%= game.id %>"><%= game.comments.size %></p>
+        </div>
+
         <h4> <%= link_to game_likes_path(game), method: :post do %>
           <i class="far fa-heart"></i>
         <% end %>
@@ -19,4 +25,8 @@
       </div>
     </div>
     <%= link_to "", game_path(game) %>
+</div>
+<div class="form-<%= game.id %>">
+  <% comment = Comment.new %>
+  <%= render 'games/form_comment_index', comment: comment, game: game%>
 </div>
