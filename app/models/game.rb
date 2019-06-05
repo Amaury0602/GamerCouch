@@ -14,6 +14,31 @@ class Game < ApplicationRecord
     }
 
   def match(game)
+    # user_likes = []
+    # current_user.likes.each do |like|
+    #   like.game.name
+    #   user_likes << like.game
+    # end
+    # other_like_users = []
+    # game.likes.where.not(user: current_user).each do |like|
+    #   other_like_users << like.user
+    # end
+    # @other_like_games = []
+    # other_like_users.each do |user|
+    #   user.likes.each do |like|
+    #     @other_like_games << like.game
+    #   end
+    # end
+    # @other_like_games.uniq
+    # @matching_games = @other_like_games & user_likes
+    # @matching_games = @matching_games.reject { |instance| instance == game }
+    # hash = {}
+    # @matching_games.each do |game|
+    #   hash[game] = game.likes.where(user_id: game.users).size.fdiv(likes.size) * 100
+    # end
+    # @game_score_hash = hash.sort_by { |_game, score| score }.flatten
+
+    #comment above if not working
     likes.where(user_id: game.users).size.fdiv(likes.size) * 100
   end
 
