@@ -2,7 +2,7 @@
     <% if game.photo.present? %>
       <%= cl_image_tag game.photo, class: "img" %>
     <% else %>
-      <%= image_tag "loading.png" %>
+      <%= image_tag "loading.png", class: "img" %>
     <% end %>
     <div class="card-product-infos" id="game-<%= game.id %>">
       <div class="title-date">
@@ -49,6 +49,11 @@
     <% game.match(current_user).first(3).each do |game, score|%>
     <li>
       <div class="mini-card">
+        <% if game.photo.present? %>
+          <%= cl_image_tag game.photo, class: "img-mini" %>
+        <% else %>
+          <%= image_tag "loading.png", class: "img-mini" %>
+        <% end %>
         <p><%= game.name %>
         <%= score.round(0) %></p>
         <% end %>

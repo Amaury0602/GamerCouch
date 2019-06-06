@@ -96,7 +96,16 @@ a.absolute-link {
   display: none;
 
   .mini-card {
+    display: flex;
     font-size: 12px;
+  }
+  .img-mini {
+    height: 50%;
+    width: 50px;
+    // object-fit: cover;
+  }
+  ul {
+    list-style-type: none;
   }
 }
 
