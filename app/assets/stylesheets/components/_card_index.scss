@@ -88,6 +88,19 @@ a.absolute-link {
   display: flex;
 }
 
+.hidden-match-index {
+  margin: 20px 0px 20px 20px;
+  height: 125px;
+  width: 704px;
+  background: #3C3B44;
+  display: none;
+}
+
+.active {
+    color: #3C3B44;
+    background: #BFD3C1;
+    border-radius: 3px;
+}
+
 .card-product-index-comment {
   width: 704px;
-}

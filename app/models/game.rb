@@ -13,33 +13,26 @@ class Game < ApplicationRecord
       tsearch: { prefix: true }
     }
 
-  def match(game)
-    # user_likes = []
-    # current_user.likes.each do |like|
-    #   like.game.name
-    #   user_likes << like.game
-    # end
-    # other_like_users = []
-    # game.likes.where.not(user: current_user).each do |like|
-    #   other_like_users << like.user
-    # end
-    # @other_like_games = []
-    # other_like_users.each do |user|
-    #   user.likes.each do |like|
-    #     @other_like_games << like.game
-    #   end
-    # end
-    # @other_like_games.uniq
-    # @matching_games = @other_like_games & user_likes
-    # @matching_games = @matching_games.reject { |instance| instance == game }
-    # hash = {}
-    # @matching_games.each do |game|
-    #   hash[game] = game.likes.where(user_id: game.users).size.fdiv(likes.size) * 100
-    # end
-    # @game_score_hash = hash.sort_by { |_game, score| score }.flatten
 
-    #comment above if not working
-    likes.where(user_id: game.users).size.fdiv(likes.size) * 100
+
+  def match(user)
+    other_users = []
+    self.likes.each do |like|
+      other_users << like.user
+    end
+    other_liked_games = []
+    other_users.each do |user|
+      user.likes.each do |like|
+        other_liked_games << like.game
+      end
+    end
+    matchings = user.games_liked & other_liked_games
+    matchings = matchings.reject { |game| game == self }
+    hash = {}
+    matchings.each do |match|
+      hash[match] = match.likes.where(user_id: self.users).size.fdiv(likes.size) * 100
+    end
+    hash = hash.sort_by { |game, score| score }
   end
 
   def three_most_liked

@@ -1,9 +1,16 @@
 <div class="container">
   <%=render "games/card_show" %>
+  <div class="comment-block">
   <%= render 'games/form', game: @game, comment: @comment %>
         <div id="comments">
+          <% myTab = Array.[] %>
         <% @game.comments.each do |comment| %>
-          <%= render 'games/comment_content', comment: comment %>
+        <% myTab << comment %>
+        <% end %>
+         <% myTab.reverse!%>
+        <% myTab.each do |element| %>
+        <%= render 'games/comment_content', comment: element %>
         <% end %>
       </div>
+  </div>
 </div>
