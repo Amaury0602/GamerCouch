@@ -6,3 +6,12 @@ border-bottom:1px solid black;
 #comments {
   background-color: white;
 }
+.comment-block {
+  flex-direction: column;
+  margin-top:20px;
+  background: #3C3B44;
+  color: #BFD3C1;
+  display: flex;
+  width:704px;
+  border-radius: 3px;
+}
