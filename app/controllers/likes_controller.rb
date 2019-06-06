@@ -9,6 +9,9 @@ class LikesController < ApplicationController
       @game.like_count +=1
       @game.save
     end
-    redirect_to games_path
+    respond_to do |format|
+      format.html { redirect_to games_path }
+      format.js
+    end
   end
 end

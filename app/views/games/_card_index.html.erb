@@ -4,7 +4,7 @@
     <% else %>
       <%= image_tag "loading.png" %>
     <% end %>
-    <div class="card-product-infos">
+    <div class="card-product-infos" id="game-<%= game.id %>">
       <div class="title-date">
         <h1><%= game.name %></h1>
         <h3><%= game.year %></h3>
@@ -14,29 +14,34 @@
       </div>
       <div class="reaction">
         <h4>
-          <a class="far fa-comments" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+          <a class="far fa-comments" data-toggle="collapse" href="#collapseGame<%= game.id %>" role="button" aria-expanded="false" aria-controls="collapseExample">
           </a>
           (<%= game.comment_count %>)</h4>
-        <% @r = [] %>
-        <% like_user = game.likes %>
-        <% like_user.each do |like| %>
-          <% if like.user == current_user %>
-            <% @r << like.user %>
+        <h4>
+          <% if game.likes.find_by(user: current_user) %>
+            <i class="fas fa-heart"></i>
+          <% else %>
+            <%= link_to game_likes_path(game), method: :post, remote: true do %>
+              <i class="far fa-heart"></i>
+            <% end %>
           <% end %>
-        <% end %>
-        <% if @r.size > 0 %>
-          <h4><a class="fas fa-heart"></a>
-        <% else %>
-          <h4><%= link_to game_likes_path(game), method: :post do %>
-            <a class="far fa-heart"></a>
-          <% end %>
-        <% end %>
-        (<%= game.like_count %>)</h4>
+          (<%= game.like_count %>)
+        </h4>
         <h4><%= link_to "Recommandation", game_alike_path(game) %></h4>
         <h4 class="right_choice" data-game-id="<%= game.id %>"><a href="">Right choice</a></h4>
       </div>
     </div>
     <%= link_to "", game_path(game), class: 'absolute-link' %>
+</div>
+
+<div class="card-product-index-comment">
+  <div class="collapse" id="collapseGame<%= game.id %>">
+      <% game.comments.each do |comment| %>
+        <div class = "comment-content">
+          <%= render 'games/comment_content', comment: comment %>
+        </div>
+      <% end %>
+  </div>
 </div>
 
 <div data-hidden-id="<%= game.id %>" class="hidden-match-index">
