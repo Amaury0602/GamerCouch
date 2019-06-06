@@ -13,9 +13,11 @@
         <h3><%= game.platform %></h2>
       </div>
       <div class="reaction">
-        <h4>
-          <i class="far fa-comments" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample"><%= render "form_comment_index", game: game %></i>
-        (<%= game.comment_count %>)</h4>
+        <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample"></a>
+        <%= link_to game_comments_path(game), method: :post do %>
+          <i class="far fa-comments"></i>
+        <% end %>
+        <h4 class="comments-<%= game.id %>">(<%= game.comment_count %>)</h4>
 
         <% @r = [] %>
         <% like_user = game.likes %>
