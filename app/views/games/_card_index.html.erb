@@ -26,7 +26,6 @@
             <% @r << like.user %>
           <% end %>
         <% end %>
-
         <% if @r.size > 0 %>
           <h4><i class="fas fa-heart"></i>
         <% else %>
@@ -34,9 +33,8 @@
             <i class="far fa-heart"></i>
           <% end %>
         <% end %>
-
         (<%= game.like_count %>)</h4>
-
+            
         <h4><%= link_to "Recommandation", game_alike_path(game) %></h4>
         <span type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample"><h4><%= link_to "Right choice", right_choice_path(game)%></h4>
           </span>
@@ -45,17 +43,10 @@
     <%= link_to "", game_path(game), class: 'absolute-link' %>
 </div>
 
-
 <div class="collapse" id="collapseExample">
   <div class="card-product-index">
   </div>
 </div>
 
-
-<div class="form-<%= game.id %>">
-
-  <% comment = Comment.new %>
-  <%= render 'games/form_comment_index', comment: comment, game: game %>
-</div>
 
 
