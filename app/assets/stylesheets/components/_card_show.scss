@@ -48,6 +48,11 @@ a {
   padding: 16px;
 }
 
+.show-and-comment {
+  display: flex;
+}
+
+
 @media (min-width: 100px) and (max-width: 575px) {
   .card-product-show  {
     display:""

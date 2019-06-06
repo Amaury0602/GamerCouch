@@ -89,7 +89,7 @@ a.absolute-link {
 }
 
 .hidden-match-index {
-  margin: 20px 0px 30px 20px;
+  margin: 20px 0px 50px 20px;
   height: 168px;
   width: 704px;
   // background: #3C3B44;
@@ -99,7 +99,7 @@ a.absolute-link {
     margin: 4px 0 4px 0;
     display: flex;
     font-size: 14px;
-
+    border-bottom: thick double;
     .img-mini {
       height: 50%;
       width: 50px;
@@ -135,3 +135,21 @@ a.absolute-link {
 .card-product-index-comment {
   width: 704px;
 }
+
+.lateral-button {
+  position: sticky;
+  top: 0;
+  padding-top: 15px;
+  a {
+  color: #BFD3C1;
+  text-decoration: none;
+  transition-duration: 0.3s;
+  padding: 7px;
+  &:hover {
+    color: #3C3B44;
+    background: #BFD3C1;
+    border-radius: 3px;
+  }
+  }
+}
+
