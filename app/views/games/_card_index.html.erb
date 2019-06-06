@@ -27,23 +27,16 @@
         (<%= game.like_count %>)</h4>
 
         <h4><%= link_to "Recommandation", game_alike_path(game) %></h4>
-<<<<<<< HEAD
         <h4><%= link_to "Right choice", right_choice_path(game) %></h4>
-=======
 
 
         <span type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample"><h4><%= link_to "Right choice", right_choice_path(game)%></h4>
           </span>
-
->>>>>>> 2b8f4af6088485db513cc338cc6b98ab23e2bb2d
       </div>
     </div>
     <%= link_to "", game_path(game), class: 'absolute-link' %>
 </div>
-<<<<<<< HEAD
 <div class="form <%= game.id %>">
-=======
-
 <div class="collapse" id="collapseExample">
   <div class="card-product-index">
   </div>
@@ -52,7 +45,6 @@
 
 
 <div class="form-<%= game.id %>">
->>>>>>> 2b8f4af6088485db513cc338cc6b98ab23e2bb2d
   <% comment = Comment.new %>
   <%= render 'games/form_comment_index', comment: comment, game: game %>
 </div>
