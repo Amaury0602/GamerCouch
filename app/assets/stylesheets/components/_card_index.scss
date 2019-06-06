@@ -89,20 +89,37 @@ a.absolute-link {
 }
 
 .hidden-match-index {
-  margin: 20px 0px 20px 20px;
-  height: 125px;
+  margin: 20px 0px 30px 20px;
+  height: 168px;
   width: 704px;
-  background: #3C3B44;
+  // background: #3C3B44;
   display: none;
-
   .mini-card {
+    align-items: center;
+    margin: 4px 0 4px 0;
     display: flex;
-    font-size: 12px;
-  }
-  .img-mini {
-    height: 50%;
-    width: 50px;
-    // object-fit: cover;
+    font-size: 14px;
+
+    .img-mini {
+      height: 50%;
+      width: 50px;
+      object-fit: cover;
+    }
+
+    .mini-card-info {
+      width: 85%;
+      padding-top: 19px;
+      margin-left: 14px;
+      display: flex;
+      justify-content: space-between;
+      a {
+        text-decoration: none;
+        color: #BFD3C1;
+      }
+      .matching-percent {
+        font-size: 17px;
+      }
+    }
   }
   ul {
     list-style-type: none;

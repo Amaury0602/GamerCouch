@@ -54,16 +54,12 @@
         <% else %>
           <%= image_tag "loading.png", class: "img-mini" %>
         <% end %>
-        <p><%= game.name %>
-        <%= score.round(0) %></p>
+        <div class="mini-card-info">
+          <p><%= link_to game.name, game_path(game) %></p>
+          <p class="matching-percent"><%= score.round(1) %>% MATCH</p>
+        </div>
         <% end %>
       </div>
     </li>
   </ul>
 </div>
-
-
-
-
-
-
