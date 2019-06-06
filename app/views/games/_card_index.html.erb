@@ -16,7 +16,7 @@
         <h4>
           <a class="far fa-comments" data-toggle="collapse" href="#collapseGame<%= game.id %>" role="button" aria-expanded="false" aria-controls="collapseExample">
           </a>
-          (<%= game.comment_count %>)</h4>
+          (<%= game.comments.length %>)</h4>
         <h4>
           <% if game.likes.find_by(user: current_user) %>
             <i class="fas fa-heart"></i>
