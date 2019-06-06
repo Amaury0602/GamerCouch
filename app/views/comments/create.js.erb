@@ -23,10 +23,13 @@ function refreshFormOnIndex(new_form, id) {
     refreshForm('<%= j render "games/form", game: @game, comment: Comment.new %>');
   <% end %>
 <% elsif @action == "index" %>
-  var comment = document.querySelector('.comments-<%= @game.id %>').innerHTML
-  var commentCounter = Number.parseInt(comment, 10);
-  commentCounter = commentCounter + 1;
-  document.querySelector('.comments-<%= @game.id %>').innerHTML = commentCounter.toString();
-  refreshFormOnIndex('<%= j render "games/form", game: @game, comment: Comment.new %>', "<%= @game.id %>");
+  const commentCounter = document.querySelector('.comments-<%= @game.id %>')
+  const commentCounterText = commentCounter.innerText
+  const commentCounterWithoutParentheses = commentCounterText.substr(1,commentCounterText.length-2)
+  const commentCounterInteger = Number.parseInt(commentCounterWithoutParentheses, 10)
+  console.log(commentCounterInteger)
+  commentCounter.innerText = `(${commentCounterInteger + 1})`
+  // document.querySelector('.comments-<%= @game.id %>').innerHTML = commentCounter.toString();
+  // refreshFormOnIndex('<%= j render "games/form", game: @game, comment: Comment.new %>', "<%= @game.id %>");
 <% end %>
 

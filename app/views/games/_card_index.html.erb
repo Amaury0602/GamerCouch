@@ -13,18 +13,15 @@
         <h3><%= game.platform %></h2>
       </div>
       <div class="reaction">
-          <h4>
-          <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-          <%= link_to game_comments_path(game), method: :post do %>
-            <i class="far fa-comments"></i>
-          <% end %>
-          </a>
-          (<%= game.comment_count %>)</h4>
-
-        <h4> <%= link_to game_likes_path(game), method: :post do %>
+        <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample"></a>
+        <%= link_to game_comments_path(game), method: :post do %>
+          <i class="far fa-comments"></i>
+        <% end %>
+        <h4 class="comments-<%= game.id %>">(<%= game.comment_count %>)</h4>
+        <%= link_to game_likes_path(game), method: :post do %>
           <i class="far fa-heart"></i>
         <% end %>
-        (<%= game.like_count %>)</h4>
+        <h4>(<%= game.like_count %>)</h4>
 
         <h4><%= link_to "Recommandation", game_alike_path(game) %></h4>
         <span type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample"><h4><%= link_to "Right choice", right_choice_path(game)%></h4>
