@@ -13,40 +13,40 @@
         <h3><%= game.platform %></h2>
       </div>
       <div class="reaction">
-          <h4>
-          <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-          <%= link_to game_comments_path(game), method: :post do %>
-            <i class="far fa-comments"></i>
-          <% end %>
-          </a>
-          (<%= game.comment_count %>)</h4>
+        <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample"></a>
+        <%= link_to game_comments_path(game), method: :post do %>
+          <i class="far fa-comments"></i>
+        <% end %>
+        <h4 class="comments-<%= game.id %>">(<%= game.comment_count %>)</h4>
 
-        <h4> <%= link_to game_likes_path(game), method: :post do %>
-          <i class="far fa-heart"></i>
+        <% @r = [] %>
+        <% like_user = game.likes %>
+        <% like_user.each do |like| %>
+          <% if like.user == current_user %>
+            <% @r << like.user %>
+          <% end %>
+        <% end %>
+        <% if @r.size > 0 %>
+          <h4><i class="fas fa-heart"></i>
+        <% else %>
+          <h4><%= link_to game_likes_path(game), method: :post do %>
+            <i class="far fa-heart"></i>
+          <% end %>
         <% end %>
         (<%= game.like_count %>)</h4>
-
+            
         <h4><%= link_to "Recommandation", game_alike_path(game) %></h4>
-        <h4><%= link_to "Right choice", right_choice_path(game) %></h4>
-
-
         <span type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample"><h4><%= link_to "Right choice", right_choice_path(game)%></h4>
           </span>
       </div>
     </div>
     <%= link_to "", game_path(game), class: 'absolute-link' %>
 </div>
-<div class="form <%= game.id %>">
+
 <div class="collapse" id="collapseExample">
   <div class="card-product-index">
   </div>
 </div>
 
-
-
-<div class="form-<%= game.id %>">
-  <% comment = Comment.new %>
-  <%= render 'games/form_comment_index', comment: comment, game: game %>
-</div>
 
 

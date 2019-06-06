@@ -3,15 +3,20 @@ class CommentsController < ApplicationController
     @action = params[:from]
     @game = Game.find(params[:game_id])
     @comment = Comment.new(comment_params)
+    authorize @comment
     @comment.game = @game
     @comment.user = current_user
-   if @comment.save
+    if @comment.save
       @game.comment_count += 1
       @game.save
-    respond_to do |format|
-      format.html { redirect_to game_path(@game) }
-      format.js
-    end
+      if @action == "show"
+        respond_to do |format|
+          format.html { redirect_to game_path(@game) }
+          format.js
+        end
+      else
+        redirect_to game_path(@game)
+      end
     else
       if @action == "index"
         render :index
@@ -27,4 +32,3 @@ class CommentsController < ApplicationController
     params.require(:comment).permit(:content)
   end
 end
-
