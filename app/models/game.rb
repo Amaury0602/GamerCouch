@@ -13,8 +13,6 @@ class Game < ApplicationRecord
       tsearch: { prefix: true }
     }
 
-
-
   def match(user)
     other_users = []
     self.likes.each do |like|
@@ -32,7 +30,7 @@ class Game < ApplicationRecord
     matchings.each do |match|
       hash[match] = match.likes.where(user_id: self.users).size.fdiv(likes.size) * 100
     end
-    hash = hash.sort_by { |game, score| score }
+    hash = hash.sort_by { |game, score| score }.reverse
   end
 
   def three_most_liked
