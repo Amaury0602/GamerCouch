@@ -29,17 +29,10 @@ class Game < ApplicationRecord
     matchings = user.games_liked & other_liked_games
     matchings = matchings.reject { |game| game == self }
     hash = {}
-    matchings.eachd do |match|
-      hash[match.name] = match.likes.where(user_id: self.users).size.fdiv(likes.size) * 100
+    matchings.each do |match|
+      hash[match] = match.likes.where(user_id: self.users).size.fdiv(likes.size) * 100
     end
-    hash = hash.sort_by { |_game, score| score }.flatten
-    # final_array = []
-    # raise
-    # matchings.each do |match|
-    #   final_array << match.likes.where(user_id: self.users).size.fdiv(likes.size) * 100
-    # end
-    #comment above if not working
-    # likes.where(user_id: game.users).size.fdiv(likes.size) * 100
+    hash = hash.sort_by { |game, score| score }
   end
 
   def three_most_liked

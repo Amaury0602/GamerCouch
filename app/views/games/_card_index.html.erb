@@ -20,18 +20,12 @@
           <% end %>
           </a>
           (<%= game.comment_count %>)</h4>
-
         <h4> <%= link_to game_likes_path(game), method: :post do %>
           <i class="far fa-heart"></i>
         <% end %>
         (<%= game.like_count %>)</h4>
-
         <h4><%= link_to "Recommandation", game_alike_path(game) %></h4>
-
-
-
-        <h4 class="right_choice" data-game-id="<%= game.id %>"><%= link_to "Right choice", right_choice_path(game)%></h4>
-
+        <h4 class="right_choice" data-game-id="<%= game.id %>"><a href="">Right choice</a></h4>
       </div>
     </div>
     <%= link_to "", game_path(game), class: 'absolute-link' %>
@@ -39,9 +33,9 @@
 
 
 <div data-hidden-id="<%= game.id %>" class="hidden-match-index">
-  <% game.match(current_user).each do |liked_game| %>
-  <%= liked_game %>
-  <%= liked_game.round(0) %>
+  <% game.match(current_user).each do |game, score|%>
+  <%= game.name %>
+  <%= score.round(0) %>
   <% end %>
 </div>
 
