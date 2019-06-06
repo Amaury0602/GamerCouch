@@ -4,6 +4,7 @@ class LikesController < ApplicationController
     @like = Like.new
     @like.user = current_user
     @like.game = @game
+    authorize @like
     if @like.save
       @game.like_count +=1
       @game.save
