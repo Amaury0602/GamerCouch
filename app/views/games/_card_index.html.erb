@@ -13,11 +13,10 @@
         <h3><%= game.platform %></h2>
       </div>
       <div class="reaction">
-        <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample"></a>
-        <%= link_to game_comments_path(game), method: :post do %>
-          <i class="far fa-comments"></i>
-        <% end %>
-        <h4 class="comments-<%= game.id %>">(<%= game.comment_count %>)</h4>
+        <h4>
+          <a class="far fa-comments" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+          </a>
+          (<%= game.comment_count %>)</h4>
 
         <% @r = [] %>
         <% like_user = game.likes %>
@@ -27,14 +26,14 @@
           <% end %>
         <% end %>
         <% if @r.size > 0 %>
-          <h4><i class="fas fa-heart"></i>
+          <h4><a class="fas fa-heart"></a>
         <% else %>
           <h4><%= link_to game_likes_path(game), method: :post do %>
-            <i class="far fa-heart"></i>
+            <a class="far fa-heart"></a>
           <% end %>
         <% end %>
         (<%= game.like_count %>)</h4>
-            
+
         <h4><%= link_to "Recommandation", game_alike_path(game) %></h4>
         <span type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample"><h4><%= link_to "Right choice", right_choice_path(game)%></h4>
           </span>
@@ -43,10 +42,15 @@
     <%= link_to "", game_path(game), class: 'absolute-link' %>
 </div>
 
-<div class="collapse" id="collapseExample">
-  <div class="card-product-index">
+  <div class="collapse" id="collapseExample">
+      <% game.comments.each do |comment| %>
+        <div class = "comment-content">
+          <%= render 'games/comment_content', comment: comment %>
+        </div>
+      <% end %>
   </div>
-</div>
+
+
 
 
 
