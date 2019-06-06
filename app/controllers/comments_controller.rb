@@ -1,22 +1,19 @@
 class CommentsController < ApplicationController
   def create
-    @action = params[:from]
     @game = Game.find(params[:game_id])
     @comment = Comment.new(comment_params)
     @comment.game = @game
+    authorize @comment
     @comment.user = current_user
-   if @comment.save
-      @game.comment_count += 1
-      @game.save
-    respond_to do |format|
-      format.html { redirect_to game_path(@game) }
-      format.js
-    end
+    if @comment.save
+      respond_to do |format|
+        format.html { redirect_to game_path(@game) }
+        format.js  # <-- will render `app/views/reviews/create.js.erb`
+      end
     else
-      if @action == "index"
-        render :index
-      else
-        render :show
+      respond_to do |format|
+        format.html { render 'games/show' }
+        format.js  # <-- idem
       end
     end
   end
@@ -27,4 +24,3 @@ class CommentsController < ApplicationController
     params.require(:comment).permit(:content)
   end
 end
-

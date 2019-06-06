@@ -6,6 +6,6 @@ class LikePolicy < ApplicationPolicy
   end
 
   def create?
-    record.user == user
+    true
   end
 end

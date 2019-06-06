@@ -8,25 +8,11 @@ function addComment(commentHTML) {
   comments.insertAdjacentHTML('afterbegin', commentHTML);
 }
 
-function refreshFormOnIndex(new_form, id) {
-  // console.log(id)
-  const newCommentForm = document.querySelector('.form-<%= @game.id %>').children[0];
-  // console.log(newCommentForm)
-  newCommentForm.outerHTML = new_form;
-}
-
-<% if @action == "show" %>
-  <% if @comment.errors.any? %>
-    refreshForm('<%= j render "games/form", game: @game, comment: @comment %>');
-  <% else %>
-    addComment('<%= j render "games/comment_content", comment: @comment %>');
-    refreshForm('<%= j render "games/form", game: @game, comment: Comment.new %>');
-  <% end %>
-<% elsif @action == "index" %>
-  var comment = document.querySelector('.comments-<%= @game.id %>').innerHTML
-  var commentCounter = Number.parseInt(comment, 10);
-  commentCounter = commentCounter + 1;
-  document.querySelector('.comments-<%= @game.id %>').innerHTML = commentCounter.toString();
-  refreshFormOnIndex('<%= j render "games/form", game: @game, comment: Comment.new %>', "<%= @game.id %>");
+<% if @comment.errors.any? %>
+ refreshForm('<%= j render "games/form", game: @game, comment: @comment %>');
+<% else %>
+  addComment('<%= j render "games/comment_content", comment: @comment %>');
+  refreshForm('<%= j render "games/form", game: @game, comment: Comment.new %>');
 <% end %>
+
 
