@@ -3,3 +3,16 @@ body {
   color: #BFD3C1;
 }
 
+a {
+  color: #BFD3C1;
+  text-decoration: none;
+  transition-duration: 0.3s;
+  padding: 5px;
+
+  &:hover {
+    color: #3C3B44;
+    background: #BFD3C1;
+    text-decoration: none;
+    border-radius: 3px;
+  }
+}

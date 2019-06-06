@@ -6,11 +6,11 @@ class CommentsController < ApplicationController
     @comment.game = @game
     @comment.user = current_user
    if @comment.save
+      @game.comment_count += 1
+      @game.save
     respond_to do |format|
       format.html { redirect_to game_path(@game) }
       format.js
-      game.comment_count += 1
-      game.save
     end
     else
       if @action == "index"
