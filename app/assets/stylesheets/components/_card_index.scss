@@ -94,6 +94,10 @@ a.absolute-link {
   width: 704px;
   background: #3C3B44;
   display: none;
+
+  .mini-card {
+    font-size: 12px;
+  }
 }
 
 .active {
@@ -104,3 +108,4 @@ a.absolute-link {
 
 .card-product-index-comment {
   width: 704px;
+}
