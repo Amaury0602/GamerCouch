@@ -17,7 +17,6 @@
           <a class="far fa-comments" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
           </a>
           (<%= game.comment_count %>)</h4>
-
         <% @r = [] %>
         <% like_user = game.likes %>
         <% like_user.each do |like| %>
@@ -33,22 +32,20 @@
           <% end %>
         <% end %>
         (<%= game.like_count %>)</h4>
-
         <h4><%= link_to "Recommandation", game_alike_path(game) %></h4>
-        <span type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample"><h4><%= link_to "Right choice", right_choice_path(game)%></h4>
-          </span>
+        <h4 class="right_choice" data-game-id="<%= game.id %>"><a href="">Right choice</a></h4>
       </div>
     </div>
     <%= link_to "", game_path(game), class: 'absolute-link' %>
 </div>
 
-  <div class="collapse" id="collapseExample">
-      <% game.comments.each do |comment| %>
-        <div class = "comment-content">
-          <%= render 'games/comment_content', comment: comment %>
-        </div>
-      <% end %>
-  </div>
+<div data-hidden-id="<%= game.id %>" class="hidden-match-index">
+  <% game.match(current_user).each do |game, score|%>
+  <%= game.name %>
+  <%= score.round(0) %>
+  <% end %>
+</div>
+
 
 
 
