@@ -1,6 +1,5 @@
 const displayMatching = () => {
 
-
   const displayButtons = document.querySelectorAll(".right_choice")
   if(displayButtons) {
     displayButtons.forEach((button) => {

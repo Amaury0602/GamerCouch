@@ -14,21 +14,27 @@
       </div>
       <div class="reaction">
         <h4>
+          <div class="click">
           <a class="far fa-comments" data-toggle="collapse" href="#collapseGame<%= game.id %>" role="button" aria-expanded="false" aria-controls="collapseExample">
           </a>
           (<%= game.comments.length %>)</h4>
         <h4>
           <% if game.likes.find_by(user: current_user) %>
+            <div class="click">
             <i class="fas fa-heart"></i>
+              (<%= game.like_count %>)
+            </div>
           <% else %>
-            <%= link_to game_likes_path(game), method: :post, remote: true do %>
-              <i class="far fa-heart"></i>
-            <% end %>
+            <div class="click">
+              <%= link_to game_likes_path(game), method: :post, remote: true do %>
+                <i class="far fa-heart"></i>
+              (<%= game.like_count %>)
+              <% end %>
+            </div>
           <% end %>
-          (<%= game.like_count %>)
         </h4>
-        <h4><%= link_to "Recommandation", game_alike_path(game) %></h4>
-        <h4 class="right_choice" data-game-id="<%= game.id %>"><a href="">Right choice</a></h4>
+        <a class="recommandation" data-game-id="<%= game.id %>"><h4 href="">Recommandation</h4></a>
+        <a class="right_choice" data-game-id="<%= game.id %>"><h4 href="">Right choice</h4></a>
       </div>
     </div>
     <%= link_to "", game_path(game), class: 'absolute-link' %>
@@ -42,6 +48,12 @@
         </div>
       <% end %>
   </div>
+</div>
+
+<div data-hidden-id="<%= game.id %>" class="recommandation-index hidden">
+    <% game.three_most_liked.each do |like_game| %>
+      <li><%= like_game.name %></li>
+    <% end %>
 </div>
 
 <div data-hidden-id="<%= game.id %>" class="hidden-match-index">

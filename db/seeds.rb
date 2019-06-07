@@ -97,6 +97,7 @@ puts "Creating Comments"
   comment.content =  tab_comment.sample
   if comment.valid?
     comment.save
+    game.comment_count +=1
   end
 end
 

@@ -8,7 +8,9 @@ class CommentsController < ApplicationController
     if @comment.save
       respond_to do |format|
         format.html { redirect_to game_path(@game) }
-        format.js  # <-- will render `app/views/reviews/create.js.erb`
+        format.js
+        @game.comment_count +=1
+        @game.save# <-- will render `app/views/reviews/create.js.erb`
       end
     else
       respond_to do |format|

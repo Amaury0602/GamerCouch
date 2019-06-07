@@ -20,6 +20,7 @@
     text-decoration: none;
     transition-duration: 0.3s;
     padding: 7px;
+
   &:hover {
     color: #3C3B44;
     background: #BFD3C1;
@@ -90,6 +91,17 @@ a.absolute-link {
 
 .index-comments-counter {
   display: flex;
+}
+
+.recommandation-index {
+  margin: 20px 0px 20px 20px;
+  height: 125px;
+  width: 704px;
+  background: #3C3B44;
+}
+
+.hidden {
+  display: none;
 }
 
 .hidden-match-index {
