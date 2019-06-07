@@ -13,10 +13,26 @@
     </div>
   </div>
   <div class="card-product-bot">
+
+
+
+
     <div class="card-product-description">
         <% if !@game.description.nil? %>
           <p> <%= @game.description[0..250]+"..." %></p>
         <% end %>
     </div>
+
+
+
+    <div class="price-comparator">
+      <button>Steam 15€</button>
+      <button>Fnac 20€</button>
+      <button>Leboncoin 13€</button>
+    </div>
+
+
   </div>
+
+
 </div>
