@@ -7,7 +7,7 @@ const displayMatching = () => {
         event.preventDefault()
         const gameID = button.attributes['data-game-id'].value
         const hiddenDiv = document.querySelector(`[data-hidden-id='${gameID}']`)
-        button.firstChild.classList.toggle("active");
+        button.classList.toggle("active");
         if (hiddenDiv.style.display === "block") {
               hiddenDiv.style.display = "none";
             } else {

@@ -10,6 +10,9 @@ puts ""
 Like.destroy_all
 puts ">> Likes were all destroyed"
 puts ""
+Comment.destroy_all
+puts ">> Comments were all destroyed"
+puts ""
 puts ""
 
 puts ">> We add some games :)"
@@ -53,15 +56,13 @@ end
 create_game("mario")
 create_game("final fantasy")
 create_game("metal gear solid")
-create_game("sonic")
-create_game("street fighter")
-create_game("doom")
-create_game("zelda")
+# create_game("street fighter")
+# create_game("doom")
 
 
 puts "Creating users"
 
-50.times do
+30.times do
   User.create(email: Faker::Internet.unique.email, password: Faker::Name.unique.name, username:Faker::Name.unique.name)
 end
 
@@ -77,7 +78,7 @@ end
 
 puts "Creating Likes"
 
-200.times do
+100.times do
   game_sample_id = game_ids.sample
   game = Game.find(game_sample_id)
   like = Like.new(game: game, user_id: user_ids.sample)
