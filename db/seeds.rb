@@ -1,4 +1,4 @@
-gitrequire 'csv'
+#gitrequire 'csv'
 
 puts "We are about to destroy the entire DataBase, please remain calm"
 Game.destroy_all
