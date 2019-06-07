@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: 'pages#home'
-
+   root to: 'pages#home'
+  # root to: 'devise/sessions#new'
+  # devise_scope :user do
+  #   root to: "devise/sessions#new"
+  # end
   resources :games, only: [:show, :index] do
     resources :comments, only: :create
     resources :likes, only: :create
