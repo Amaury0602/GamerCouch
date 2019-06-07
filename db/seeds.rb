@@ -56,8 +56,8 @@ end
 create_game("mario")
 create_game("final fantasy")
 create_game("metal gear solid")
-create_game("street fighter")
-create_game("doom")
+# create_game("street fighter")
+# create_game("doom")
 
 
 puts "Creating users"
@@ -93,7 +93,7 @@ puts "Creating Comments"
 75.times do
   game_sample_id = game_ids.sample
   game = Game.find(game_sample_id)
-  comment = Comment.new(game_id: game, user_id: user_ids.sample)
+  comment = Comment.new(game_id: game_ids.sample, user_id: user_ids.sample)
   comment1 = Faker::Quote.famous_last_words
   comment2 = Faker::Restaurant.review
   tab_comment = [comment1 , comment2]
