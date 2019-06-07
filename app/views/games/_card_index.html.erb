@@ -47,23 +47,23 @@
 <div data-hidden-id="<%= game.id %>" class="hidden-match-index">
   <ul>
     <% if !game.match(current_user).empty? %>
-    <% game.match(current_user).first(3).each do |game, score|%>
-    <li>
-      <div class="mini-card">
-        <% if game.photo.present? %>
-          <%= cl_image_tag game.photo, class: "img-mini" %>
-        <% else %>
-          <%= image_tag "loading.png", class: "img-mini" %>
-        <% end %>
-        <div class="mini-card-info">
-          <p><%= link_to game.name, game_path(game) %></p>
-          <p class="matching-percent"><%= score.round(1) %>% MATCH</p>
-        </div>
-        <% end %>
-        <% else %>
-        <h3>Like some games</h3>
-        <% end %>
-      </div>
-    </li>
+      <% game.match(current_user).first(3).each do |game, score|%>
+        <li>
+          <div class="mini-card">
+            <% if game.photo.present? %>
+              <%= cl_image_tag game.photo, class: "img-mini" %>
+            <% else %>
+              <%= image_tag "loading.png", class: "img-mini" %>
+            <% end %>
+            <div class="mini-card-info">
+              <p><%= link_to game.name, game_path(game) %></p>
+              <p class="matching-percent"><%= score.round(1) %>% MATCH</p>
+            </div>
+          </div>
+        </li>
+      <% end %>
+    <% else %>
+      <h6>No matching found... Doesnt mean you won't like it but we can't say if it will fit your taste !</h6>
+    <% end %>
   </ul>
 </div>
