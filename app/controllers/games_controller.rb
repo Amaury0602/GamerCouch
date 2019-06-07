@@ -21,9 +21,9 @@ class GamesController < ApplicationController
     @comment = Comment.new
   end
 
-  def game_alike
-    @game = Game.find(params[:id])
-    authorize @game
-    @three_most_liked_games = @game.three_most_liked
-  end
+  # def game_alike
+  #   @game = Game.find(params[:id])
+  #   authorize @game
+  #   @three_most_liked_games = @game.three_most_liked
+  # end
 end
