@@ -50,7 +50,8 @@
   </div>
 </div>
 
-<div data-hidden-id="<%= game.id %>" class="recommandation-index hidden">
+<div data-hidden-reco-id="<%= game.id %>" class="recommandation-index hidden">
+    <p>The others games they like :</p>
     <% game.three_most_liked.each do |like_game| %>
       <li><%= like_game.name %></li>
     <% end %>
