@@ -10,6 +10,9 @@ puts ""
 Like.destroy_all
 puts ">> Likes were all destroyed"
 puts ""
+Comment.destroy_all
+puts ">> Comments were all destroyed"
+puts ""
 puts ""
 
 puts ">> We add some games :)"
@@ -51,12 +54,12 @@ def create_game(title)
 end
 
 create_game("mario")
-create_game("final fantasy")
-create_game("metal gear solid")
-create_game("sonic")
-create_game("street fighter")
-create_game("doom")
-create_game("zelda")
+# create_game("final fantasy")
+# create_game("metal gear solid")
+# create_game("sonic")
+# create_game("street fighter")
+# create_game("doom")
+# create_game("zelda")
 
 
 puts "Creating users"
@@ -90,7 +93,9 @@ end
 
 puts "Creating Comments"
 75.times do
-  comment = Comment.new(game_id: game_ids.sample, user_id: user_ids.sample)
+  game_sample_id = game_ids.sample
+  game = Game.find(game_sample_id)
+  comment = Comment.new(game_id: Game.find(game_sample_id), user_id: user_ids.sample)
   comment1 = Faker::Quote.famous_last_words
   comment2 = Faker::Restaurant.review
   tab_comment = [comment1 , comment2]
