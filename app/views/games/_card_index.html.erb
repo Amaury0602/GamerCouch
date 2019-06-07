@@ -2,7 +2,7 @@
     <% if game.photo.present? %>
       <%= cl_image_tag game.photo, class: "img" %>
     <% else %>
-      <%= image_tag "loading.png" %>
+      <%= image_tag "loading.png", class: "img" %>
     <% end %>
     <div class="card-product-infos" id="game-<%= game.id %>">
       <div class="title-date">
@@ -16,9 +16,8 @@
         <h4>
           <div class="click">
           <a class="far fa-comments" data-toggle="collapse" href="#collapseGame<%= game.id %>" role="button" aria-expanded="false" aria-controls="collapseExample">
-          (<%= game.comment_count %>)</a>
-          </div>
-        </h4>
+          </a>
+          (<%= game.comments.length %>)</h4>
         <h4>
           <% if game.likes.find_by(user: current_user) %>
             <div class="click">
@@ -58,14 +57,25 @@
 </div>
 
 <div data-hidden-id="<%= game.id %>" class="hidden-match-index">
-  <% game.match(current_user).each do |game, score|%>
-    <%= game.name %>
-    <%= score.round(0) %>
-  <% end %>
+  <ul>
+    <% if !game.match(current_user).empty? %>
+    <% game.match(current_user).first(3).each do |game, score|%>
+    <li>
+      <div class="mini-card">
+        <% if game.photo.present? %>
+          <%= cl_image_tag game.photo, class: "img-mini" %>
+        <% else %>
+          <%= image_tag "loading.png", class: "img-mini" %>
+        <% end %>
+        <div class="mini-card-info">
+          <p><%= link_to game.name, game_path(game) %></p>
+          <p class="matching-percent"><%= score.round(1) %>% MATCH</p>
+        </div>
+        <% end %>
+        <% else %>
+        <h3>Like some games</h3>
+        <% end %>
+      </div>
+    </li>
+  </ul>
 </div>
-
-
-
-
-
-

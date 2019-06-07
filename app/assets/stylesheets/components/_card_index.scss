@@ -2,40 +2,41 @@
   position: relative;
   overflow: hidden;
   margin: 20px 0px 20px 20px;
-  height: 125px;
   width: 704px;
+  height: 124px;
   background: #3C3B44;
   color: #BFD3C1;
   display: flex;
   border-radius: 3px;
 
-h1 {
-  max-width: 450px;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  overflow: hidden;
-}
-
-.reaction a {
-  color: #BFD3C1;
-  text-decoration: none;
-  transition-duration: 0.3s;
-  padding: 7px;
+.reaction{
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+  a {
+    color: #BFD3C1;
+    text-decoration: none;
+    transition-duration: 0.3s;
+    padding: 7px;
 
   &:hover {
     color: #3C3B44;
     background: #BFD3C1;
     border-radius: 3px;
+    }
   }
 }
-}
+
 a.absolute-link {
   position: absolute;
   top: 0;
-  bottom: 24px;
+  bottom: 0;
   right: 0;
   left: 0;
   }
+}
 
 .card-product-index img {
   height: 100%;
@@ -86,9 +87,6 @@ a.absolute-link {
 }
 
 .reaction {
-  display: flex;
-  justify-content: space-around;
-  width: 100%;
 }
 
 .index-comments-counter {
@@ -107,11 +105,41 @@ a.absolute-link {
 }
 
 .hidden-match-index {
-  margin: 20px 0px 20px 20px;
-  height: 125px;
+  margin: 20px 0px 50px 20px;
+  height: 168px;
   width: 704px;
-  background: #3C3B44;
+  // background: #3C3B44;
   display: none;
+  .mini-card {
+    align-items: center;
+    margin: 4px 0 4px 0;
+    display: flex;
+    font-size: 14px;
+    border-bottom: thick double;
+    .img-mini {
+      height: 50%;
+      width: 50px;
+      object-fit: cover;
+    }
+
+    .mini-card-info {
+      width: 85%;
+      padding-top: 19px;
+      margin-left: 14px;
+      display: flex;
+      justify-content: space-between;
+      a {
+        text-decoration: none;
+        color: #BFD3C1;
+      }
+      .matching-percent {
+        font-size: 17px;
+      }
+    }
+  }
+  ul {
+    list-style-type: none;
+  }
 }
 
 .active {
@@ -121,10 +149,23 @@ a.absolute-link {
 }
 
 .card-product-index-comment {
-  width: 550px;
-  margin-left: 180px;
+  width: 704px;
 }
 
-.click {
-  padding: 5px;
+.lateral-button {
+  position: sticky;
+  top: 0;
+  padding-top: 15px;
+  a {
+  color: #BFD3C1;
+  text-decoration: none;
+  transition-duration: 0.3s;
+  padding: 7px;
+  &:hover {
+    color: #3C3B44;
+    background: #BFD3C1;
+    border-radius: 3px;
+  }
+  }
 }
+

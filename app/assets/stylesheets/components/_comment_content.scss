@@ -1,17 +1,21 @@
 .comment-content {
-border-bottom:1px solid black;
+  border-bottom:1px solid black;
   margin-top:10px;
+  font-size: 12px;
+  padding: 0 4px 0 4px;
 }
 
 #comments {
   background-color: white;
+  overflow: scroll;
+  height: 100%;
 }
 .comment-block {
   flex-direction: column;
-  margin-top:20px;
+  margin:20px 0 10px 5px;
   background: #3C3B44;
-  color: #BFD3C1;
+  color: #3C3B44;
   display: flex;
-  width:704px;
+  width:300px;
   border-radius: 3px;
 }
