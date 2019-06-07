@@ -4,7 +4,7 @@
   margin: 20px 0px 20px 20px;
   width: 704px;
   height: 124px;
-  background: #7f7233;
+  // background: #7f7233;
   color: #bfd2c0;
   display: flex;
   border-radius: 3px;
@@ -22,9 +22,9 @@
     padding: 7px;
 
   &:hover {
-    color: #3C3B44;
-    background: rgba(128, 123, 97,0.8);
-    border-radius: 3px;
+    color: #bfd2c0;
+    background: #ff0c18;
+    border-radius: 5px;
     }
   }
 }
@@ -154,15 +154,18 @@ a.absolute-link {
   top: 0;
   padding-top: 15px;
   a {
-  color: #BFD3C1;
+  color: #bfd2c0;
   text-decoration: none;
   transition-duration: 0.3s;
   padding: 7px;
   &:hover {
-    color: #3C3B44;
-    background: #BFD3C1;
+    color: #bfd2c0;
+    background: #ff0c18;
     border-radius: 3px;
   }
   }
 }
 
+.bottom-line {
+  margin-top: -12px;
+}
