@@ -20,8 +20,8 @@
         %>
       <% end %>
       <% if user_signed_in? %>
-        <li class="nav-item active">
-          <%= link_to "Add a game", "#", class: "nav-link" %>
+        <li class="nav-item">
+          <%= link_to "Add a game", "#", class: "add-game-button" %>
         </li>
         <li class="nav-item dropdown">
           <% if current_user.avatar.blank? %>
