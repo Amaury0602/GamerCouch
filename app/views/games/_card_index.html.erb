@@ -34,7 +34,6 @@
             </div>
           <% end %>
         </h4>
-<!--         <h4><%= link_to "Recommandation", game_alike_path(game) %></h4> -->
         <a class="recommandation" data-game-id="<%= game.id %>"><h4 href="">Recommandation</h4></a>
         <a class="right_choice" data-game-id="<%= game.id %>"><h4 href="">Right choice</h4></a>
       </div>
@@ -53,9 +52,9 @@
 </div>
 
 <div data-hidden-id="<%= game.id %>" class="recommandation-index hidden">
-  <% three_most_liked.each do |game| %>
-    <%=render "card_index", game: game %>
-  <% end %>
+    <% game.three_most_liked.each do |like_game| %>
+      <li><%= like_game.name %></li>
+    <% end %>
 </div>
 
 <div data-hidden-id="<%= game.id %>" class="hidden-match-index">
