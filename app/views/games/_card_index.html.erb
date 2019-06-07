@@ -57,7 +57,7 @@
     <% end %>
 </div>
 
-<div data-hidden-id="<%= game.id %>" class="hidden-match-index">
+<div data-hidden-id="<%= game.id %>" class="hidden-match-index hidden">
   <ul>
     <% if !game.match(current_user).empty? %>
     <% game.match(current_user).first(3).each do |game, score|%>
