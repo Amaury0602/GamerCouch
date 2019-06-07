@@ -9,6 +9,13 @@
   display: flex;
   border-radius: 3px;
 
+h1 {
+  max-width: 450px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
 .reaction a {
   color: #BFD3C1;
   text-decoration: none;
@@ -88,6 +95,17 @@ a.absolute-link {
   display: flex;
 }
 
+.recommandation-index {
+  margin: 20px 0px 20px 20px;
+  height: 125px;
+  width: 704px;
+  background: #3C3B44;
+}
+
+.hidden {
+  display: none;
+}
+
 .hidden-match-index {
   margin: 20px 0px 20px 20px;
   height: 125px;
@@ -103,4 +121,10 @@ a.absolute-link {
 }
 
 .card-product-index-comment {
-  width: 704px;
+  width: 550px;
+  margin-left: 180px;
+}
+
+.click {
+  padding: 5px;
+}

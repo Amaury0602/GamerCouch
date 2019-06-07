@@ -13,8 +13,6 @@ class Game < ApplicationRecord
       tsearch: { prefix: true }
     }
 
-
-
   def match(user)
     other_users = []
     self.likes.each do |like|
