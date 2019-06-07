@@ -7,7 +7,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   validates :username, presence: true, uniqueness: true
-
+    mount_uploader :avatar, PhotoUploader
   def games_liked
     likes = []
     self.likes.each do |like|

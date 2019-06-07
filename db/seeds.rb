@@ -62,7 +62,7 @@ Game.create(name: "Spiderman", year: 2018, category: "action", platform: "PS4")
 puts "Creating users"
 
 15.times do
-  User.create(email: Faker::Internet.unique.email, password: Faker::Name.unique.name, username:Faker::Name.unique.name)
+  User.create(email: Faker::Internet.unique.email, password: Faker::Name.unique.name, username:Faker::Name.unique.name,avatar: "https://www.screenfeed.fr/wp-content/uploads/2013/10/default-avatar.png")
 end
 
 game_ids = []
