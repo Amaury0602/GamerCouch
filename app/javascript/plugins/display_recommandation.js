@@ -3,13 +3,17 @@ const displayRecommandation = () => {
   displayLinks.forEach((button) => {
     button.addEventListener('click', (event) => {
       event.preventDefault()
-      const recommendationDivs = document.querySelectorAll(".recommandation-index")
-      recommendationDivs.forEach(recommendationDiv => {
-        recommendationDiv.classList.add("hidden")
-      })
       const gameID = button.attributes['data-game-id'].value
-      const hiddenDiv = document.querySelector(`[data-hidden-id='${gameID}']`)
-      hiddenDiv.classList.remove("hidden")
+      const hiddenDiv = document.querySelector(`[data-hidden-reco-id='${gameID}']`)
+      if (hiddenDiv.classList.contains("hidden")) {
+        const recommendationDivs = document.querySelectorAll(".recommandation-index")
+        recommendationDivs.forEach(recommendationDiv => {
+          recommendationDiv.classList.add("hidden")
+        })
+        hiddenDiv.classList.remove("hidden")
+      } else {
+        hiddenDiv.classList.add("hidden")
+      }
     });
   })
 }
