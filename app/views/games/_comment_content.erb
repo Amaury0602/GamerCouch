@@ -1,5 +1,5 @@
 <div class = "comment-content">
-  <p> <strong> <%= d = Date.today.to_s  %>
+  <p> <strong> <% d = Date.today  %> <%= d.strftime("%d/%b/%Y") %>
    ---
    <%= comment.user.username %>
    <% if comment.user.avatar.blank? %>

@@ -14,10 +14,10 @@ background-image: linear-gradient(203deg, #807b61 20%, #33323A 88%)">
       <div class=" d-flex flex-column">
         <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
           <div class="d-flex form-inputs d-flex ">
-            <%= f.input :email,
+            <%= f.input :username,
                 required: false,
                 autofocus: true,
-                input_html: { autocomplete: "email" } %>
+                input_html: { autocomplete: "username" } %>
             <%= f.input :password,
                 required: false,
                 input_html: { autocomplete: "current-password" } %>

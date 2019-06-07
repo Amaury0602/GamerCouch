@@ -1,4 +1,4 @@
-require 'csv'
+gitrequire 'csv'
 
 puts "We are about to destroy the entire DataBase, please remain calm"
 Game.destroy_all
@@ -90,6 +90,8 @@ end
 
 puts "Creating Comments"
 75.times do
+  game_sample_id = game_ids.sample
+  game = Game.find(game_sample_id)
   comment = Comment.new(game_id: game_ids.sample, user_id: user_ids.sample)
   comment1 = Faker::Quote.famous_last_words
   comment2 = Faker::Restaurant.review
