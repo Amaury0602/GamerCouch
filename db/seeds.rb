@@ -54,17 +54,15 @@ def create_game(title)
 end
 
 create_game("mario")
-# create_game("final fantasy")
-# create_game("metal gear solid")
-# create_game("sonic")
-# create_game("street fighter")
-# create_game("doom")
-# create_game("zelda")
+create_game("final fantasy")
+create_game("metal gear solid")
+create_game("street fighter")
+create_game("doom")
 
 
 puts "Creating users"
 
-50.times do
+30.times do
   User.create(email: Faker::Internet.unique.email, password: Faker::Name.unique.name, username:Faker::Name.unique.name)
 end
 
@@ -80,7 +78,7 @@ end
 
 puts "Creating Likes"
 
-200.times do
+100.times do
   game_sample_id = game_ids.sample
   game = Game.find(game_sample_id)
   like = Like.new(game: game, user_id: user_ids.sample)
@@ -95,7 +93,7 @@ puts "Creating Comments"
 75.times do
   game_sample_id = game_ids.sample
   game = Game.find(game_sample_id)
-  comment = Comment.new(game_id: Game.find(game_sample_id), user_id: user_ids.sample)
+  comment = Comment.new(game_id: game, user_id: user_ids.sample)
   comment1 = Faker::Quote.famous_last_words
   comment2 = Faker::Restaurant.review
   tab_comment = [comment1 , comment2]
