@@ -2,12 +2,4 @@ var cardProductInfoHeart = document.querySelector("#game-<%= @game.id %> .fa-hea
 cardProductInfoHeart.classList.remove("far")
 cardProductInfoHeart.classList.add("fas")
 
-const likeCounter = document.querySelectorAll("counterlike")
-console.log(likeCounter)
-const likeCounterText = likeCounter.innerText
-console.log(likeCounterText)
-const likeCounterWithoutParentheses = likeCounterText.substr(1,likeCounterText.length-2)
-const likeCounterInteger = Number.parseInt(likeCounterWithoutParentheses, 10)
-console.log(likeCounterInteger)
-likeCounter.innerText = `(${likeCounterInteger + 1})`
-// document.querySelector('.comments-<%= @game.id %>').innerHTML = commentCounter.toString();
+

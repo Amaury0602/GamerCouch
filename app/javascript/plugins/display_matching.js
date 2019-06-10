@@ -4,8 +4,7 @@ const displayMatching = () => {
       button.addEventListener('click', (event) => {
         event.preventDefault()
         const gameID = button.attributes['data-game-id'].value
-        const hiddenDiv = document.querySelector(`[data-hidden-id='${gameID}']`)
-        button.classList.toggle("active")
+        const hiddenDiv = document.querySelector(`.match-index[data-game-id='${gameID}']`)
         if (hiddenDiv.classList.contains("hidden") ) {
           const matchingDivs = document.querySelectorAll(".hidden-match-index")
           matchingDivs.forEach(matchingDiv => {

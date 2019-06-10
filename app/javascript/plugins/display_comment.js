@@ -1,4 +1,4 @@
-const displayRecommandation = () => {
+const displayComment = () => {
   const displayLinks = document.querySelectorAll(".recommandation")
     displayLinks.forEach((button) => {
     button.addEventListener('click', (event) => {
@@ -23,11 +23,4 @@ const displayRecommandation = () => {
   })
 }
 
-
-export default displayRecommandation;
-
-// To do : faire la surlignement lorsqu'on clique sur le boutton
-// button.classList.remove("active")
-// button.classList.add("active")
-
-// document.querySelector("div.another-class.yet-a")
+export default displayComment;
