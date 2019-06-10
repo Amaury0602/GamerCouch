@@ -1,4 +1,24 @@
 <div class="container">
+
+  <div class="<%= current_user.likes.count < 5 ? 'search-bar-careful-one' : 'search-bar' %>">
+    <%= form_tag games_path, method: :get do %>
+      <%= hidden_field_tag :sort, params[:sort] %>
+      <%= text_field_tag :search_query,
+      params[:search_query],
+      class: "form-control",
+      placeholder: "Search on GameCouch "
+      %>
+  <% end %>
+  </div>
+
+
+  <% if current_user.likes.count < 5 %>
+    <div class= "like-notif">
+    <%="<------ Like #{5 - current_user.likes.count} more games to get perfect recommandation"%>
+    </div>
+  <% end %>
+
+
   <div class="row">
     <div class="col-2">
       <div class="row">
