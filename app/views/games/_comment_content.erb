@@ -1,5 +1,14 @@
 <div class = "comment-content">
-  <p> <strong> <%= d = Date.today.to_s  %> --- <%= %><%= comment.user.username %> </strong></p>
+  <p> <strong> <% d = Date.today  %> <%= d.strftime("%d/%b/%Y") %>
+   ---
+   <%= comment.user.username %>
+   <% if comment.user.avatar.blank? %>
+          <%= image_tag "https://www.screenfeed.fr/wp-content/uploads/2013/10/default-avatar.png", class: "avatar-bordered" %>
+          <% else %>
+          <%= cl_image_tag comment.user.avatar, class: "avatar-bordered"%>
+          <% end %>
+        </strong>
+      </p>
   <p><%= comment.content %></p>
 </div>
 
