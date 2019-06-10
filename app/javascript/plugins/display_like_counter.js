@@ -1,5 +1,6 @@
 const displayLikeCounter = () => {
   const displayLinks = document.querySelectorAll(".click-like")
+
     displayLinks.forEach((button) => {
       button.addEventListener('click', (event) => {
         event.preventDefault()
@@ -12,10 +13,11 @@ const displayLikeCounter = () => {
         likeCounter.innerText = `(${likeCounterInteger + 1})`
       })
     })
+
 }
 
 
-export default displayLikeCounter();
+export default displayLikeCounter;
 
 // const likeCounterWithoutParentheses = likeCounterText.substr(1,likeCounterText.length-2)
 // const likeCounterInteger = Number.parseInt(likeCounterWithoutParentheses, 10)

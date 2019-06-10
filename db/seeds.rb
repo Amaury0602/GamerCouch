@@ -55,9 +55,10 @@ end
 
 create_game("mario")
 create_game("final fantasy")
-create_game("metal gear solid")
+# create_game("metal gear solid")
 # create_game("street fighter")
 # create_game("doom")
+# create_game("counter")
 
 
 puts "Creating users"
