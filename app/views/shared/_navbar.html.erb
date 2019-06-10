@@ -11,6 +11,9 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
+      <li class="nav-item">
+        <%= link_to "Your Couch", dashboard_path, class: "add-game-button" %>
+      </li>
         <li class="nav-item">
           <%= link_to "Add a game", "#", class: "add-game-button" %>
         </li>
