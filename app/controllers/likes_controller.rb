@@ -14,4 +14,14 @@ class LikesController < ApplicationController
       format.js
     end
   end
+
+  def destroy
+    @like = Like.find(params[:like_id])
+    raise
+    @like.destroy
+    @game = Game.find(like.game)
+    @game.like_count -= 1
+    authorize @like
+    redirect_to games_path
+  end
 end

@@ -29,19 +29,9 @@
           <a class="far fa-comments"></a>
           (<%= game.comments.length %>)</h4>
         <!-- likes -->
-        <h4>
-          <div class="click-like" data-game-id="<%= game.id %>">
-            <% if game.likes.find_by(user: current_user) %>
-              <i class="fas fa-heart"></i>
-              <span class="counterlike">(<%= game.like_count %>)</span>
-            <% else %>
-              <%= link_to game_likes_path(game), method: :post, remote: true do %>
-                <i class="far fa-heart"></i>
-                <span class="counterlike">(<%= game.like_count %>)</span>
-              <% end %>
-            <% end %>
-          </div>
-        </h4>
+        <div id="like-<%= game.id %>">
+          <%= render "games/like", game: game %>
+        </div>
         <!-- recommandations -->
         <a class="recommandation" data-game-id="<%= game.id %>"><h4 href="">Recommandation</h4></a>
         <!-- right choice -->

@@ -6,11 +6,9 @@ Rails.application.routes.draw do
   #   root to: "devise/sessions#new"
   # end
 
-
-
   resources :games, only: [:show, :index] do
     resources :comments, only: :create
-    resources :likes, only: :create
+    resources :likes, only: [:create, :destroy]
   end
 
   get '/dashboard', to: "pages#dashboard", as: :dashboard

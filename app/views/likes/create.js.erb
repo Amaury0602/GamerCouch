@@ -1,5 +1,10 @@
-var cardProductInfoHeart = document.querySelector("#game-<%= @game.id %> .fa-heart")
-cardProductInfoHeart.classList.remove("far")
-cardProductInfoHeart.classList.add("fas")
+// var cardProductInfoHeart = document.querySelector("#game-<%= @game.id %> .fa-heart")
+// cardProductInfoHeart.classList.remove("far")
+// cardProductInfoHeart.classList.add("fas")
 
+const refreshLike = (likeHTML) => {
+  const gameLike = document.getElementById("like-<%= @game.id %>")
+  gameLike.innerHTML = likeHTML
+}
 
+refreshLike('<%= j render "games/like", game: @game %>');
