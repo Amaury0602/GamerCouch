@@ -28,13 +28,13 @@
   }
 }
 
-a.absolute-link {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  }
+// a.absolute-link {
+//   position: absolute;
+//   top: 0;
+//   bottom: 0;
+//   right: 0;
+//   left: 0;
+//   }
 }
 
 .card-product-index img {
@@ -71,11 +71,19 @@ a.absolute-link {
   width:100%;
 }
 
-.title-date {
+.title-date-right {
   display: flex;
   justify-content: space-between;
   width: 100%;
 }
+
+// .right {
+//   display: flex;
+//   justify-content: space-between;
+//   width: 100%;
+//   margin-top: 16px;
+//   margin-bottom: 32px;
+// }
 
 .platform {
   display: flex;

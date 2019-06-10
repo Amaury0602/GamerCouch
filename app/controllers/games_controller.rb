@@ -7,7 +7,7 @@ class GamesController < ApplicationController
     elsif params[:sort] == "comment"
       @games = Game.order("comment_count DESC")
     else
-      @games = Game.order("year DESC") # Change -> name ASC no pertinent
+      @games = Game.all.sort { |a,b| a.matching_score(current_user) <=> b.matching_score(current_user) }.reverse
     end
 
     if params[:search_query].present?
@@ -20,10 +20,4 @@ class GamesController < ApplicationController
     authorize @game
     @comment = Comment.new
   end
-
-  # def game_alike
-  #   @game = Game.find(params[:id])
-  #   authorize @game
-  #   @three_most_liked_games = @game.three_most_liked
-  # end
 end
