@@ -6,13 +6,17 @@ const displayMatching = () => {
         const gameID = button.attributes['data-game-id'].value
         const hiddenDiv = document.querySelector(`.match-index[data-game-id='${gameID}']`)
         if (hiddenDiv.classList.contains("hidden") ) {
-          const matchingDivs = document.querySelectorAll(".hidden-match-index")
-          matchingDivs.forEach(matchingDiv => {
-            matchingDiv.classList.add("hidden")
+          const commentDivs = document.querySelectorAll(".comment-index")
+          commentDivs.forEach(commentDiv => {
+            commentDiv.classList.add("hidden")
           })
           const recommendationDivs = document.querySelectorAll(".recommandation-index")
           recommendationDivs.forEach(recommendationDiv => {
           recommendationDiv.classList.add("hidden")
+          })
+          const matchingDivs = document.querySelectorAll(".hidden-match-index")
+          matchingDivs.forEach(matchingDiv => {
+            matchingDiv.classList.add("hidden")
           })
           hiddenDiv.classList.remove("hidden")
         } else {
