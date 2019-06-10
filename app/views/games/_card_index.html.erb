@@ -20,16 +20,18 @@
           (<%= game.comments.length %>)</h4>
         <h4>
           <% if game.likes.find_by(user: current_user) %>
-            <div class="click">
+            <div class="click" data-game-id="<%= game.id %>">
             <i class="fas fa-heart"></i>
               (<%= game.like_count %>)
             </div>
           <% else %>
-            <div class="click">
-              <%= link_to game_likes_path(game), method: :post, remote: true do %>
-                <i class="far fa-heart"></i>
-              (<%= game.like_count %>)
-              <% end %>
+            <div class="click" data-game-id="<%= game.id %>">
+              <div class="counterlike">
+                <%= link_to game_likes_path(game), method: :post, remote: true do %>
+                  <i class="far fa-heart"></i>
+                  (<%= game.like_count %>)
+                <% end %>
+              </div>
             </div>
           <% end %>
         </h4>
