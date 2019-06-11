@@ -1,4 +1,6 @@
-import 'bootstrap';
+import "bootstrap";
+import "animate";
+
 
 import { displayMatching } from "../plugins/display_matching";
 import { displayRecommandation } from "../plugins/display_recommandation";

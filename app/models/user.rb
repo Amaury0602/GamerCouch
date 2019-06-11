@@ -4,6 +4,7 @@ class User < ApplicationRecord
   has_many :likes
   has_many :comments, dependent: :destroy
   has_many :games
+  has_many :liked_games, through: :likes, source: :game
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   validates :username, presence: true, uniqueness: true
