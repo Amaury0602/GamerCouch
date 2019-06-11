@@ -12,5 +12,4 @@ var gameRight = document.querySelector(".right[data-game-id='<%=@game.id %>']");
 <% end %>
 gameRight.innerHTML =  <%= score %>
 
-
 refreshLike('<%= j render "games/like", game: @game %>');

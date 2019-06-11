@@ -9,5 +9,6 @@ import { select2Home } from "../select2_home";
 displayMatching();
 displayRecommandation();
 select2Home();
-displayLikeCounter();
+// displayLikeCounter();
 displayComment();
+=======

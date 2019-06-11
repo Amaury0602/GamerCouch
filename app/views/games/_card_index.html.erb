@@ -5,34 +5,39 @@
       <%= image_tag "loading.png", class: "img" %>
     <% end %>
     <div class="card-product-infos" id="game-<%= game.id %>">
-      <div class="title-date">
-        <h1><%= game.name %></h1>
-        <h3><%= game.year %></h3>
+      <div class="title-date-right">
+        <div class="title"><h1><%= game.name %></h1></div>
+        <div class="year"><h3><%= game.year %></h3></div>
+
+          <div class="right" data-game-id="<%= game.id %>">
+            <% game_scores = game.match(current_user).first(3) %>
+            <% if !game_scores.present? %>
+              <h2>Can't match yet</h2>
+            <% else %>
+              <%= game.matching_score(current_user) %>
+            <% end %>
+          </div>
       </div>
+
       <div class="platform">
-        <h3><%= game.platform %></h2>
+        <h3><%= game.platform[0..75] %></h2>
       </div>
+
       <div class="reaction">
         <!-- comments -->
         <h4>
-          <div class="click-comment">
-          <a class="far fa-comments" data-toggle="collapse" href="#collapseGame<%= game.id %>" role="button" aria-expanded="false" aria-controls="collapseExample">
-          </a>
+          <div class="click-comment" data-game-id="<%= game.id %>">
+            <% if game.comments.pluck(:user_id).include?(current_user.id) %>
+              <a class="fas fa-comments"></a>
+            <% else %>
+              <a class="far fa-comments"></a>
+            <% end %>
+
           (<%= game.comments.length %>)</h4>
         <!-- likes -->
-        <h4>
-          <div class="click-like" data-game-id="<%= game.id %>">
-            <% if game.likes.find_by(user: current_user) %>
-              <i class="fas fa-heart"></i>
-              <span class="counterlike">(<%= game.like_count %>)</span>
-            <% else %>
-              <%= link_to game_likes_path(game), method: :post, remote: true do %>
-                <i class="far fa-heart"></i>
-                <span class="counterlike">(<%= game.like_count %>)</span>
-              <% end %>
-            <% end %>
-          </div>
-        </h4>
+        <div id="like-<%= game.id %>">
+          <%= render "games/like", game: game %>
+        </div>
         <!-- recommandations -->
         <a class="recommandation" data-game-id="<%= game.id %>"><h4 href="">Recommandation</h4></a>
         <!-- right choice -->
@@ -53,10 +58,10 @@
 </div>
 
 <div class="recommandation-index hidden" data-game-id="<%= game.id %>" >
-    <p>The others games they like :</p>
-    <% game.three_most_liked.each do |like_game| %>
-      <li><%= like_game.name %></li>
-    <% end %>
+  <p>The others games they like :</p>
+  <% game.three_most_liked.each do |like_game| %>
+    <li><%= like_game.name %></li>
+  <% end %>
 </div>
 
 <div class="match-index hidden" data-game-id="<%= game.id %>">
@@ -84,3 +89,19 @@
 </div>
 
 <div class="bottom-line">_________________________________________________________________________________________________________________  </div>
+
+<div class = "comment-index hidden" data-game-id="<%= game.id %>">
+  <p> <strong> <% d = Date.today %> <%= d.strftime("%d/%b/%Y") %>
+   ---
+   <% game.comments.each do |comment| %>
+     <%= comment.user.username %>
+     <% if comment.user.avatar.blank? %>
+        <%= image_tag "https://www.screenfeed.fr/wp-content/uploads/2013/10/default-avatar.png", class: "avatar-bordered" %>
+      <% else %>
+        <%= cl_image_tag comment.user.avatar, class: "avatar-bordered"%>
+      <% end %>
+          </strong>
+        </p>
+    <p><%= comment.content %></p>
+  <% end %>
+</div>

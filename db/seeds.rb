@@ -55,9 +55,10 @@ end
 
 create_game("mario")
 create_game("final fantasy")
-create_game("metal gear solid")
+# create_game("metal gear solid")
 # create_game("street fighter")
 # create_game("doom")
+# create_game("counter")
 
 
 puts "Creating users"
@@ -99,8 +100,8 @@ puts "Creating Comments"
   tab_comment = [comment1 , comment2]
   comment.content =  tab_comment.sample
   if comment.valid?
+    game.comment_count += 1
     comment.save
-    game.comment_count +=1
   end
 end
 

@@ -1,0 +1,48 @@
+.dash-title {
+  margin: 5px 30%;
+}
+
+.fav-games-list {
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid;
+}
+
+.wishlist {
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid;
+}
+
+.dash-comments{
+  display: flex;
+  flex-direction: column;
+}
+
+.fav-img {
+  align-self: center;
+}
+
+.card-product-dashboard {
+  position: relative;
+  overflow: hidden;
+  margin: 12px 23px 0px -23px;;
+  width: 280px;
+  height: 62px;
+  color: #222222;
+  border-radius: 3px;
+  display: flex;
+  img {
+    height: 100%;
+    width: 20%;
+    object-fit: cover;
+  }
+  .card-product-infos {
+    padding: 8px 4px;
+    width:100%;
+  }
+}
+
+ul {
+  list-style-type :none;
+}
