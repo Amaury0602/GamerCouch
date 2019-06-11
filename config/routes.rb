@@ -8,7 +8,9 @@ Rails.application.routes.draw do
   resources :games, only: [:show, :index] do
     resources :comments, only: :create
     resources :likes, only: :create
+    resources :users, only: :create
   end
 
+  post 'tracking', to: "games#tracking", as: :tracking
   get 'games/:id/game_alike', to: "games#game_alike", as: :game_alike
 end

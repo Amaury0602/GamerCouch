@@ -20,4 +20,7 @@ class GamePolicy < ApplicationPolicy
   def game_alike?
     true
   end
+  def tracking?
+    true
+  end
 end

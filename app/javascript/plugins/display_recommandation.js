@@ -24,7 +24,7 @@ const displayRecommandation = () => {
 }
 
 
-export default displayRecommandation;
+export { displayRecommandation };
 
 // To do : faire la surlignement lorsqu'on clique sur le boutton
 // button.classList.remove("active")

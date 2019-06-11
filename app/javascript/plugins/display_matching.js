@@ -22,7 +22,7 @@ const displayMatching = () => {
     })
   }
 
-export default displayMatching;
+export { displayMatching };
 
 
 // if (hiddenDiv.style.display === "block") {

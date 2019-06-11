@@ -15,7 +15,7 @@ const displayLikeCounter = () => {
 }
 
 
-export default displayLikeCounter();
+export { displayLikeCounter };
 
 // const likeCounterWithoutParentheses = likeCounterText.substr(1,likeCounterText.length-2)
 // const likeCounterInteger = Number.parseInt(likeCounterWithoutParentheses, 10)
