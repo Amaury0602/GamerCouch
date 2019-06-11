@@ -21,4 +21,29 @@ class GamesController < ApplicationController
     authorize @game
     @comment = Comment.new
   end
+  
+  def tracking
+    @games = Game.find(params[:tracking])
+    @user = current_user
+    @games.each do |game|
+      authorize game
+      @like = Like.new(game_id: game.id, user_id: @user.id)
+      @like.save
+    end
+    redirect_to games_path
 end
+  def game_alike
+    @game = Game.find(params[:tracking].to_i)
+    authorize @game
+    @three_most_liked_games = @game.three_most_liked
+  end
+
+end
+
+# .sort { |a, b| a.matching_score(current_user) <=> b.matching_score(current_user) }.reverse
+        # game.users.pluck(:user_id).map { |user| user != current_user.id) }
+
+      # @games = Game.all.select { |game| game.users.map do |user|
+      #     user.find(!current_user.id)
+      #   end }
+      # @games
