@@ -6,12 +6,11 @@ Rails.application.routes.draw do
   #   root to: "devise/sessions#new"
   # end
 
-
-
   resources :games, only: [:show, :index] do
     resources :comments, only: :create
-    resources :likes, only: :create
+    resources :likes, only: [:create]
   end
+  resources :likes, only: [:destroy]
 
   get '/dashboard', to: "pages#dashboard", as: :dashboard
   get 'games/:id/game_alike', to: "games#game_alike", as: :game_alike

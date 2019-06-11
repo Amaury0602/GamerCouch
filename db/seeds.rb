@@ -100,8 +100,8 @@ puts "Creating Comments"
   tab_comment = [comment1 , comment2]
   comment.content =  tab_comment.sample
   if comment.valid?
+    game.comment_count += 1
     comment.save
-    game.comment_count +=1
   end
 end
 
