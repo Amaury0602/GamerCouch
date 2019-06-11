@@ -32,18 +32,17 @@
             <% else %>
               <a class="far fa-comments"></a>
             <% end %>
-
           (<%= game.comments.length %>)</h4>
-        <!-- likes -->
-        <div id="like-<%= game.id %>">
-          <%= render "games/like", game: game %>
-        </div>
-        <!-- recommandations -->
-        <a class="recommandation" data-game-id="<%= game.id %>"><h4 href="">Recommandation</h4></a>
-        <!-- right choice -->
-        <a class="right_choice" data-game-id="<%= game.id %>"><h4 href="">Right choice</h4></a>
+          <!-- likes -->
+            <div id="like-<%= game.id %>">
+              <%= render "games/like", game: game %>
+            </div>
+            <!-- recommandations -->
+            <a class="recommandation" data-game-id="<%= game.id %>"><h4 href="">Recommandation</h4></a>
+            <!-- right choice -->
+            <a class="right_choice" data-game-id="<%= game.id %>"><h4 href="">Right choice</h4></a>
+          </div>
       </div>
-    </div>
     <%= link_to "", game_path(game), class: 'absolute-link' %>
 </div>
 
@@ -87,8 +86,6 @@
     <% end %>
   </ul>
 </div>
-
-<div class="bottom-line">_________________________________________________________________________________________________________________  </div>
 
 <div class = "comment-index hidden" data-game-id="<%= game.id %>">
   <p> <strong> <% d = Date.today %> <%= d.strftime("%d/%b/%Y") %>

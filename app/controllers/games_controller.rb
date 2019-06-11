@@ -7,7 +7,8 @@ class GamesController < ApplicationController
     elsif params[:sort] == "comment"
       @games = Game.order("comment_count DESC")
     else
-      @games = Game.all.sort { |a, b| a.matching_score(current_user) <=> b.matching_score(current_user) }.reverse
+      @games = Game.where.not(id: current_user.liked_games.pluck(:id))
+      @games = @games.sort { |a, b| a.matching_score(current_user) <=> b.matching_score(current_user) }.reverse
     end
 
     if params[:search_query].present?
@@ -21,3 +22,11 @@ class GamesController < ApplicationController
     @comment = Comment.new
   end
 end
+
+# .sort { |a, b| a.matching_score(current_user) <=> b.matching_score(current_user) }.reverse
+        # game.users.pluck(:user_id).map { |user| user != current_user.id) }
+
+      # @games = Game.all.select { |game| game.users.map do |user|
+      #     user.find(!current_user.id)
+      #   end }
+      # @games
