@@ -35,7 +35,6 @@
             <a class="right_choice" data-game-id="<%= game.id %>"><h4 href="">Right choice</h4></a>
           </div>
       </div>
-    </div>
 
       <div class="right" data-game-id="<%= game.id %>">
         <% game_scores = game.match(current_user).first(3) %>

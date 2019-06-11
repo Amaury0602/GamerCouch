@@ -27,7 +27,7 @@ def create_game(title)
     name = game['name']
     description = game['summary']
     if !game['cover'].nil?
-      photo = game['cover']['url'][2..-1]
+      photo = game['cover']['url'][2..-1].gsub(/t_thumb/, 't_logo_med')
     else
       photo = nil
     end
@@ -54,11 +54,11 @@ def create_game(title)
 end
 
 create_game("mario")
-create_game("final fantasy")
-# create_game("metal gear solid")
-# create_game("street fighter")
-# create_game("doom")
-# create_game("counter")
+# create_game("final fantasy")
+# # create_game("metal gear solid")
+# # create_game("street fighter")
+# # create_game("doom")
+# # create_game("counter")
 
 
 puts "Creating users"
