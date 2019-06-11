@@ -15,10 +15,7 @@
 //       })
 // }
 
-<<<<<<< HEAD
-export { displayLikeCounter };
-=======
->>>>>>> 19586bb7555e62f5e7208d09271cd8a22e5c1fa0
+// export { displayLikeCounter };
 
 // export default displayLikeCounter;
 

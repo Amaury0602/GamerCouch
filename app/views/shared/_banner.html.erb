@@ -4,6 +4,7 @@
       <h1 class="mt-1">Select 5 games to get perfect recomendations</h1>
     </div>
     <div class="row d-flex justify-content-center">
+    <div style="width: 100%" class="row d-flex justify-content-center">
      <form action="/tracking" method="POST" style="width:100%">
         <select name="tracking[]" class="select2" multiple="multiple" placeholder="select your games">
           <% @games.each do |game| %>
@@ -14,6 +15,7 @@
         <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
       </form>
     </div>
+  </div>
   </div>
 <div class="container">
   <div class="row d-flex justify-content-center mt-4">
