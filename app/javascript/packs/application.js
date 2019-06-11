@@ -1,5 +1,4 @@
 import "bootstrap";
-import "animate";
 
 
 import { displayMatching } from "../plugins/display_matching";
