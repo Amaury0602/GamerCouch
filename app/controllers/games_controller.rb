@@ -10,7 +10,6 @@ class GamesController < ApplicationController
     else
       @games = Game.all.sort { |a, b| a.matching_score(current_user) <=> b.matching_score(current_user) }.reverse
     end
-
     if params[:search_query].present?
       @games = @games.search_all(params[:search_query])
     end

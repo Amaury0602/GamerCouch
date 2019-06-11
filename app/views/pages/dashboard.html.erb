@@ -1,11 +1,13 @@
 <div class="container">
 
 
+<div class="dashboard row justify-content-center">
+  <h1 class="dash-title"> <strong><%= "#{current_user.username}'s couch" %></strong>
+  </h1>
+</div>
 
-  <h1 class="dash-title"><%= "#{current_user.username}'s couch" %></h1>
 
-
-<div class="dashboard row">
+<div class="dashboard row justify-content-center">
 
   <div class="fav-games-list col-4">
     <h1>My likes</h1>
@@ -20,7 +22,7 @@
               <%= image_tag "loading.png", class: "img" %>
             <% end %>
             <div class="card-product-infos">
-            <%= link_to like.game.name, game_path(like.game) %>
+            <%= link_to like.game.name, game_path(like.game),class: "black-color" %>
             </div>
           <% end %>
           </div>
@@ -44,7 +46,7 @@
               <%= image_tag "loading.png", class: "img" %>
             <% end %>
             <div class="card-product-infos">
-            <%= link_to like.game.name, game_path(like.game) %>
+            <%= link_to like.game.name, game_path(like.game),class: "black-color" %>
             </div>
           <% end %>
           </div>
@@ -69,7 +71,7 @@
               <%= image_tag "loading.png", class: "img" %>
             <% end %>
             <div class="card-product-infos">
-            <%= link_to like.game.name, game_path(like.game) %>
+            <%= link_to like.game.name, game_path(like.game) ,class: "black-color" %>
             </div>
           <% end %>
           </div>
