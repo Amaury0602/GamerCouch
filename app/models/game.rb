@@ -2,7 +2,6 @@ class Game < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :users, through: :likes
-  has_many :comment_users, through: :comments, source: :users
   validates :name, presence: true, allow_blank: false
   validates :platform, presence: true
   mount_uploader :photo, PhotoUploader

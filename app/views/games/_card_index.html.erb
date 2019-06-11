@@ -8,14 +8,15 @@
       <div class="title-date-right">
         <div class="title"><h1><%= game.name %></h1></div>
         <div class="year"><h3><%= game.year %></h3></div>
-        <div class="right">
-          <% game_scores = game.match(current_user).first(3) %>
-          <% if !game_scores.present? %>
-            <h2>Can't match yet</h2>
-          <% else %>
-            <%= game.matching_score(current_user) %>
-          <% end %>
-        </div>
+
+          <div class="right" data-game-id="<%= game.id %>">
+            <% game_scores = game.match(current_user).first(3) %>
+            <% if !game_scores.present? %>
+              <h2>Can't match yet</h2>
+            <% else %>
+              <%= game.matching_score(current_user) %>
+            <% end %>
+          </div>
       </div>
 
       <div class="platform">
@@ -26,7 +27,12 @@
         <!-- comments -->
         <h4>
           <div class="click-comment" data-game-id="<%= game.id %>">
-          <a class="far fa-comments"></a>
+            <% if game.comments.pluck(:user_id).include?(current_user.id) %>
+              <a class="fas fa-comments"></a>
+            <% else %>
+              <a class="far fa-comments"></a>
+            <% end %>
+
           (<%= game.comments.length %>)</h4>
         <!-- likes -->
         <div id="like-<%= game.id %>">

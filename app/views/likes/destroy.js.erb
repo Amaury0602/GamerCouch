@@ -3,4 +3,13 @@ refreshLike = (likeHTML) => {
   gameLike.innerHTML = likeHTML
 }
 
+var gameRight = document.querySelector(".right[data-game-id='<%=@game.id %>']");
+<% game_scores = @game.match(current_user).first(3) %>
+<% if !game_scores.present? %>
+  <%= score = "Can't match yet" %>
+<% else %>
+  <%= score = @game.matching_score(current_user) %>
+<% end %>
+gameRight.innerHTML =  <%= score %>
+
 refreshLike('<%= j render "games/like", game: @game %>');
