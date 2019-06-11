@@ -1,25 +1,33 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.8)), url(https://educayjuega.files.wordpress.com/2017/04/videojuegos-lista-time-1.jpg);">
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.9),rgba(0,0,0,0.9)), url(https://educayjuega.files.wordpress.com/2017/04/videojuegos-lista-time-1.jpg);">
   <div class="container">
-    <div class="row d-flex justify-content-center">
-      <h1 class="mt-1">Select 5 games to get perfect recomendations</h1>
+    <div class="show-title">
+      <p>Enter your favorite games</p>
     </div>
     <div class="row d-flex justify-content-center">
-    <div style="width: 100%" class="row d-flex justify-content-center">
-     <form action="/tracking" method="POST" style="width:100%">
-        <select name="tracking[]" class="select2" multiple="multiple" placeholder="select your games">
-          <% @games.each do |game| %>
-            <option value="<%= game.id %>"  ><%= game.name %></option>
-          <% end %>
-          <input type="submit" class= "btn btn-primary" >
-        </select>
-        <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-      </form>
+      <div style="width: 100%" class="row d-flex justify-content-center">
+
+
+
+
+
+       <form action="/tracking" method="POST" style="width:75%">
+          <select name="tracking[]" class="select2" multiple="multiple" placeholder="select your games">
+            <% @games.each do |game| %>
+              <option value="<%= game.id %>"  ><%= game.name %></option>
+            <% end %>
+            <input type="submit" value="Send your games !" class= "home-button" >
+          </select>
+          <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+        </form>
+
+
+
+      </div>
     </div>
-  </div>
-  </div>
-<div class="container">
+
+<div class="games-show">
   <div class="row d-flex justify-content-center mt-4">
-    <h2 class="most-popular">Most Popular Games</h2>
+    <h2 class="most-popular">Trendy games</h2>
   </div>
   <div class="row d-flex justify-content-center">
     <div class="cards col-lg-10 col-md-10">
@@ -56,6 +64,10 @@
         Mario Odyssey</strong></p>
       </div>
     </div>
+  </div>
+</div>
+
+
   </div>
   </div>
 </div>
