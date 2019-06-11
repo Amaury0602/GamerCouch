@@ -12,10 +12,19 @@
     <% if !current_user.likes.empty? %>
     <ul>
       <% current_user.likes.each do |like| %>
-      <li>
-        <%= link_to like.game.name, game_path(like.game) %>
-      <% end %>
-      </li>
+        <li>
+          <div class="card-product-dashboard">
+            <% if like.game.photo.present? %>
+              <%= cl_image_tag like.game.photo, class: "img" %>
+            <% else %>
+              <%= image_tag "loading.png", class: "img" %>
+            <% end %>
+            <div class="card-product-infos">
+            <%= link_to like.game.name, game_path(like.game) %>
+            </div>
+          <% end %>
+          </div>
+        </li>
     </ul>
       <% else %>
       <h3>Tell us which games you like!</h3>
@@ -24,11 +33,51 @@
 
   <div class="wishlist col-4">
     <h1>My wishlist</h1>
+    <% if !current_user.likes.empty? %>
+    <ul>
+      <% current_user.likes.each do |like| %>
+        <li>
+          <div class="card-product-dashboard">
+            <% if like.game.photo.present? %>
+              <%= cl_image_tag like.game.photo, class: "img" %>
+            <% else %>
+              <%= image_tag "loading.png", class: "img" %>
+            <% end %>
+            <div class="card-product-infos">
+            <%= link_to like.game.name, game_path(like.game) %>
+            </div>
+          <% end %>
+          </div>
+        </li>
+    </ul>
+      <% else %>
+      <h3>Tell us which games you like!</h3>
+    <% end %>
   </div>
 
 
   <div class="dash-comments col-4">
     <h1>My comments</h1>
+    <% if !current_user.likes.empty? %>
+    <ul>
+      <% current_user.likes.each do |like| %>
+        <li>
+          <div class="card-product-dashboard">
+            <% if like.game.photo.present? %>
+              <%= cl_image_tag like.game.photo, class: "img" %>
+            <% else %>
+              <%= image_tag "loading.png", class: "img" %>
+            <% end %>
+            <div class="card-product-infos">
+            <%= link_to like.game.name, game_path(like.game) %>
+            </div>
+          <% end %>
+          </div>
+        </li>
+    </ul>
+      <% else %>
+      <h3>Tell us which games you like!</h3>
+    <% end %>
     <ul>
     <%current_user.comments.each do |comment| %>
     <li>
