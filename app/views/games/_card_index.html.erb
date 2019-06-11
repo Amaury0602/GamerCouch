@@ -8,15 +8,6 @@
       <div class="title-date-right">
         <div class="title"><h1><%= game.name %></h1></div>
         <div class="year"><h3><%= game.year %></h3></div>
-
-          <div class="right" data-game-id="<%= game.id %>">
-            <% game_scores = game.match(current_user).first(3) %>
-            <% if !game_scores.present? %>
-              <h2>Can't match yet</h2>
-            <% else %>
-              <%= game.matching_score(current_user) %>
-            <% end %>
-          </div>
       </div>
 
       <div class="platform">
@@ -32,6 +23,7 @@
             <% else %>
               <a class="far fa-comments"></a>
             <% end %>
+
           (<%= game.comments.length %>)</h4>
           <!-- likes -->
             <div id="like-<%= game.id %>">
@@ -42,6 +34,18 @@
             <!-- right choice -->
             <a class="right_choice" data-game-id="<%= game.id %>"><h4 href="">Right choice</h4></a>
           </div>
+      </div>
+    </div>
+
+      <div class="right" data-game-id="<%= game.id %>">
+        <% game_scores = game.match(current_user).first(3) %>
+        <% if !game_scores.present? %>
+          <h2>Can't match yet</h2>
+        <% else %>
+          <div id="match-score">
+            <%= game.matching_score(current_user) %>
+          </div>
+        <% end %>
       </div>
     <%= link_to "", game_path(game), class: 'absolute-link' %>
 </div>

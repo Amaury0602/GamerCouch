@@ -7,9 +7,12 @@
     <% end %>
     <div class="card-product-infos">
       <h2 class="text-center"><%= @game.name %> </h2>
+
         <p><%= @game.year %> </p>
           <p> <%= @game.category %> </p>
           <p><%= @game.platform %> </p>
+
+
           <%if @game.likes.pluck(:user_id).include?(current_user.id) %>
             <p><i class="fas fa-heart"></i></p>
           <% end %>

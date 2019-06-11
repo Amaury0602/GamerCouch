@@ -1,2 +1,19 @@
 // Specific CSS for your home-pag
-
+@import "components/card_home";
+.way-to-go{
+  height:250px;
+  width:100%;
+}
+p{
+font-size: 16px;
+}
+.yellow {
+  background-color:yellow;
+  border-radius: 80%;
+  border:1px solid black;
+  color:yellow;
+  font-size:10px;
+}
+.square{
+  background:white;
+}

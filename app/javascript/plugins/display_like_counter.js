@@ -15,6 +15,7 @@
 //       })
 // }
 
+// export { displayLikeCounter };
 
 // export default displayLikeCounter;
 
