@@ -8,10 +8,13 @@ Rails.application.routes.draw do
 
   resources :games, only: [:show, :index] do
     resources :comments, only: :create
+
     resources :likes, only: [:create]
   end
   resources :likes, only: [:destroy]
 
+
+  post 'tracking', to: "games#tracking", as: :tracking
   get '/dashboard', to: "pages#dashboard", as: :dashboard
   get 'games/:id/game_alike', to: "games#game_alike", as: :game_alike
 end

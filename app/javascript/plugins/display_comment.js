@@ -27,4 +27,4 @@ const displayComment = () => {
   })
 }
 
-export default displayComment;
+export { displayComment };
