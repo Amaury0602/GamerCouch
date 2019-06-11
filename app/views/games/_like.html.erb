@@ -1,10 +1,10 @@
 <h4>
   <div class="click-like" data-game-id="<%= game.id %>">
-    <% if game.likes.find_by(user: current_user) %>
-      <% like = Like.find_by(game_id: game.id) %>
-      <%= link_to game_like_path(game, like), method: :delete, remote: true do %>
+    <% like = game.likes.where(user: current_user).first %>
+    <% if like %>
+      <%= link_to like_path(like), method: :delete, remote: true do %>
         <i class="fas fa-heart"></i>
-        <span class="counterliked">(<%= game.like_count %>)</span>
+        <span class="counterlike">(<%= game.like_count %>)</span>
       <% end %>
     <% else %>
       <%= link_to game_likes_path(game), method: :post, remote: true do %>

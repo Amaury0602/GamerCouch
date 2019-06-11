@@ -7,7 +7,7 @@ class GamesController < ApplicationController
     elsif params[:sort] == "comment"
       @games = Game.order("comment_count DESC")
     else
-      @games = Game.all.sort { |a,b| a.matching_score(current_user) <=> b.matching_score(current_user) }.reverse
+      @games = Game.all.sort { |a, b| a.matching_score(current_user) <=> b.matching_score(current_user) }.reverse
     end
 
     if params[:search_query].present?
