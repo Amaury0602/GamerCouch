@@ -28,7 +28,6 @@ class GamesController < ApplicationController
     @games.each do |game|
       authorize game
       @like = Like.new(game_id: game.id, user_id: @user.id)
-
       @like.save
     end
     redirect_to games_path
