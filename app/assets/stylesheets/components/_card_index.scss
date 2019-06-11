@@ -9,6 +9,8 @@
   color: #222222;
   display: flex;
   border-radius: 3px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #424242;
 
 .reaction{
   display: flex;
@@ -29,6 +31,11 @@
     }
   }
 }
+
+.fas, a.fas.fa-comments {
+  color : #e93f36;
+}
+
 
 a.absolute-link {
   position: absolute;
@@ -204,6 +211,10 @@ a.absolute-link {
   left: 844px;
   bottom: 48px;
   font-size: 13px;
+}
+
+.comment-index {
+  width: 600px;
 }
 
 .right {
