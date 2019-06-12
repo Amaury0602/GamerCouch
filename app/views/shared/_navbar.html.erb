@@ -16,9 +16,9 @@
       <li class="nav-item">
         <%= link_to "Your Couch", dashboard_path, class: "add-game-button" %>
       </li>
-        <li class="nav-item">
+        <!--<li class="nav-item">
           <%= link_to "Add a game", "#", class: "add-game-button" %>
-        </li>
+        </li>-->
         <li class="nav-item dropdown">
           <% if current_user.avatar.blank? %>
           <%= image_tag "https://www.weekend-esprithautsdefrance.com/sites/picardiev3/themes/picardiev3/img_v2/user-default.jpg", class: "avatar-bordered", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
@@ -26,8 +26,6 @@
           <%= cl_image_tag current_user.avatar, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <% end %>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <%= link_to "Action", "#", class: "dropdown-item" %>
-            <%= link_to "Another action", "#", class: "dropdown-item" %>
             <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
           </div>
         </li>
