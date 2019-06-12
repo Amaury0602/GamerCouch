@@ -29,6 +29,16 @@
   height: 50px;
   width: 200px;
   top: 23px;
+  background-color: #ff0c18;
+  color: #222222;
+  border: 0;
+  font-weight: bolder;
+  margin-bottom: 47px;
+  transition-duration: 0.5s;
+  &:hover {
+    background-color: #222222;
+    color: #ff0c18;
+  }
 }
 
 .games-show {
