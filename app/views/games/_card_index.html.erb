@@ -33,11 +33,11 @@
         <!-- recommandations -->
         <a class="recommandation" data-game-id="<%= game.id %>"><h4 href="">Recommandation</h4></a>
         <!-- right choice -->
-        <a class="right_choice" data-game-id="<%= game.id %>"><h4 href="">Right choice</h4></a>
+        <!-- <a class="right_choice" data-game-id="<%= game.id %>"><h4 href="">Right choice</h4></a> -->
       </div>
     </div>
 
-      <div class="right" data-game-id="<%= game.id %>">
+      <div class="right right_choice" data-game-id="<%= game.id %>">
         <% game_scores = game.match(current_user).first(3) %>
         <% if !game_scores.present? %>
           <h2>Can't match yet</h2>
