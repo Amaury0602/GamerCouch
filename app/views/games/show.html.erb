@@ -1,6 +1,8 @@
-<div class="container">
+<div class="container ml-5 mr-5">
+  <div class="row justify-content-center d-flex">
   <div class="show-and-comment">
     <%=render "games/card_show" %>
+  </div>
     <div class="comment-block">
     <%= render 'games/form', game: @game, comment: @comment %>
           <div id="comments">
@@ -15,5 +17,7 @@
         </div>
     </div>
   </div>
+  </div>
+
   <%= link_to "go back", games_path, class: "lien-goback" %>
 </div>

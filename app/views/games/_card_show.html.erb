@@ -1,19 +1,11 @@
 <div class="card-product-show">
   <div class="card-product-top">
-    <div class="images">
     <div id="big-image">
       <% if @game.photo.present? %>
-        <%= cl_image_tag @game.photo,class: "big-image" %>
+        <%= cl_image_tag @game.photo %>
       <% else %>
         <%= image_tag "loading.png" %>
       <% end %>
-    </div>
-    <div id="little-images">
-      <%= cl_image_tag @game.photo,class: "little-images" %>
-      <% @game.screens.each do |screen| %>
-        <%= cl_image_tag "https://#{screen}",class: "little-images" %>
-      <% end %>
-    </div>
     </div>
     <div class="card-product-infos">
       <h2 class="text-center"><%= @game.name %> </h2>
@@ -26,18 +18,31 @@
           <%if @game.likes.pluck(:user_id).include?(current_user.id) %>
             <p><i class="fas fa-heart"></i></p>
           <% end %>
-
-    </div>
-  </div>
-  <div class="card-product-bot">
-
-  <div class="card-product-description">
+            <div class="card-product-description">
       <% if !@game.description.nil? %>
-        <p> <%= @game.description[0..250]+"..." %></p>
+        <p> <%= @game.description[0..400]+"..." %></p>
       <% end %>
   </div>
 
-  <div class="add-wish">
-    <%= link_to "Add to wishlist", wish_path(@game), method: :post  %>
+    </div>
+  </div>
+  <div class="card-product-bot d-flex justify-content-center text-center">
+
+    <div id="big-image-bot">
+    <div id="little-images">
+      <% @game.screens.take(5).each do |screen| %>
+        <%= cl_image_tag "https://#{screen}",class: "little-images" %>
+      <% end %>
+    </div>
+      <% if @game.photo.present? %>
+        <%= cl_image_tag "https://#{@game.screens[0]}",class: "big-image-bot" %>
+      <% else %>
+        <%= image_tag "loading.png" %>
+      <% end %>
+      </div>
+<div class="d-flex justify-content-center" style="margin-top: 20px">
+  <div class="add-wish ">
+    <%= link_to "Add to wishlist", wish_path(@game), method: :post,class: "show-button-wishlist"  %>
+  </div>
   </div>
 </div>
