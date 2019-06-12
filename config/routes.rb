@@ -1,11 +1,17 @@
 Rails.application.routes.draw do
-
-  # unauthenticated do
-  #    root :to => 'devise/sessions#new'
-  # end
-  # root to: get 'sign_in', :to =>
   devise_for :users
-    root to: 'pages#home'
+
+  devise_scope :user do
+    authenticated :user do
+      root to: 'pages#home'
+    end
+
+    unauthenticated :user do
+      root to: "devise/sessions#new"
+    end
+  end
+
+  # root to: get 'sign_in', :to =>
 
   # devise_scope :user do
   #   get "/users/sign_in" => "registrations#new"
