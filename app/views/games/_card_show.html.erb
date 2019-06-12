@@ -1,10 +1,20 @@
 <div class="card-product-show">
   <div class="card-product-top">
-    <% if @game.photo.present? %>
-      <%= cl_image_tag @game.photo %>
-    <% else %>
-      <%= image_tag "loading.png" %>
-    <% end %>
+    <div class="images">
+    <div id="big-image">
+      <% if @game.photo.present? %>
+        <%= cl_image_tag @game.photo,class: "big-image" %>
+      <% else %>
+        <%= image_tag "loading.png" %>
+      <% end %>
+    </div>
+    <div id="little-images">
+      <%= cl_image_tag @game.photo,class: "little-images" %>
+      <% @game.screens.each do |screen| %>
+        <%= cl_image_tag "https://#{screen}",class: "little-images" %>
+      <% end %>
+    </div>
+    </div>
     <div class="card-product-infos">
       <h2 class="text-center"><%= @game.name %> </h2>
 
@@ -31,10 +41,6 @@
     <button>Steam 15€</button>
     <button>Fnac 20€</button>
     <button>Leboncoin 13€</button>
+    </div>
   </div>
-
-
-  </div>
-
-
 </div>
