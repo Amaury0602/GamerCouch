@@ -58,6 +58,9 @@
 
 
 
+.hidden {
+  display: none;
+}
 
 
 
@@ -155,12 +158,9 @@
   text-decoration: none;
 }
 
-.hidden {
-  display: none;
-}
 
 .match-index {
-  margin: 20px 0px 50px 20px;
+  margin: 20px 0px 100px 20px;
   height: 168px;
   width: 805px;
   .mini-card {
@@ -209,12 +209,14 @@
   position: sticky;
   top: 0;
   padding-top: 15px;
+
   a {
-    border: 1px solid;
+    border-left: 2px solid;
     color: #222222;
     text-decoration: none;
     transition-duration: 0.3s;
-    padding: 7px;
+    padding: 1px 3px 1px 3px;
+    margin-bottom: 10px;
     &:hover {
       color: $ice-white;
       background: #FFA800;
