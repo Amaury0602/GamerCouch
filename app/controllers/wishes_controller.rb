@@ -4,7 +4,10 @@ class WishesController < ApplicationController
     @wish = Wish.new
     @wish.user = current_user
     @wish.game = @game
-    @wish.save
     authorize @wish
+    if @wish.save
+      redirect_to games_path
+    end
+
   end
 end
