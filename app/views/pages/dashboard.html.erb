@@ -56,31 +56,10 @@
 
 
   <div class="dash-comments col-4">
-    <h1>My comments</h1>
-    <% if !current_user.likes.empty? %>
-    <ul>
-      <% current_user.likes.each do |like| %>
-        <li>
-          <div class="card-product-dashboard">
-            <% if like.game.photo.present? %>
-              <%= cl_image_tag like.game.photo, class: "img" %>
-            <% else %>
-              <%= image_tag "loading.png", class: "img" %>
-            <% end %>
-            <div class="card-product-infos">
-            <%= link_to like.game.name, game_path(like.game) ,class: "black-color" %>
-            </div>
-          <% end %>
-          </div>
-        </li>
-    </ul>
-      <% else %>
-      <h3>Tell us which games you like!</h3>
-    <% end %>
     <ul>
     <%current_user.comments.each do |comment| %>
     <li>
-      <%= "#{comment.content} (#{comment.game.name})" %>
+      <%= "(#{comment.game.name})---#{comment.content}" %>
     </li>
     <% end %>
     </ul>
