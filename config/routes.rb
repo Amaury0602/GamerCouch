@@ -1,10 +1,19 @@
 Rails.application.routes.draw do
-  devise_for :users
-   root to: 'pages#home'
-  # root to: 'devise/registrations#new'
-  # devise_scope :user do
-  #   root to: "devise/sessions#new"
+
+  # unauthenticated do
+  #    root :to => 'devise/sessions#new'
   # end
+  # root to: get 'sign_in', :to =>
+  devise_for :users
+    root to: 'pages#home'
+
+  # devise_scope :user do
+  #   get "/users/sign_in" => "registrations#new"
+  # end
+
+  #   root to: "devise/sessions#new"
+   # root to:
+  # root to: 'devise/registrations#new'
 
   resources :games, only: [:show, :index] do
     resources :comments, only: :create
