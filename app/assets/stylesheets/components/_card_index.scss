@@ -1,24 +1,65 @@
 * { outline: none !important; }
 
-.card-product-index {
+
+
+.card-product-index-left {
   position: relative;
-  overflow: hidden;
-  margin: 20px 0px 20px 20px;
-  width: 805px;
-  height: 136px;
+  display: flex;
+  flex-grow: 1;
+}
+
+.platform {
+  flex-grow: 1;
+  margin-top: 16px;
+}
+
+.card-product-infos {
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-top: 8px;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-product-index img {
+  height: 200px;
+  width: 200px;
+  object-fit: cover;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.card-product-index {
+  // position: relative;
+  // overflow: hidden;
+  margin: 20px 0px 20px 0px;
   color: #222222;
   display: flex;
   border-radius: 3px;
-  padding-bottom: 20px;
-  border-bottom: 1px solid #424242;
+  background-color: #F2F2F2;
+  border: 1px solid;
 
 #match-score {
-  font-family: Indie Flower, cursive;
+  font-family: cursive;
   font-size: 55px;
 }
 .reaction {
   display: flex;
-  justify-content: space-around;
   align-items: center;
   width: 100%;
   position: relative;
@@ -35,7 +76,7 @@
   }
   .link-cursor:hover {
     color: #FFFFFF;
-    background: #FF969B;
+    background: #FFA800;
     border-radius: 5px;
     padding: 5px;
   }
@@ -45,7 +86,7 @@
 }
 
 .fas, a.fas.fa-comments {
-  color : #e93f36;
+  color : #FFA800;
 }
 
 
@@ -53,7 +94,7 @@ a.absolute-link {
   position: absolute;
   top: 0;
   bottom: 0;
-  right: 100px;
+  right: 0;
   left: 0;
   &:hover {
     background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.1));
@@ -62,11 +103,13 @@ a.absolute-link {
   }
 }
 
-.card-product-index img {
-  height: 100%;
-  width: 200px;
-  object-fit: cover;
+.grid-card-index {
+  display: flex;
+  flex-grow: 3;
 }
+
+
+
 
 .card-product-index h1 {
   font-size: 20px;
@@ -88,28 +131,8 @@ a.absolute-link {
   margin: 0;
 }
 
-.card-product-index .card-product-infos {
-  padding-left: 16px;
-  padding-right: 16px;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  width:100%;
-}
-
-.title-date-right {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-}
 
 
-.platform {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  margin-top: 16px;
-  margin-bottom: 32px;
-}
 
 .index-comments-counter {
   display: flex;
@@ -166,7 +189,7 @@ a.absolute-link {
 
 .active {
     color: $ice-white;
-    background: #ff0c18;
+    background: #FFA800;
     border-radius: 3px;
 }
 
@@ -179,15 +202,16 @@ a.absolute-link {
   top: 0;
   padding-top: 15px;
   a {
-  color: #222222;
-  text-decoration: none;
-  transition-duration: 0.3s;
-  padding: 7px;
-  &:hover {
-    color: $ice-white;
-    background: #ff0c18;
-    border-radius: 3px;
-  }
+    border: 1px solid;
+    color: #222222;
+    text-decoration: none;
+    transition-duration: 0.3s;
+    padding: 7px;
+    &:hover {
+      color: $ice-white;
+      background: #FFA800;
+      border-radius: 3px;
+    }
   }
 }
 
@@ -207,7 +231,7 @@ a.absolute-link {
   margin-left: 25%;
   border: 1px solid;
   border-width: 3px;
-  border-color: #d30000;
+  border-color: #FFA800;
   transition-duration: 0.2s;
 }
 
@@ -260,4 +284,10 @@ a.absolute-link {
 .very-good {
   color: green;
   text-weight: bolder;
+}
+
+@media (min-width: 1200px) {
+    .container{
+        max-width: 1200px;
+    }
 }

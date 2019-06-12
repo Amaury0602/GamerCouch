@@ -5,8 +5,7 @@
 
 .nav-site-title {
   font-size: 23px;
-  color: #ff0c18;
-  font-weight: bolder;
+  color: #FFA800;
   position: absolute;
   left: 66px;
   top: 14px;
@@ -32,13 +31,13 @@
     padding: 3px 8px 3px 8px;
     &:hover {
       color: #bfd2c0;
-      background: #ff0c18;
+      background: #FFA800;
     }
   }
 }
 .navbar-brand {
   img {
-   background : #ff0c18;
+   background : #FFA800;
    border-radius: 21px;
   }
 }

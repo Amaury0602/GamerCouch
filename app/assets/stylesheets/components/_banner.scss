@@ -15,9 +15,16 @@
   color: black;
 }
 
-.banner p {
+.banner {
+  .sub-message {
+      position: absolute;
+      bottom: 378px;
+    }
+  p {
   font-size: 16px;
-  color: black;
+  color: #FFA800;
+
+  }
 }
 
 .select2{
