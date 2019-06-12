@@ -44,12 +44,13 @@
   cursor: pointer;
   flex-basis: 15%;
   position: relative;
+  align-items: center;
   #match-score {
     font-family: cursive;
     font-size: 55px;
     position: absolute;
-    top: 25%;
-    left: 9%;
+    top: 17%;
+    left: 20%;
   }
 }
 
