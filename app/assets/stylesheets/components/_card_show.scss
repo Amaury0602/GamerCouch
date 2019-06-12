@@ -55,9 +55,18 @@ a {
 
 .show-and-comment {
   display: flex;
-  height: 400px;
+  height: 600px;
 }
-
+#little-images img {
+  width: 50px;
+  height: 50px;
+}
+#big-image img {
+  width: 200px;
+  height: 300px;
+  background-size: cover;
+  object-fit: contain;
+}
 
 @media (min-width: 100px) and (max-width: 575px) {
   .card-product-show  {

@@ -36,7 +36,6 @@ ActiveRecord::Schema.define(version: 2019_06_12_082100) do
     t.integer "like_count", default: 0
     t.integer "comment_count", default: 0
     t.text "description"
-    t.string "tags"
     t.text "screens", default: [], array: true
   end
 

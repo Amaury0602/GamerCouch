@@ -5,12 +5,7 @@
     </div>
     <div class="row d-flex justify-content-center">
       <div style="width: 100%" class="row d-flex justify-content-center">
-
-
-
-
-
-       <form action="/tracking" method="POST" style="width:75%">
+ <form action="/tracking" method="POST" style="width:75%">
           <select name="tracking[]" class="select2" multiple="multiple" placeholder="select your games">
             <% @games.each do |game| %>
               <option value="<%= game.id %>"  ><%= game.name %></option>
@@ -19,13 +14,18 @@
           </select>
           <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
         </form>
-
-
-
       </div>
     </div>
 
+  </div>
+  </div>
+<div class="container" style="background-color: white;border-radius: 200px;opacity: 0.9;-webkit-box-shadow: 6px 7px 37px 64px rgba(255,255,255,0.8);
+-moz-box-shadow: 6px 7px 37px 64px rgba(255,255,255,0.8);
+box-shadow: 6px 7px 37px 64px rgba(255,255,255,0.8);">
+
+
 <div class="games-show">
+
   <div class="row d-flex justify-content-center mt-4">
     <h2 class="most-popular">Trendy games</h2>
   </div>
