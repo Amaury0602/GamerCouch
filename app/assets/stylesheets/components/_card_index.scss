@@ -12,9 +12,14 @@
   padding-bottom: 20px;
   border-bottom: 1px solid #424242;
 
-.reaction{
+#match-score {
+  font-family: Indie Flower, cursive;
+  font-size: 55px;
+}
+.reaction {
   display: flex;
   justify-content: space-around;
+  align-items: center;
   width: 100%;
   position: relative;
   z-index: 1;
@@ -23,12 +28,19 @@
     text-decoration: none;
     transition-duration: 0.3s;
     padding: 7px;
-
-  &:hover {
-    color: #bfd2c0;
-    background: #ff0c18;
+  }
+  .link-cursor {
+    cursor: pointer;
+    padding: 5px;
+  }
+  .link-cursor:hover {
+    color: #FFFFFF;
+    background: #FF969B;
     border-radius: 5px;
-    }
+    padding: 5px;
+  }
+  .link-cursor:hover a {
+    color: $ice-white;
   }
 }
 
@@ -41,10 +53,11 @@ a.absolute-link {
   position: absolute;
   top: 0;
   bottom: 0;
-  right: 0;
+  right: 100px;
   left: 0;
   &:hover {
-    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2));
+    background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.1));
+    border-radius: 5px;
   }
   }
 }
@@ -102,6 +115,8 @@ a.absolute-link {
   display: flex;
 }
 
+
+
 .recommandation-index {
   margin: 20px 0px 20px 20px;
   height: 125px;
@@ -150,7 +165,7 @@ a.absolute-link {
 }
 
 .active {
-    color: #bfd2c0;
+    color: $ice-white;
     background: #ff0c18;
     border-radius: 3px;
 }
@@ -169,7 +184,7 @@ a.absolute-link {
   transition-duration: 0.3s;
   padding: 7px;
   &:hover {
-    color: #bfd2c0;
+    color: $ice-white;
     background: #ff0c18;
     border-radius: 3px;
   }
@@ -223,6 +238,7 @@ a.absolute-link {
   padding-top: 31px;
   font-size: 46px;
   font-weight: normal;
+  cursor: pointer;
 }
 
 .badder {
