@@ -19,7 +19,7 @@ puts ">> We add some games :)"
 
 def create_game(title)
   url = "https://api-v3.igdb.com/games"
-  data = "fields name, platforms.name, cover.url, release_dates.y, summary;search \"#{title}\";"
+  data = "fields name, platforms.name, cover.url, screenshots.url, release_dates.y, summary;search \"#{title}\";"
   response = RestClient.post(url, data, :content_type => "application/x-www-form-urlencoded", :'user-key' => "3d5164cf92d5dd00f6d364c5d713d5ab")
   request = JSON.parse(response)
   platforms = []
@@ -31,6 +31,16 @@ def create_game(title)
     else
       photo = nil
     end
+    screens = []
+    if !game['screenshots'].nil?
+      game['screenshots'].each do |screen|
+        screens << screen['url'][2..-1].gsub(/t_thumb/, 't_screenshot_big')
+      end
+    else
+      screens << ""
+    end
+    puts screens
+
     if !game['release_dates'].nil?
       date = game['release_dates'][0]['y']
     else
@@ -44,7 +54,7 @@ def create_game(title)
     else
       platforms_int = "undefined"
     end
-    game = Game.new(name: name, platform: platforms_int, year: date, description: description )
+    game = Game.new(name: name, platform: platforms_int, year: date, description: description, screens: screens )
     if !photo.nil?
       game.remote_photo_url = "https://#{photo}"
     end
@@ -54,8 +64,8 @@ def create_game(title)
 end
 
 create_game("mario")
-# create_game("final fantasy")
-# # create_game("metal gear solid")
+create_game("final fantasy")
+create_game("metal gear solid")
 # # create_game("street fighter")
 # # create_game("doom")
 # # create_game("counter")
@@ -63,7 +73,7 @@ create_game("mario")
 
 puts "Creating users"
 
-30.times do
+50.times do
   User.create(email: Faker::Internet.unique.email, password: Faker::Name.unique.name, username:Faker::Name.unique.name)
 end
 
@@ -79,7 +89,7 @@ end
 
 puts "Creating Likes"
 
-100.times do
+300.times do
   game_sample_id = game_ids.sample
   game = Game.find(game_sample_id)
   like = Like.new(game: game, user_id: user_ids.sample)
@@ -91,7 +101,7 @@ end
 
 
 puts "Creating Comments"
-75.times do
+80.times do
   game_sample_id = game_ids.sample
   game = Game.find(game_sample_id)
   comment = Comment.new(game_id: game_ids.sample, user_id: user_ids.sample)
