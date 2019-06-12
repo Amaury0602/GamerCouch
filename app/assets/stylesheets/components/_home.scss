@@ -1,21 +1,38 @@
 .home-site-card {
-  box-shadow: 1px 12px 78px gray;
-  margin: 0 10px 10px 10px;
-  text-align: center;
-  padding-top: 36px;
-  border-radius: 85px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 1px 7px 99px grey;
+  justify-content: center;
+  align-items: center;
+  background-color: grey;
+  border-radius: 50%;
+  width: 250px;
+  height: 250px;
+
+  p {
+    color: #222222;
+    font-weight: bolder;
+    text-align: center;
+    font-size: 14px;
+  }
+
+  img {
+    background-color: transparent;
+    height: 120px;
+    width: 120px;
+  }
 }
 
 .home-button {
   position: relative;
-  left: 324px;
+  left: 301px;
   height: 50px;
   width: 200px;
   top: 23px;
 }
 
 .games-show {
-  margin-top: 150px;
+  padding-top: 48px;
 }
 
 .show-title {
@@ -30,6 +47,13 @@
 
 .way-to-go {
   display: flex;
-  justify-content: between;
-  margin-bottom: 100px;
+  justify-content: space-around;
+  margin-top: 43px;
+  right: 34px;
+  position: absolute;
 }
+
+.most-popular {
+  color: #222222;
+}
+

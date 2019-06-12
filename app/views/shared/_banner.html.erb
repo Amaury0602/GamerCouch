@@ -1,15 +1,10 @@
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.9),rgba(0,0,0,0.9)), url(https://educayjuega.files.wordpress.com/2017/04/videojuegos-lista-time-1.jpg);">
   <div class="container">
     <div class="show-title">
-      <p>Enter your favorite games</p>
+      <p>Tell us your favorite games</p>
     </div>
     <div class="row d-flex justify-content-center">
       <div style="width: 100%" class="row d-flex justify-content-center">
-
-
-
-
-
        <form action="/tracking" method="POST" style="width:75%">
           <select name="tracking[]" class="select2" multiple="multiple" placeholder="select your games">
             <% @games.each do |game| %>
@@ -19,54 +14,19 @@
           </select>
           <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
         </form>
-
-
-
       </div>
     </div>
-
-<div class="games-show">
-  <div class="row d-flex justify-content-center mt-4">
-    <h2 class="most-popular">Trendy games</h2>
-  </div>
-  <div class="row d-flex justify-content-center">
-    <div class="cards col-lg-10 col-md-10">
-      <div>
-        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.0), rgba(0,0,0,0.0)), url(https://images4.alphacoders.com/210/thumb-1920-210396.jpg)">
+    <div class="way-to-go">
+        <div class="home-site-card"><%= image_tag "heart.png",width: "100px"%>
+            <br><p>You tell us your favorite games</p>
         </div>
-          <p><small>PC</small><br><strong>Dota 2</strong></p>
-      </div>
-      <div>
-        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.0), rgba(0,0,0,0.0)), url(https://images4.alphacoders.com/668/thumb-1920-6684.jpg)">
+        <div class="home-site-card"><%= image_tag "8da302a19e.png",width: "100px"%>
+            <br><p>We give you the perfect game according to your taste</p>
         </div>
-        <p><small>Play station 4, Xbox One, PC</small><br><strong>Final Fantasy VII</strong></p>
-      </div>
-      <div>
-        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.0), rgba(0,0,0,0.0)), url(https://images.alphacoders.com/709/thumb-1920-709974.jpg)">
-        </div>
-        <p><small>Nintendo Switch</small><br><strong>Legend of zelda :Breath of the wild</strong></p>
-      </div>
-      <div>
-        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.0), rgba(0,0,0,0.0)), url(https://images6.alphacoders.com/917/thumb-1920-917680.jpg)">
-        </div>
-        <p><small>Play station 4</small><br><strong>
-        God of war</strong></p>
-      </div>
-      <div>
-        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.0), rgba(0,0,0,0.0)), url(https://www.journaldujapon.com/wp-content/uploads/2019/05/Sekiro™_-Shadows-Die-Twice_20190408190753.jpg)">
-        </div>
-        <p> <small>Play station 4, Xbox One, Pc</small><br><strong>Sekiro</strong></p>
-      </div>
-      <div>
-        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.0), rgba(0,0,0,0.0)), url(https://images2.alphacoders.com/865/865491.jpg)">
-        </div>
-        <p><small>Nintendo Switch</small><br><strong>
-        Mario Odyssey</strong></p>
-      </div>
+        <div class="home-site-card"><%= image_tag "comment.png",width: "100px"%>
+          <br><p>Share your thoughts to the community</p>
+       </div>
     </div>
-  </div>
-</div>
-
 
   </div>
   </div>
