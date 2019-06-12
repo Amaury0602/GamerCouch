@@ -14,7 +14,7 @@ class LikesController < ApplicationController
       format.js
     end
   end
-
+  
   def destroy
     @like = Like.find(params[:id])
     @game = @like.game
