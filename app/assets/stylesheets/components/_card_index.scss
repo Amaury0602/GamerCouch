@@ -9,6 +9,8 @@
   color: #222222;
   display: flex;
   border-radius: 3px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #424242;
 
 .reaction{
   display: flex;
@@ -29,6 +31,11 @@
     }
   }
 }
+
+.fas, a.fas.fa-comments {
+  color : #e93f36;
+}
+
 
 a.absolute-link {
   position: absolute;
@@ -206,10 +213,35 @@ a.absolute-link {
   font-size: 13px;
 }
 
+.comment-index {
+  width: 600px;
+}
+
 .right {
   width: 133px;
   text-align: center;
   padding-top: 31px;
   font-size: 46px;
   font-weight: normal;
+}
+
+.badder {
+  color: red;
+}
+
+.less-bad {
+  color: orange;
+}
+
+.middle {
+  color: blue;
+}
+
+.good {
+  color: green;
+}
+
+.very-good {
+  color: green;
+  text-weight: bolder;
 }

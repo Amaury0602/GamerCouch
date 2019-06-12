@@ -1,0 +1,35 @@
+.home-site-card {
+  box-shadow: 1px 12px 78px gray;
+  margin: 0 10px 10px 10px;
+  text-align: center;
+  padding-top: 36px;
+  border-radius: 85px;
+}
+
+.home-button {
+  position: relative;
+  left: 324px;
+  height: 50px;
+  width: 200px;
+  top: 23px;
+}
+
+.games-show {
+  margin-top: 150px;
+}
+
+.show-title {
+  padding-top: 50px;
+  margin-right: 15px;
+  text-align: center;
+  p {
+  font-size: 75px;
+  color: #ff0c18;
+  }
+}
+
+.way-to-go {
+  display: flex;
+  justify-content: between;
+  margin-bottom: 100px;
+}
