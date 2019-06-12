@@ -7,6 +7,7 @@ import { displayLikeCounter } from "../plugins/display_like_counter";
 import { displayComment } from "../plugins/display_comment";
 import { select2Home } from "../plugins/select2_home";
 import { matchingStyle } from "../plugins/matching_style";
+import { imageShow } from "../plugins/image_show";
 
 displayMatching();
 displayRecommandation();
@@ -14,4 +15,5 @@ select2Home();
 // displayLikeCounter();
 displayComment();
 matchingStyle();
+imageShow();
 

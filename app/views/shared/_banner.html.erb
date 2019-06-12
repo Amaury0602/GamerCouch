@@ -5,6 +5,7 @@
     </div>
     <div class="row d-flex justify-content-center">
       <div style="width: 100%" class="row d-flex justify-content-center">
+
        <form action="/tracking" method="POST" style="width:75%">
           <select name="tracking[]" class="select2" multiple="multiple" placeholder="select your games">
             <% @games.each do |game| %>
@@ -19,6 +20,7 @@
     <div class="way-to-go">
         <div class="home-site-card"><%= image_tag "heart.png",width: "100px"%>
             <br><p>You tell us your favorite games</p>
+
         </div>
         <div class="home-site-card"><%= image_tag "8da302a19e.png",width: "100px"%>
             <br><p>We give you the perfect game according to your taste</p>
