@@ -6,7 +6,7 @@ class WishesController < ApplicationController
     @wish.game = @game
     authorize @wish
     if @wish.save
-      redirect_to games_path
+      redirect_to dashboard_path
     end
 
   end
