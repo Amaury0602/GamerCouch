@@ -6,49 +6,46 @@
     <% end %>
     <div class="card-product-infos" id="game-<%= game.id %>">
       <div class="title-date-right">
-        <div class="title"><h1><%= game.name %></h1></div>
-        <div class="year"><h3><%= game.year %></h3></div>
+        <h1 class="title"><%= game.name %></h1>
+        <h3 class="year"><%= game.year %></h3>
       </div>
 
-      <div class="platform">
-        <h3><%= game.platform[0..75] %></h2>
-      </div>
+      <div class="platform"><h3><%= game.platform[0..75] %></h3></div>
 
       <div class="reaction">
-        <!-- comments -->
-        <h4>
-          <div class="click-comment" data-game-id="<%= game.id %>">
-            <% if game.comments.pluck(:user_id).include?(current_user.id) %>
-              <a class="fas fa-comments"></a>
-            <% else %>
-              <a class="far fa-comments"></a>
-            <% end %>
-
-          (<%= game.comments.length %>)</h4>
-          <!-- likes -->
-            <div id="like-<%= game.id %>">
-              <%= render "games/like", game: game %>
+          <!-- comments -->
+          <div class="link-cursor">
+            <div class="click-comment" data-game-id="<%= game.id %>">
+              <h4>
+              <% if game.comments.pluck(:user_id).include?(current_user.id) %>
+                <i class="fas fa-comments"></i>
+              <% else %>
+                <i class="far fa-comments"></i>
+              <% end %>(<%= game.comments.length %>)
+              </h4>
             </div>
-            <!-- recommandations -->
-            <a class="recommandation" data-game-id="<%= game.id %>"><h4 href="">Recommandation</h4></a>
-            <!-- right choice -->
-            <a class="right_choice" data-game-id="<%= game.id %>"><h4 href="">Right choice</h4></a>
+          </div>
+          <!-- likes -->
+          <div id="like-<%= game.id %>" class="link-cursor">
+            <%= render "games/like", game: game %>
+          </div>
+          <!-- recommandations -->
+          <div class="link-cursor">
+            <div class="recommandation" data-game-id="<%= game.id %>">Recommandation</div>
           </div>
       </div>
 
-      <div class="right" data-game-id="<%= game.id %>">
-        <% game_scores = game.match(current_user).first(3) %>
-        <% if !game_scores.present? %>
-          <h2>Can't match yet</h2>
-        <% else %>
-          <div id="match-score">
-            <%= game.matching_score(current_user) %>
-          </div>
-        <% end %>
-      </div>
-    <%= link_to "", game_path(game), class: 'absolute-link' %>
+      <%= link_to "", game_path(game), class: 'absolute-link' %>
+    </div>
+    <div class="right right_choice" data-game-id="<%= game.id %>">
+      <% game_scores = game.match(current_user).first(3) %>
+      <% if !game_scores.present? %>
+        <h2>No match found</h2>
+      <% else %>
+        <div id="match-score"><%= game.matching_score(current_user) %></div>
+      <% end %>
+    </div>
 </div>
-
 <div class="card-product-index-comment">
   <div class="collapse" id="collapseGame<%= game.id %>">
       <% game.comments.each do |comment| %>
