@@ -37,10 +37,7 @@
       <% end %>
   </div>
 
-  <div class="price-comparator">
-    <button>Steam 15€</button>
-    <button>Fnac 20€</button>
-    <button>Leboncoin 13€</button>
-    </div>
+  <div class="add-wish">
+    <%= link_to "Add to wishlist", wish_path(@game), method: :post  %>
   </div>
 </div>

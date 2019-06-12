@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   end
   resources :likes, only: [:destroy]
 
-
+  post 'games/:id/wish', to: "wishes#create", as: :wish
   post 'tracking', to: "games#tracking", as: :tracking
   get '/dashboard', to: "pages#dashboard", as: :dashboard
   get 'games/:id/game_alike', to: "games#game_alike", as: :game_alike

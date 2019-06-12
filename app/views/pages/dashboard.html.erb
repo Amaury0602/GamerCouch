@@ -35,26 +35,23 @@
 
   <div class="wishlist col-4">
     <h1>My wishlist</h1>
-    <% if !current_user.likes.empty? %>
+
     <ul>
-      <% current_user.likes.each do |like| %>
-        <li>
-          <div class="card-product-dashboard">
-            <% if like.game.photo.present? %>
-              <%= cl_image_tag like.game.photo, class: "img" %>
-            <% else %>
-              <%= image_tag "loading.png", class: "img" %>
-            <% end %>
-            <div class="card-product-infos">
-            <%= link_to like.game.name, game_path(like.game),class: "black-color" %>
-            </div>
+      <% current_user.wishes.each do |wish| %>
+       <li>
+        <div class="card-product-dashboard">
+          <% if wish.game.photo.present? %>
+            <%= cl_image_tag wish.game.photo, class: "img" %>
+          <% else %>
+            <%= image_tag "loading.png", class: "img" %>
           <% end %>
-          </div>
-        </li>
+        <div class="card-product-infos">
+          <%= link_to wish.game.name, game_path(wish.game), class: "black-color" %>
+        <% end %>
+        </div>
+      </div>
+       </li>
     </ul>
-      <% else %>
-      <h3>Tell us which games you like!</h3>
-    <% end %>
   </div>
 
 
