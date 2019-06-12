@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
    root to: 'pages#home'
-  # root to: 'devise/sessions#new'
+  # root to: 'devise/registrations#new'
   # devise_scope :user do
   #   root to: "devise/sessions#new"
   # end
