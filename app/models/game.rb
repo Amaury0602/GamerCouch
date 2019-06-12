@@ -1,5 +1,6 @@
 class Game < ApplicationRecord
   has_many :likes, dependent: :destroy
+  has_many :wishes, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :users, through: :likes
   validates :name, presence: true, allow_blank: false
