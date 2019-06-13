@@ -43,6 +43,13 @@
     position: absolute;
     top: 22%;
     left: 20%;
+    border: 3px solid;
+    height: 166px;
+    width: 166px;
+    border-radius: 66%;
+    text-align: center;
+    padding-top: 28px;
+    margin-top: -28px;
     p {
       text-align: center;
     }
@@ -51,8 +58,8 @@
       font-size: 20px;
       color: inherit;
       position: absolute;
-      right: 25px;
-      bottom: -31px;;
+      right: 43px;
+      bottom: 11px;;
       opacity: 0;
       transition-duration: 0.5s;
       border: 1px solid;
@@ -274,23 +281,23 @@
 
 
 .badder {
-  color: red;
+  color: #bf0000;
 }
 
 .less-bad {
-  color: orange;
+  color: #ff8c00;
 }
 
 .middle {
-  color: blue;
+  color: #288cff;
 }
 
 .good {
-  color: green;
+  color: #00b740;
 }
 
 .very-good {
-  color: green;
+  color: #2fff28;
   text-weight: bolder;
 }
 
@@ -299,3 +306,5 @@
         max-width: 1200px;
     }
 }
+
+
