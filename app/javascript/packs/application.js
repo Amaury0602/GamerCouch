@@ -8,6 +8,7 @@ import { displayComment } from "../plugins/display_comment";
 import { select2Home } from "../plugins/select2_home";
 import { matchingStyle } from "../plugins/matching_style";
 import { imageShow } from "../plugins/image_show";
+import { displayRightDetails } from "../plugins/display_right_details";
 
 displayMatching();
 displayRecommandation();
@@ -16,4 +17,4 @@ select2Home();
 displayComment();
 matchingStyle();
 imageShow();
-
+displayRightDetails();
