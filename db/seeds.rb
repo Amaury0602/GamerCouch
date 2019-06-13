@@ -63,7 +63,7 @@ end
 create_game("sekiro")
 create_game("zelda breath of the wild")
 create_game("twilight princess")
-create_game("mario kart")
+create_game("darksiders")
 create_game("star wars jedi knight")
 create_game("final fantasy X")
 
@@ -124,13 +124,6 @@ l = 17
   star_wars.save
   l += 1
 end
-m = 100
-34.times do
-  Like.create(game: mario_kart_ds, user: User.all[m])
-  mario_kart_ds.like_count += 1
-  mario_kart_ds.save
-  m += 1
-end
 n = 35
 30.times do
   Like.create(game: ff_ten, user: User.all[n])
@@ -141,17 +134,24 @@ end
 
 
 
+# m = 100
+# 34.times do
+#   Like.create(game: mario_kart_ds, user: User.all[m])
+#   mario_kart_ds.like_count += 1
+#   mario_kart_ds.save
+#   m += 1
+# end
 
 
-100.times do
-  game_sample_id = game_ids.sample
-  game = Game.find(game_sample_id)
-  like = Like.new(game: game, user_id: user_ids.sample)
-  if like.save
-    game.like_count += 1
-    game.save
-  end
-end
+# 100.times do
+#   game_sample_id = game_ids.sample
+#   game = Game.find(game_sample_id)
+#   like = Like.new(game: game, user_id: user_ids.sample)
+#   if like.save
+#     game.like_count += 1
+#     game.save
+#   end
+# end
 
 
 
