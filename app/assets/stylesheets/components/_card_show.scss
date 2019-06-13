@@ -1,7 +1,12 @@
 .card-product-top{
-  background-color: white;
+  background-color: #F2F2F2;
   display: flex;
   margin-bottom: 10px;
+}
+
+.submit-comment {
+  margin-left: auto;
+  display: flex;
 }
 
 .card-product-bot {
@@ -19,7 +24,6 @@
 
 .card-product-show {
   flex-direction: column;
-  overflow: hidden;
   margin-top:20px;
   color: #222222;
   display: flex;
