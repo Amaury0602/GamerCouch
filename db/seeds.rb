@@ -1,5 +1,3 @@
-#gitrequire 'csv'
-
 puts "We are about to destroy the entire DataBase, please remain calm"
 Game.destroy_all
 puts ">> Games were all destroyed"
@@ -62,12 +60,16 @@ def create_game(title)
   end
 end
 
-create_game("mario")
-create_game("final fantasy")
-create_game("metal gear solid")
-create_game("street fighter")
-create_game("doom")
-create_game("counter")
+create_game("sekiro")
+create_game("zelda breath of the wild")
+create_game("twilight princess")
+create_game("mario kart")
+create_game("star wars jedi knight")
+# create_game("forza")
+# create_game("metal gear solid")
+# create_game("street fighter IV")
+
+# create_game("doom")
 
 
 puts "Creating users"
@@ -88,7 +90,43 @@ end
 
 puts "Creating Likes"
 
-500.times do
+
+sekiro = Game.find_by(name: "Sekiro: Shadows Die Twice")
+zelda = Game.find_by(name: "The Legend of Zelda: Twilight Princess")
+zelda_botw = Game.find_by(name: "The Legend of Zelda: Breath of the Wild" )
+star_wars = Game.find_by(name: "Star Wars: Jedi Knight II - Jedi Outcast" )
+
+
+i = 0
+24.times do
+  Like.create(game: sekiro, user: User.all[i])
+  sekiro.like_count += 1
+  i += 1
+end
+j = 0
+27.times do
+  Like.create(game: zelda, user: User.all[j])
+  zelda.like_count += 1
+  j += 1
+end
+k = 0
+23.times do
+  Like.create(game: zelda_botw, user: User.all[k])
+  zelda_botw.like_count += 1
+  k += 1
+end
+l = 17
+15.times do
+  Like.create(game: star_wars, user: User.all[l])
+  star_wars.like_count += 1
+  l += 1
+end
+
+
+
+
+
+100.times do
   game_sample_id = game_ids.sample
   game = Game.find(game_sample_id)
   like = Like.new(game: game, user_id: user_ids.sample)
@@ -97,6 +135,8 @@ puts "Creating Likes"
     game.save
   end
 end
+
+
 
 
 puts "Creating Comments"
