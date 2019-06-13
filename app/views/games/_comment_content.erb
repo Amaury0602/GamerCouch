@@ -1,12 +1,14 @@
 <div class = "comment-content">
-  <p class="comment-content-description"><strong> <% d = comment.created_at %> <%= d.strftime("%b %-d %Y, %H:%M") %>
-   <br>
+     <strong>
 <% if comment.user.avatar.blank? %>
           <%= image_tag "https://www.weekend-esprithautsdefrance.com/sites/picardiev3/themes/picardiev3/img_v2/user-default.jpg", class: "avatar-bordered" %>
           <% else %>
           <%= cl_image_tag comment.user.avatar, class: "avatar-bordered"%>
           <% end %>
    <%= comment.user.username %></strong>
+  <p class="comment-content-description"> <% d = comment.created_at %> <%= d.strftime("%b %-d %Y") %>
+   <br>
+
       </p>
   <p class="comment-content-description"><%= comment.content %></p>
 </div>

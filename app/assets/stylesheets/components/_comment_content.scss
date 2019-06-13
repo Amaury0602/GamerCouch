@@ -3,6 +3,7 @@
   margin-top:10px;
   font-size: 12px;
   padding: 0 4px 0 4px;
+  background-color:white !important;
 }
 
 #comments {
@@ -13,7 +14,7 @@
 .comment-block {
   flex-direction: column;
   margin:20px 0px 0px 5px;
-  background: #3C3B44;
+  background: #ffffff;
   color: #3C3B44;
   display: flex;
   width:300px;
@@ -23,6 +24,17 @@
 
 .comment-content-description {
   font-size: 14px;
-  padding: 0 5px 0 5px;
+  padding: 0 20px 0 20px;
   margin: 0 0 8px 0;
+}
+.submit-comment {
+      width: 100%;
+    padding: 5px;
+    font-weight: 700;
+    background: #ffffff;
+    opacity: .8;
+    padding-left:80px
+}
+.submit-comment:hover {
+    opacity: 1;
 }
