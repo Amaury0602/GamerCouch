@@ -1,5 +1,7 @@
 class GamesController < ApplicationController
-  skip_after_action :verify_policy_scoped, :only => :index
+  skip_after_action :verify_policy_scoped, only: [:index, :tracking]
+  skip_after_action :verify_authorized
+
 
   def index
     if params[:sort] == "like"
@@ -23,6 +25,7 @@ class GamesController < ApplicationController
   end
 
   def tracking
+    if params[:tracking]
     @games = Game.find(params[:tracking])
     @user = current_user
     @games.each do |game|
@@ -30,8 +33,11 @@ class GamesController < ApplicationController
       @like = Like.new(game_id: game.id, user_id: @user.id)
       @like.save
     end
-    redirect_to games_path
-  end
+      redirect_to games_path
+    else
+      redirect_to root_path
+    end
+end
 
   def game_alike
     @game = Game.find(params[:tracking].to_i)
