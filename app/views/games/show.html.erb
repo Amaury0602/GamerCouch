@@ -1,6 +1,6 @@
 <% content_for :meta_title, "#{@game.name} is on #{DEFAULT_META["meta_product_name"]}" %>
 <% content_for :meta_description, @game.description %>
-<% content_for :meta_image, cl_image_path(@game.photo.path) %>
+<% content_for :meta_image, cl_image_path(@game.photo) %>
 
 <div class="container ml-5 mr-5">
   <div class="row justify-content-center d-flex">
