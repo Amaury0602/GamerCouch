@@ -32,8 +32,9 @@
     color: #222222;
     text-decoration: none;
     border-radius: 2px;
-    border: 1px solid;
+    border: 1px solid #FFA800;
     padding: 8px 14px 8px 12px;
+    transition-duration: 0.2s;
     &:hover {
       color: black;
       background: #FFA800;

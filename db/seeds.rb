@@ -65,11 +65,7 @@ create_game("zelda breath of the wild")
 create_game("twilight princess")
 create_game("mario kart")
 create_game("star wars jedi knight")
-# create_game("forza")
-# create_game("metal gear solid")
-# create_game("street fighter IV")
-
-# create_game("doom")
+create_game("final fantasy X")
 
 
 puts "Creating users"
@@ -95,31 +91,52 @@ sekiro = Game.find_by(name: "Sekiro: Shadows Die Twice")
 zelda = Game.find_by(name: "The Legend of Zelda: Twilight Princess")
 zelda_botw = Game.find_by(name: "The Legend of Zelda: Breath of the Wild" )
 star_wars = Game.find_by(name: "Star Wars: Jedi Knight II - Jedi Outcast" )
+ff_ten = Game.find_by(name: "Final Fantasy X")
+
+mario_kart_ds = Game.find_by(name: "Mario Kart DS")
 
 
 i = 0
 24.times do
   Like.create(game: sekiro, user: User.all[i])
   sekiro.like_count += 1
+  sekiro.save
   i += 1
 end
 j = 0
 27.times do
   Like.create(game: zelda, user: User.all[j])
   zelda.like_count += 1
+  zelda.save
   j += 1
 end
 k = 0
 23.times do
   Like.create(game: zelda_botw, user: User.all[k])
   zelda_botw.like_count += 1
+  zelda_botw.save
   k += 1
 end
 l = 17
-15.times do
+30.times do
   Like.create(game: star_wars, user: User.all[l])
   star_wars.like_count += 1
+  star_wars.save
   l += 1
+end
+m = 100
+34.times do
+  Like.create(game: mario_kart_ds, user: User.all[m])
+  mario_kart_ds.like_count += 1
+  mario_kart_ds.save
+  m += 1
+end
+n = 35
+30.times do
+  Like.create(game: ff_ten, user: User.all[n])
+  ff_ten.like_count += 1
+  ff_ten.save
+  n += 1
 end
 
 
