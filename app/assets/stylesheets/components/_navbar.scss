@@ -19,6 +19,9 @@
   width: 40px;
 }
 
+.navbar-nav{
+  align-items: center;
+}
 
 .nav-item {
   background: white;
@@ -31,7 +34,7 @@
     border: 1px solid;
     padding: 8px 14px 8px 12px;
     &:hover {
-      color: #bfd2c0;
+      color: black;
       background: #FFA800;
     }
   }

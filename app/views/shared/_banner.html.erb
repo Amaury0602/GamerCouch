@@ -1,19 +1,20 @@
 <div class="banner" style="background-image: linear-gradient(0deg,rgba(0,0,0,0.6) 50%,rgba(0,0,0,.6) 100%),radial-gradient(50% 120%,rgba(0,0,0,0.2) 50%,rgba(0,0,0,0.5) 100%), url(https://educayjuega.files.wordpress.com/2017/04/videojuegos-lista-time-1.jpg);">
-  <div class="container">
+  <div class="w-100">
     <div class="show-title">
+      <p>GAMERCouch</p>
       <p>Find the right game for you now</p>
     </div>
-      <div style="width: 100%" class="row d-flex justify-content-center">
+      <div style="width: 100%" class="d-flex justify-content-center">
 
-       <form action="/tracking" method="POST" style="width:75%">
-          <select name="tracking[]" class="select2" multiple="multiple" placeholder="select your games">
+       <form action="/tracking" method="POST" class="form-new-games w-75">
+          <select name="tracking[]" class="select2" placeholder="Enter your games" multiple="multiple" placeholder="select your games" allowClear: true>
             <% @games.each do |game| %>
-              <option value="<%= game.id %>"  ><%= game.name %></option>
+              <option value="<%= game.id %>" ><%= game.name %></option>
             <% end %>
-            <input type="submit" value="Send your games !" class= "home-button" >
+            <input type="submit" value="Find new games !" class= "home-button" >
           </select>
           <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-            <p class="sub-message">Enter the games you like</p>
+            <!-- <p class="sub-message">Enter the games you like</p> -->
         </form>
       </div>
   </div>
