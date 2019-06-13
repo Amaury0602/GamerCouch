@@ -1,10 +1,8 @@
 .home-site-card {
   display: flex;
   flex-direction: column;
-  box-shadow: 1px 7px 99px grey;
   justify-content: center;
   align-items: center;
-  border-radius: 50%;
   width: 250px;
   height: 250px;
 
@@ -22,8 +20,9 @@
 }
 
 .home-button {
-  position: relative;
-  left: 301px;
+  // position: relative;
+  // left: 301px;
+  margin-top: 20px;
   height: 50px;
   width: 200px;
   top: 23px;
@@ -44,22 +43,21 @@
 }
 
 .show-title {
-  padding-top: 150px;
-  margin-right: 15px;
+  // padding-top: 50px;
+  // margin-right: 15px;
   text-align: center;
   p {
   font-size: 30px;
-  color: #FFA800;
+  color: white;
   }
 }
 
 .way-to-go {
   display: flex;
-  justify-content: space-around;
-  margin-top: 43px;
+  justify-content: center;
+  margin-top: 10px;
   right: 34px;
   position: absolute;
-  padding-bottom: 10px;
 }
 
 .most-popular {
@@ -68,5 +66,12 @@
 
 .sub-message {
   color: #FFA800;
+}
+.left {
+
+}
+
+.left {
+
 }
 

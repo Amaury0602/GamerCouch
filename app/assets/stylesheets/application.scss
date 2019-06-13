@@ -4,9 +4,11 @@
 @import "config/bootstrap_variables";
 
 // External libraries
+@import "animate";
 @import "bootstrap/scss/bootstrap";
 @import "font-awesome-sprockets";
 @import "font-awesome";
+
 
 // Your CSS partials
 @import "components/index";
