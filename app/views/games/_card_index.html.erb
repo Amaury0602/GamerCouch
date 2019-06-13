@@ -49,7 +49,7 @@
       <h2>No match found</h2>
     <% else %>
       <div id="match-score"><%= "#{game.matching_score(current_user)}%" %>
-        <p>Matching your tastes</p>
+        <p class= "right-details">(Details)</p>
 
       </div>
     <% end %>
@@ -79,17 +79,30 @@
     <% if !game.match(current_user).empty? %>
       <% game.match(current_user).first(3).each do |game, score|%>
         <li>
+
+
           <div class="mini-card">
+
+          <div class="mini-card-photo">
             <% if game.photo.present? %>
               <%= cl_image_tag game.photo, class: "img-mini" %>
             <% else %>
               <%= image_tag "loading.png", class: "img-mini" %>
             <% end %>
-            <div class="mini-card-info">
-              <p><%= link_to game.name, game_path(game) %></p>
-              <p class="matching-percent"><%= score.round(1) %>% MATCH</p>
-            </div>
           </div>
+
+          <div class="mini-card-title-infos">
+            <div class="mini-card-title">
+              <p><p><%= link_to game.name, game_path(game) %></p></p>
+            </div>
+              <div class="mini-card-score">
+                <p class="matching-percent"><%= "#{score.round(1)} % des joueurs aiment ça" %></p>
+              </div>
+          </div>
+
+          </div>
+
+
         </li>
       <% end %>
     <% else %>
