@@ -8,6 +8,5 @@ class WishesController < ApplicationController
     if @wish.save
       redirect_to dashboard_path
     end
-
   end
 end

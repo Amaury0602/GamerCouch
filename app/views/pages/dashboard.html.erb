@@ -1,3 +1,84 @@
+<!--
+<div class="container">
+
+
+<div class="dashboard row">
+  <h1 class="dash-title"> <strong><%= "#{current_user.username}'s couch" %></strong>
+  </h1>
+</div>
+
+<div class="dashboard row">
+  <div class="fav-games-list col-4">
+    <h1 class="text-center">My likes</h1>
+    <% if !current_user.likes.empty? %>
+    <ul>
+      <% current_user.likes.each do |like| %>
+        <li>
+          <div class="card-product-dashboard">
+            <% if like.game.photo.present? %>
+              <%= cl_image_tag like.game.photo, class: "img" %>
+            <% else %>
+              <%= image_tag "loading.png", class: "img" %>
+            <% end %>
+            <div class="card-product-infos">
+            <%= link_to like.game.name, game_path(like.game),class: "black-color" %>
+            </div>
+          <% end %>
+          </div>
+        </li>
+    </ul>
+      <% else %>
+      <h3>Tell us which games you like!</h3>
+    <% end %>
+  </div>
+
+  <div class="wishlist col-4">
+    <h1 class="text-center">My wishlist</h1>
+
+    <ul>
+      <% current_user.wishes.each do |wish| %>
+       <li>
+        <div class="card-product-dashboard">
+          <% if wish.game.photo.present? %>
+            <%= cl_image_tag wish.game.photo, class: "img" %>
+          <% else %>
+            <%= image_tag "loading.png", class: "img" %>
+          <% end %>
+        <div class="card-product-infos">
+          <%= link_to wish.game.name, game_path(wish.game), class: "black-color" %>
+        <% end %>
+        </div>
+      </div>
+       </li>
+    </ul>
+  </div>
+
+
+  <div class="dash-comments col-4">
+     <h1 class="text-center">My comments</h1>
+    <ul>
+    <%current_user.comments.each do |comment| %>
+    <li class="comment-line">
+      <% d = comment.created_at %> <%=  %>
+      <%= "#{d.strftime("%b %-d %Y, %H:%M")}" %>
+      <br>
+      <%= "(" %>
+      <%=link_to comment.game.name, game_path(comment.game), class: "black-color"%>
+       <%= ")" %>
+      <br>
+      <%="#{comment.content}"%>
+    </li>
+    <% end %>
+    </ul>
+  </div>
+</div>
+
+
+
+</div>
+-->
+
+
 <div class="container">
   <div class=" row">
     <h1 class="dash-title"> <strong><%= "#{current_user.username}'s couch" %></strong>
@@ -6,18 +87,18 @@
   <div class="content-dashboard d-flex">
   <div class="menu-left" style="border-right: 1px solid black;padding:10px;width: 30%;">
 <span id="nav-tab" >
-  <p class="active"><a href="#like">My Likes</a></p>
-  <p><a href="#description">My Wishlist</a></p>
-  <p><a href="#comments">My comments</a></p>
+  <h3 class="active"><a class="black-color" href="#like">My Likes</a></h3>
+  <h3><a class="black-color" href="#wishlist">My Wishlist</a></h3>
+  <h3><a class="black-color" href="#comments">My comments</a></h3>
 </span>
   </div>
- <div class="menu-right tab-content" style="padding:10px;width: 70%;">
-    <div class="like tab-pane active" id="like">
+ <div class="menu-right tab-content" style="padding:10px;width: 70%;background: white !important">
+    <div class="like active tab-pane" id="like" style="background: white !important">
       <% if !current_user.likes.empty? %>
         <ul>
           <% current_user.likes.each do |like| %>
             <li>
-              <div class="card-product-dashboard">
+              <div class="card-product-dashboard" style="border-bottom:1px solid gray">
                 <% if like.game.photo.present? %>
                   <%= cl_image_tag like.game.photo, class: "img" %>
                 <% else %>
@@ -25,7 +106,7 @@
                 <% end %>
             <div class="mini-card-title-infos">
             <div class="mini-card-title">
-              <p><%= link_to like.game.name, game_path(like.game) %></p>
+              <p><%= link_to like.game.name, game_path(like.game), class: "black-color" %></p>
             </div>
           </div>
                 <% end %>
@@ -37,25 +118,25 @@
       <% end %>
     </div>
 
-<div class="wishlist tab-pane" id="wishlist">
-  <ul>
-    <% current_user.wishes.each do |wish| %>
-      <li>
-      <div class="card-product-dashboard">
-        <% if wish.game.photo.present? %>
-          <%= cl_image_tag wish.game.photo, class: "img" %>
-        <% else %>
-          <%= image_tag "loading.png", class: "img" %>
-        <% end %>
+<div class="wishlist tab-pane" style="background: white !important" id="wishlist" >
+  <ul class=" ">
+      <% current_user.wishes.each do |wish| %>
+       <li>
+        <div class="card-product-dashboard games-dashboard" style="border-bottom:1px solid gray">
+          <% if wish.game.photo.present? %>
+            <%= cl_image_tag wish.game.photo, class: "img" %>
+          <% else %>
+            <%= image_tag "loading.png", class: "img" %>
+          <% end %>
         <div class="card-product-infos">
           <%= link_to wish.game.name, game_path(wish.game), class: "black-color" %>
-    <% end %>
-    </div>
-</div>
-      </li>
+        <% end %>
+        </div>
+      </div>
+       </li>
     </ul>
 </div>
-  <div class="comments tab-pane" id="comments">
+  <div class="comments tab-pane" style="color:gray" id="comments">
     <ul>
       <%current_user.comments.each do |comment| %>
         <li class="comment-line">
@@ -69,7 +150,6 @@
           <%="#{comment.content}"%>
         </li>
       <% end %>
-
     </ul>
 </div>
 </div>
@@ -86,3 +166,4 @@ tab.className = tab.className.replace('active', '');
 const element= document.getElementById('nav-tab');
 element.addEventListener('click', onTabClick, false);
 </script>
+
