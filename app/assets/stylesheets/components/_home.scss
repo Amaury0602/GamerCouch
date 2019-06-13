@@ -4,14 +4,12 @@
   box-shadow: 1px 7px 99px grey;
   justify-content: center;
   align-items: center;
-  background-color: grey;
   border-radius: 50%;
   width: 250px;
   height: 250px;
 
   p {
     color: #222222;
-    font-weight: bolder;
     text-align: center;
     font-size: 14px;
   }
@@ -29,7 +27,7 @@
   height: 50px;
   width: 200px;
   top: 23px;
-  background-color: #ff0c18;
+  background-color: #FFA800;
   color: #222222;
   border: 0;
   font-weight: bolder;
@@ -37,7 +35,7 @@
   transition-duration: 0.5s;
   &:hover {
     background-color: #222222;
-    color: #ff0c18;
+    color: #FFA800;
   }
 }
 
@@ -46,12 +44,12 @@
 }
 
 .show-title {
-  padding-top: 50px;
+  padding-top: 150px;
   margin-right: 15px;
   text-align: center;
   p {
-  font-size: 75px;
-  color: #ff0c18;
+  font-size: 30px;
+  color: #FFA800;
   }
 }
 
@@ -61,9 +59,14 @@
   margin-top: 43px;
   right: 34px;
   position: absolute;
+  padding-bottom: 10px;
 }
 
 .most-popular {
   color: #222222;
+}
+
+.sub-message {
+  color: #FFA800;
 }
 
