@@ -185,6 +185,12 @@
     margin: 4px 0 4px 0;
     font-size: 14px;
     border-bottom: 1px solid #cecbcb;
+
+    .mini-card-title-infos {
+      p {
+        font-weight: normal;
+      }
+    }
     .img-mini {
       height: 90px;
       width: 90px;
