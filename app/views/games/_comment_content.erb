@@ -1,7 +1,6 @@
 <div class = "comment-content">
-  <p> <strong> <% d = Date.today  %> <%= d.strftime("%d/%b/%Y") %>
-   ---
-   <%= comment.user.username %>
+  <p class="comment-content-description"><strong> <% d = Date.today  %> <%= d.strftime("%d %b %Y") %>
+   - <%= comment.user.username %></strong>
    <% if comment.user.avatar.blank? %>
           <%= image_tag "https://www.weekend-esprithautsdefrance.com/sites/picardiev3/themes/picardiev3/img_v2/user-default.jpg", class: "avatar-bordered" %>
           <% else %>
@@ -9,6 +8,6 @@
           <% end %>
         </strong>
       </p>
-  <p><%= comment.content %></p>
+  <p class="comment-content-description"><%= comment.content %></p>
 </div>
 

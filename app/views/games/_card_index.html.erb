@@ -37,12 +37,10 @@
           </div>
           <!-- recommandations -->
       </div>
+
     </div>
     <%= link_to "", game_path(game), class: 'absolute-link' %>
   </div>
-
-
-
   <div class="right">
     <% game_scores = game.match(current_user).first(3) %>
     <% if !game_scores.present? %>
