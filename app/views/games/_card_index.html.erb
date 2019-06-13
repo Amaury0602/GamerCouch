@@ -43,14 +43,14 @@
 
 
 
-  <div class="right right_choice" data-game-id="<%= game.id %>">
+  <div class="right">
     <% game_scores = game.match(current_user).first(3) %>
     <% if !game_scores.present? %>
       <h2>No match found</h2>
     <% else %>
       <div id="match-score"><%= "#{game.matching_score(current_user)}%" %>
         <div class= "right-details">
-
+          <a class="right right_choice" data-game-id="<%= game.id %>" href="#">Details</a>
         </div>
       </div>
     <% end %>
