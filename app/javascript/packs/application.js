@@ -17,4 +17,3 @@ select2Home();
 displayComment();
 matchingStyle();
 imageShow();
-//animateHome();
