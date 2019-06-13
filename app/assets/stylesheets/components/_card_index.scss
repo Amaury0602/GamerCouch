@@ -83,6 +83,10 @@
   border-radius: 3px;
   background-color: #F2F2F2;
   border: 1px solid #bcbcbc;
+  &:hover {
+    border: 1.5px solid #FFA800;
+    border-left: 1.5px solid #FFA800;
+  }
   &:hover .right #match-score a{
     opacity: 1;
   }
@@ -216,14 +220,16 @@
   top: 0;
   padding-top: 15px;
 
+
   a {
     color: #222222;
     text-decoration: none;
     transition-duration: 0.3s;
     padding: 1px 3px 1px 3px;
     margin-bottom: 10px;
+    border: 2px solid #FFA800;
+    padding: 3px;
     &:hover {
-      color: $ice-white;
       background: #FFA800;
       border-radius: 3px;
     }
