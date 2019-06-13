@@ -1,15 +1,16 @@
-refreshLike = (likeHTML) => {
-  const gameLike = document.getElementById("like-<%= @game.id %>")
-  gameLike.innerHTML = likeHTML
+refreshLike = (cardHTML) => {
+  const gameCard = document.getElementById("card-<%= @game.id %>")
+  gameCard.innerHTML = cardHTML
 }
 
-var gameRight = document.querySelector(".right[data-game-id='<%=@game.id %>']");
-<% game_scores = @game.match(current_user).first(3) %>
-<% if !game_scores.present? %>
-  <%= score = "Can't match yet" %>
-<% else %>
-  <%= score = @game.matching_score(current_user) %>
-<% end %>
-gameRight.innerHTML =  <%= score %>
+// var gameRight = document.querySelector(".right[data-game-id='<%=@game.id %>']");
+// <% game_scores = @game.match(current_user).first(3) %>
+// <% if !game_scores.present? %>
+//   <%= score = "Can't match yet" %>
+// <% else %>
+//   <%= score = @game.matching_score(current_user) %>
+// <% end %>
+// gameRight.innerHTML =  <%= score %>
 
-refreshLike('<%= j render "games/like", game: @game %>');
+refreshLike('<%= j render "games/card_index", game: @game %>');
+matchingStyle()

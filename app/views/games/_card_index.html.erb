@@ -46,8 +46,18 @@
     <% if !game_scores.present? %>
       <h2>No match found</h2>
     <% else %>
-      <div id="match-score"><%= "#{game.matching_score(current_user)}%" %>
-        <div class= "right-details">
+      <% score = game.matching_score(current_user) %>
+      <% if score <= 25 %>
+        <% class_name = "badder" %>
+      <% elsif score < 50 %>
+        <% class_name = "less-bad" %>
+      <% elsif score < 75 %>
+        <% class_name = "good" %>
+      <% else %>
+        <% class_name = "very-good" %>
+      <% end %>
+      <div id="match-score" class="<%= class_name %>"><%= "#{game.matching_score(current_user)}%" %>
+        <div class="score-details">
           <a class="right right_choice" data-game-id="<%= game.id %>" href="#">Details</a>
         </div>
       </div>
@@ -95,7 +105,7 @@
               <p><p><%= link_to game.name, game_path(game) %></p></p>
             </div>
               <div class="mini-card-score">
-                <p class="matching-percent"><%= "#{score.round(1)} % des joueurs aiment ça" %></p>
+                <p class="matching-percent"><%= "#{score.round(1)} % of players who played #{game.name} loved this" %></p>
               </div>
           </div>
 

@@ -30,7 +30,9 @@
     </div>
     <div class="col-10">
       <% @games.each do |game| %>
-        <%=render "card_index", game: game %>
+        <div id="card-<%= game.id %>">
+          <%=render "card_index", game: game %>
+        </div>
       <% end %>
     </div>
   </div>
