@@ -10,7 +10,7 @@
 <div class="dashboard row justify-content-center">
 
   <div class="fav-games-list col-4">
-    <h1>My likes</h1>
+    <h1 class="text-center">My likes</h1>
     <% if !current_user.likes.empty? %>
     <ul>
       <% current_user.likes.each do |like| %>
@@ -34,7 +34,7 @@
   </div>
 
   <div class="wishlist col-4">
-    <h1>My wishlist</h1>
+    <h1 class="text-center">My wishlist</h1>
 
     <ul>
       <% current_user.wishes.each do |wish| %>
@@ -56,10 +56,18 @@
 
 
   <div class="dash-comments col-4">
+     <h1 class="text-center">My comments</h1>
     <ul>
     <%current_user.comments.each do |comment| %>
-    <li>
-      <%= "(#{comment.game.name})---#{comment.content}" %>
+    <li class="comment-line">
+      <% d = comment.created_at %> <%=  %>
+      <%= "#{d.strftime("%b %-d %Y, %H:%M")}" %>
+      <br>
+      <%= "(" %>
+      <%=link_to comment.game.name, game_path(comment.game), class: "black-color"%>
+       <%= ")" %>
+      <br>
+      <%="#{comment.content}"%>
     </li>
     <% end %>
     </ul>
