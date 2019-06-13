@@ -1,6 +1,9 @@
 <% content_for :meta_title, "#{@game.name} is on #{DEFAULT_META["meta_product_name"]}" %>
 <% content_for :meta_description, @game.description %>
 
+<body>
+
+
 <% if !@game.photo.present? %>
   <% content_for :meta_image, image_path("loading.png")  %>
 <% else %>
@@ -28,4 +31,4 @@
   </div>
 </div>
 
-
+</body>

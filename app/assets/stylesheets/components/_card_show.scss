@@ -1,7 +1,8 @@
 .card-product-top{
-  background-color: #F2F2F2;
+  background-color: #ffffff;
   display: flex;
   margin-bottom: 10px;
+  padding:10px;
 }
 
 .submit-comment {
@@ -102,9 +103,10 @@ a {
   text-align:center;
   border-radius: 0px;
   font-weight: 700;
+
 }
 .add-wish:hover{
-  box-shadow: 1px 3px 3px gray;
+  box-shadow: 1px 3px 3px #02020230;
   opacity: 1;
   }
 div.card-product-description {
