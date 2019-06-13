@@ -37,6 +37,9 @@
 
       <%= link_to "", game_path(game), class: 'absolute-link' %>
     </div>
+
+<!--   <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="top">
+  According to your taste, here's your best game -->
     <div class="right right_choice" data-game-id="<%= game.id %>">
       <% game_scores = game.match(current_user).first(3) %>
       <% if !game_scores.present? %>
@@ -45,6 +48,7 @@
         <div id="match-score"><%= game.matching_score(current_user) %></div>
       <% end %>
     </div>
+<!--   </button> -->
 </div>
 <div class="card-product-index-comment">
   <div class="collapse" id="collapseGame<%= game.id %>">

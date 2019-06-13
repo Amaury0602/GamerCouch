@@ -10,9 +10,9 @@
   text-align: justify;
   display: flex;
   flex-direction: column;
-   background-color: white;
-   padding:10px;
-   position:relative;
+  background-color: white;
+  padding:10px;
+  position:relative;
   .add-wish {
   }
   }
@@ -40,13 +40,13 @@ a {
 
 .card-product-show h2 {
   font-size: 24px;
-  margin: 0;
+  padding-top: 5px;
 }
 
 .card-product-show  p {
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.4;
-  opacity: .7;
+  opacity: .8;
   margin: 8px 1px 0 1px;
 }
 .lien-goback{
@@ -55,12 +55,12 @@ a {
 }
 
 .card-product-show  .card-product-infos {
-  padding: 16px;
+  padding: 10px;
 }
 
 .show-and-comment {
   display: flex;
-  height: 620px;
+  height: 550px;
 }
 #little-images img {
   width: 50px;
@@ -76,14 +76,14 @@ a {
 }
 #big-image img {
   width: 200px;
-  height: 300px;
+  height: 250px;
   border-radius: 20px;
   background-size: cover;
   object-fit: contain;
 }
 .big-image-bot{
    width: 400px !important;
-  border-radius: 20px;
+  border-radius: 0px;
   margin-bottom: 20px !important;
 }
 #big-image-bot{
@@ -94,9 +94,9 @@ a {
   background-color: red;
   opacity: .8;
   padding:10px;
-  width:50%;
+  width:100%;
   text-align:center;
-  border-radius: 50px;
+  border-radius: 0px;
   font-weight: 700;
 }
 .add-wish:hover{
@@ -108,6 +108,7 @@ div.card-product-description {
 }
 div.card-product-description p {
   font-size: 16px;
+  padding-top: 8px;
 }
 
 @media (min-width: 100px) and (max-width: 575px) {

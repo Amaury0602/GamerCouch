@@ -1,23 +1,22 @@
 <div class="container ml-5 mr-5">
   <div class="row justify-content-center d-flex">
-  <div class="show-and-comment">
-    <%=render "games/card_show" %>
-  </div>
+    <div class="show-and-comment">
+      <%=render "games/card_show" %>
+    </div>
     <div class="comment-block">
-    <%= render 'games/form', game: @game, comment: @comment %>
-          <div id="comments">
-            <% myTab = Array.[] %>
-          <% @game.comments.each do |comment| %>
+      <%= render 'games/form', game: @game, comment: @comment %>
+      <div id="comments" class="text-justify">
+        <% myTab = Array.[] %>
+        <% @game.comments.each do |comment| %>
           <% myTab << comment %>
-          <% end %>
-           <% myTab.reverse!%>
-          <% myTab.each do |element| %>
+        <% end %>
+        <% myTab.reverse!%>
+        <% myTab.each do |element| %>
           <%= render 'games/comment_content', comment: element %>
-          <% end %>
-        </div>
+        <% end %>
+      </div>
     </div>
   </div>
-  </div>
-
-  <%= link_to "go back", games_path, class: "lien-goback" %>
 </div>
+
+

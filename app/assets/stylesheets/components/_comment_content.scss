@@ -12,10 +12,16 @@
 }
 .comment-block {
   flex-direction: column;
-  margin:20px 0 10px 5px;
+  margin:20px 0px 0px 5px;
   background: #3C3B44;
   color: #3C3B44;
   display: flex;
   width:300px;
-  border-radius: 3px;
+  border-radius: 0px;
+}
+
+.comment-content-description {
+  font-size: 14px;
+  padding: 0 5px 0 5px;
+  margin: 0 0 8px 0;
 }
