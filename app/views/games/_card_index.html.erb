@@ -1,16 +1,22 @@
 <div class="card-product-index">
-    <% if game.photo.present? %>
-      <%= cl_image_tag game.photo, class: "img" %>
-    <% else %>
-      <%= image_tag "loading.png", class: "img" %>
-    <% end %>
-    <div class="card-product-infos" id="game-<%= game.id %>">
-      <div class="title-date-right">
-        <h1 class="title"><%= game.name %></h1>
-        <h3 class="year"><%= game.year %></h3>
-      </div>
 
-      <div class="platform"><h3><%= game.platform[0..75] %></h3></div>
+  <div class="card-product-index-left">
+
+
+    <div class="card-product-index-img">
+      <% if game.photo.present? %>
+        <%= cl_image_tag game.photo, class: "img" %>
+      <% else %>
+        <%= image_tag "loading.png", class: "img" %>
+      <% end %>
+    </div>
+
+
+    <div class="card-product-infos" id="game-<%= game.id %>">
+
+      <h1 class="title"><strong><%= "#{game.name.upcase} (#{game.year})"%></strong></h1>
+
+      <div class="platform"><h1><%= game.platform[0..75] %></h1></div>
 
       <div class="reaction">
           <!-- comments -->
@@ -30,22 +36,27 @@
             <%= render "games/like", game: game %>
           </div>
           <!-- recommandations -->
-          <div class="link-cursor">
-            <div class="recommandation" data-game-id="<%= game.id %>">Recommandation</div>
-          </div>
       </div>
+    </div>
+    <%= link_to "", game_path(game), class: 'absolute-link' %>
+  </div>
 
-      <%= link_to "", game_path(game), class: 'absolute-link' %>
-    </div>
-    <div class="right right_choice" data-game-id="<%= game.id %>">
-      <% game_scores = game.match(current_user).first(3) %>
-      <% if !game_scores.present? %>
-        <h2>No match found</h2>
-      <% else %>
-        <div id="match-score"><%= game.matching_score(current_user) %></div>
-      <% end %>
-    </div>
+
+
+  <div class="right right_choice" data-game-id="<%= game.id %>">
+    <% game_scores = game.match(current_user).first(3) %>
+    <% if !game_scores.present? %>
+      <h2>No match found</h2>
+    <% else %>
+      <div id="match-score"><%= "#{game.matching_score(current_user)}%" %>
+        <p>Matching your tastes</p>
+
+      </div>
+    <% end %>
+  </div>
 </div>
+
+
 <div class="card-product-index-comment">
   <div class="collapse" id="collapseGame<%= game.id %>">
       <% game.comments.each do |comment| %>

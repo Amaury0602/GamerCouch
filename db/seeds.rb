@@ -39,7 +39,6 @@ def create_game(title)
     else
       screens << ""
     end
-    puts screens
 
     if !game['release_dates'].nil?
       date = game['release_dates'][0]['y']
@@ -66,14 +65,14 @@ end
 create_game("mario")
 create_game("final fantasy")
 create_game("metal gear solid")
-# # create_game("street fighter")
-# # create_game("doom")
-# # create_game("counter")
+create_game("street fighter")
+create_game("doom")
+create_game("counter")
 
 
 puts "Creating users"
 
-50.times do
+150.times do
   User.create(email: Faker::Internet.unique.email, password: Faker::Name.unique.name, username:Faker::Name.unique.name)
 end
 
@@ -89,7 +88,7 @@ end
 
 puts "Creating Likes"
 
-300.times do
+500.times do
   game_sample_id = game_ids.sample
   game = Game.find(game_sample_id)
   like = Like.new(game: game, user_id: user_ids.sample)
@@ -101,7 +100,7 @@ end
 
 
 puts "Creating Comments"
-80.times do
+10.times do
   game_sample_id = game_ids.sample
   game = Game.find(game_sample_id)
   comment = Comment.new(game_id: game_ids.sample, user_id: user_ids.sample)
