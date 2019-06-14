@@ -102,7 +102,7 @@
 
           <div class="mini-card-title-infos">
             <div class="mini-card-title">
-              <p><p><%= link_to game.name, game_path(game) %></p></p>
+              <p><%= link_to game.name, game_path(game) %></p>
             </div>
               <div class="mini-card-score">
                 <p class="matching-percent">
@@ -128,7 +128,7 @@
    <% game.comments.each do |comment| %>
      <%= comment.user.username %>
      <% if comment.user.avatar.blank? %>
-        <%= image_tag "https://www.screenfeed.fr/wp-content/uploads/2013/10/default-avatar.png", class: "avatar-bordered" %>
+        <%= image_tag "https://www.weekend-esprithautsdefrance.com/sites/picardiev3/themes/picardiev3/img_v2/user-default.jpg", class: "avatar-bordered", class: "avatar-bordered" %>
       <% else %>
         <%= cl_image_tag comment.user.avatar, class: "avatar-bordered"%>
       <% end %>
