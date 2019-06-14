@@ -166,20 +166,24 @@ end
 
 
 
-puts "Creating Comments"
-10.times do
-  game_sample_id = game_ids.sample
-  game = Game.find(game_sample_id)
-  comment = Comment.new(game_id: game_ids.sample, user_id: user_ids.sample)
-  comment1 = Faker::Quote.famous_last_words
-  comment2 = Faker::Restaurant.review
-  tab_comment = [comment1 , comment2]
-  comment.content =  tab_comment.sample
-  if comment.valid?
-    game.comment_count += 1
-    comment.save
-  end
-end
+# puts "Creating Comments"
+# 10.times do
+#   game_sample_id = game_ids.sample
+#   game = Game.find(game_sample_id)
+#   comment = Comment.new(game_id: game_ids.sample, user_id: user_ids.sample)
+#   comment1 = Faker::Quote.famous_last_words
+#   comment2 = Faker::Restaurant.review
+#   tab_comment = [comment1 , comment2]
+#   comment.content =  tab_comment.sample
+#   if comment.valid?
+#     game.comment_count += 1
+#     comment.save
+#   end
+# end
 
+c_one = Comment.create(game: sekiro, user: User.all[0], content: "super game with nice graphics")
+c_two = Comment.create(game: sekiro, user: User.all[1], content: "awesome, a lot like dark souls")
+c_three = Comment.create(game: sekiro, user: User.all[2], content: "thanks seems like a nice game, i'll buy it soon")
+c_four = Comment.create(game: sekiro, user: User.all[3], content: "better than pokemon")
 puts ">> It's done"
 
