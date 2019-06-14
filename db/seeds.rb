@@ -113,14 +113,14 @@ j = 10
   j += 1
 end
 k = 0
-23.times do
+21.times do
   Like.create(game: zelda_botw, user: User.all[k])
   zelda_botw.like_count += 1
   zelda_botw.save
   k += 1
 end
 l = 17
-30.times do
+28.times do
   Like.create(game: star_wars, user: User.all[l])
   star_wars.like_count += 1
   star_wars.save
