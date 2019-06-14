@@ -103,9 +103,10 @@ a {
   text-align:center;
   border-radius: 0px;
   font-weight: 700;
-
+  transition: all 1s ease-out;
 }
 .add-wish:hover{
+  transition: all 1s ease-out;
   box-shadow: 1px 3px 3px #02020230;
   opacity: 1;
   }

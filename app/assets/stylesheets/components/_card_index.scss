@@ -77,18 +77,21 @@
 
 .card-product-index {
   margin: 20px 0px 20px 0px;
-  box-shadow: 2px 4px 6px #8080805c;;
+
   color: #4c4c4c;
   display: flex;
   border-radius: 3px;
   background-color: #F2F2F2;
   border: 1px solid #bcbcbc;
+    transition: all 1s ease-out;
   &:hover {
-    border: 1.5px solid #FFA800;
-    border-left: 1.5px solid #FFA800;
+    box-shadow: 3px 6px 6px #8080805c;
+    border: 2px solid #8080805c;
+      transition: all 1s ease-out;
   }
   &:hover .right #match-score a{
     opacity: 1;
+    transition: all 1s ease-out;
   }
 
 
@@ -227,7 +230,6 @@
     transition-duration: 0.3s;
     padding: 1px 3px 1px 3px;
     margin-bottom: 10px;
-    border: 2px solid #FFA800;
     padding: 3px;
     &:hover {
       background: #FFA800;
@@ -288,10 +290,14 @@
 
 .badder {
   color: #bf0000;
+
 }
 
 .less-bad {
   color: #ff8c00;
+}
+.less-bad2 {
+  color: #4c4c4c;
 }
 
 .middle {
@@ -303,7 +309,7 @@
 }
 
 .very-good {
-  color: #2fff28;
+  color: #00b740;
   text-weight: bolder;
 }
 

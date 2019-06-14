@@ -58,7 +58,7 @@
       <% end %>
       <div id="match-score" class="<%= class_name %>"> <%= "#{game.matching_score(current_user)}%"%>
         <div class="score-details">
-          <a class="right right_choice" data-game-id="<%= game.id %>" href="#">Details</a>
+          <a style="color:gray !important;font-weight: 700" class="right right_choice" data-game-id="<%= game.id %>" href="#">Details</a>
         </div>
       </div>
     <% end %>

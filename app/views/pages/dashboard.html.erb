@@ -4,15 +4,15 @@
     <h1 class="dash-title"> <strong><%= "#{current_user.username}'s couch" %></strong>
     </h1>
   </div>
-  <div class="content-dashboard d-flex">
-  <div class="menu-left" style="border-right: 1px solid black;padding:10px;width: 30%;">
+  <div class="content-dashboard d-flex justify-content-center">
+  <div class="menu-left" style="border-right: 1px solid black;padding:10px;width: 15%;">
 <span id="nav-tab" >
-  <h3 class="active"><a class="black-color" href="#like">My Likes</a></h3>
-  <h3><a class="black-color" href="#wishlist">My Wishlist</a></h3>
-  <h3><a class="black-color" href="#comments">My comments</a></h3>
+  <h4 class="active"><a style="padding: 10px" class="black-color" href="#like">My Likes</a></h4>
+  <h4><a style="padding: 10px" class="black-color" href="#wishlist">My Wishlist</a></h4>
+  <h4><a style="padding: 10px" class="black-color" href="#comments">My Comments</a></h4>
 </span>
   </div>
- <div class="menu-right tab-content" style="padding:10px;width: 70%;background: white !important">
+ <div class="menu-right tab-content" style="padding:10px;width: 50%;background: white !important">
     <div class="like active tab-pane" id="like" style="background: white !important">
       <% if !current_user.likes.empty? %>
         <ul>
