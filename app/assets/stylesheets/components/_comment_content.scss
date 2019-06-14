@@ -27,13 +27,14 @@
   padding: 0 20px 0 20px;
   margin: 0 0 8px 0;
 }
-.submit-comment {
-      width: 100%;
+.submit-comment-show {
+    width: 100%;
     padding: 5px;
     font-weight: 700;
     background: #ffffff;
     opacity: .8;
-    padding-left:80px
+    border: 1px solid;
+    border-color: #FFA800;
 }
 .submit-comment:hover {
     opacity: 1;
