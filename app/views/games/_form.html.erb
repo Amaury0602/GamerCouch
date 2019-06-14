@@ -1,4 +1,4 @@
 <%= simple_form_for([ game, comment ], remote: true) do |form| %>
   <%= form.input :content, as: :text, placeholder: 'Write a comment', label: false %>
-  <%= form.submit "Add a new comment", class: "submit-comment" %>
+  <%= form.submit "Add a new comment", class: "submit-comment-show" %>
 <% end %>
