@@ -7,11 +7,28 @@
   align-items: center;
 }
 
+.banner-content {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  form {
+    margin-top: 30px;
+    width: 80%;
+  }
+}
+
+
+.form-new-games span.select2 {
+  width: 100% !important;
+}
+
 .banner h1 {
-  margin: 0;
+  margin-bottom: 10px;
   color: white;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  font-size: 24px;
+  font-size: 40px;
   font-weight: bold;
 }
 .most-popular {
@@ -20,14 +37,14 @@
 
 .banner {
   .sub-message {
-      position: absolute;
-      top: 152px;
-    }
+    position: absolute;
+    top: 152px;
+  }
   p {
-  font-size: 16px;
-  // color: #FFA800;
-  color: white;
-
+    font-size: 24px;
+    // color: #FFA800;
+    color: white;
+    opacity: 0.9;
   }
 
   .form-new-games {

@@ -1,13 +1,11 @@
 <div class="banner" style="background-image: linear-gradient(0deg,rgba(0,0,0,0.6) 50%,rgba(0,0,0,.6) 100%),radial-gradient(50% 120%,rgba(0,0,0,0.2) 50%,rgba(0,0,0,0.5) 100%), url(https://educayjuega.files.wordpress.com/2017/04/videojuegos-lista-time-1.jpg);">
-  <div class="w-100">
-    <div class="show-title">
-      <p>GAMERCouch</p>
+    <div class="banner-content">
+      <h1>GAMERCouch</h1>
       <p>Find the right game for you now</p>
-    </div>
-      <div style="width: 100%" class="d-flex justify-content-center">
 
-       <form action="/tracking" method="POST" class="form-new-games w-75">
-          <select name="tracking[]" class="select2" placeholder="Enter your games" multiple="multiple" placeholder="select your games" allowClear: true>
+
+      <form action="/tracking" method="POST" class="form-new-games">
+          <select name="tracking[]" class="select2" placeholder="What's your favorite games ?" multiple="multiple" placeholder="select your games" allowClear: true>
             <% @games.each do |game| %>
               <option value="<%= game.id %>" ><%= game.name %></option>
             <% end %>
@@ -15,8 +13,9 @@
           </select>
           <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
             <!-- <p class="sub-message">Enter the games you like</p> -->
-        </form>
-      </div>
-  </div>
-  </div>
+      </form>
+
+    </div>
+
+
 </div>

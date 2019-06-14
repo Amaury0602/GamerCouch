@@ -5,7 +5,7 @@ import 'select2';
 const select2Home = () => {
   // ($('.select2'));
   $('.select2').select2({
-    placeholder: "Enter your games"
+    placeholder: "What's your favorite games?"
   });
 
 };

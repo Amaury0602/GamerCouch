@@ -1,10 +1,9 @@
 .home-site-card {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  width: 250px;
   height: 250px;
+  margin-top: 75px;
 
   p {
     color: #222222;
@@ -16,22 +15,25 @@
     background-color: transparent;
     height: 120px;
     width: 120px;
+    margin-bottom: 30px;
   }
+}
+
+.home-site-card.arrow {
+  width: 250px;
 }
 
 .home-button {
   // position: relative;
   // left: 301px;
   margin-top: 20px;
-  height: 50px;
-  width: 200px;
-  top: 23px;
   background-color: #FFA800;
   color: #222222;
   border: 0;
   font-weight: bolder;
-  margin-bottom: 47px;
   transition-duration: 0.5s;
+  padding: 15px 30px;
+  border-radius: 4px;
   &:hover {
     background-color: #222222;
     color: #FFA800;

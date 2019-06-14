@@ -32,41 +32,44 @@
   object-fit: cover;
 }
 
-.right {
-  font-size: 46px;
-  font-weight: normal;
+.right-flex {
   flex-basis: 25%;
   position: relative;
+  display: flex;
+  flex-direction: column;
   align-items: center;
+  padding: 10px 0px;
+  font-weight: normal;
+  .score-details {
+    margin-top: 10px;
+  }
+  a {
+    text-decoration: none;
+    font-size: 15px;
+    opacity: 0;
+    transition-duration: 0.3s;
+    border: 1px solid;
+    padding: 5px 10px;
+    border-radius: 6px;
+  }
   #match-score {
     font-size: 58px;
-    position: absolute;
-    top: 22%;
-    left: 20%;
     border: 5px solid;
     height: 140px;
     width: 140px;
-    border-radius: 66%;
+    border-radius: 50%;
     text-align: center;
-    padding-top: 22px;
-    margin-top: -31px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     p {
       text-align: center;
     }
-    a {
-      text-decoration: none;
-      font-size: 15px;
-      color: inherit;
-      position: absolute;
-      right: 40px;
-      bottom: -38px;
-      opacity: 0;
-      transition-duration: 0.5s;
-      border: 1px solid;
-      border-color: inherit;
-      padding: 3px;
-      border-radius: 6px;
-    }
+  }
+  #match-score .match-score-percent {
+    font-size: 25px;
+    position: relative;
+    left: -12px;
   }
 }
 
@@ -83,13 +86,12 @@
   border-radius: 3px;
   background-color: #F2F2F2;
   border: 1px solid #bcbcbc;
-    transition: all 1s ease-out;
+  transition: all .3s ease-out;
   &:hover {
     box-shadow: 3px 6px 6px #8080805c;
-    border: 2px solid #8080805c;
-      transition: all 1s ease-out;
+    transition: all .3s ease-out;
   }
-  &:hover .right #match-score a{
+  &:hover .right-flex a{
     opacity: 1;
     transition: all 1s ease-out;
   }
@@ -101,6 +103,7 @@
   width: 100%;
   position: relative;
   z-index: 1;
+  padding-bottom: 8px;
   a {
     color: #222222;
     text-decoration: none;
@@ -110,12 +113,17 @@
   .link-cursor {
     cursor: pointer;
     padding: 5px;
+    font-weight: normal;
   }
   .link-cursor:hover {
     color: #FFFFFF;
     background: #FFA800;
     border-radius: 5px;
     padding: 5px;
+  }
+  .link-cursor:hover i,
+  .link-cursor:hover .counterlike {
+    color: #FFFFFF;
   }
   .link-cursor:hover a {
     color: $ice-white;
@@ -206,12 +214,6 @@
   ul {
     list-style-type: none;
   }
-}
-
-.active {
-    color: $ice-white;
-    background: #FFA800;
-    border-radius: 3px;
 }
 
 .card-product-index-comment {

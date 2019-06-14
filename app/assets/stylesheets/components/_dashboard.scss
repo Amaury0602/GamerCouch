@@ -1,10 +1,12 @@
 .black-color{
-  color:black;
-  opacity: .7
+  color: black;
+  opacity: .7;
+  text-decoration: none;
 }
 .black-color:hover{
-  color:black;
-    opacity: 1
+  color: black;
+  opacity: 1;
+  text-decoration: none;
 }
 .dash-title {
   margin: 5px 30%;
@@ -45,6 +47,15 @@ ul {
   border-bottom: 1px solid black;
   padding:10px;
 }
-h4{
+
+#nav-tab h4 {
   font-size:18px;
+  padding: 5px 10px
+}
+
+#nav-tab h4:hover,
+#nav-tab h4.active {
+  color: $ice-white;
+  background: #FFA800;
+  border-radius: 3px;
 }
