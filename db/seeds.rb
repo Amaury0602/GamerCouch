@@ -91,9 +91,9 @@ sekiro = Game.find_by(name: "Sekiro: Shadows Die Twice")
 zelda = Game.find_by(name: "The Legend of Zelda: Twilight Princess")
 zelda_botw = Game.find_by(name: "The Legend of Zelda: Breath of the Wild" )
 star_wars = Game.find_by(name: "Star Wars: Jedi Knight II - Jedi Outcast" )
-dark = Game.find_by(name: "Darksiders")
-ff_ten = Game.find_by(name: "Final Fantasy X")
-dark_two = Game.find_by(name: "Darksiders II")
+# dark = Game.find_by(name: "Darksiders")
+# ff_ten = Game.find_by(name: "Final Fantasy X")
+# dark_two = Game.find_by(name: "Darksiders II")
 
 # mario_kart_ds = Game.find_by(name: "Mario Kart DS")
 
@@ -120,36 +120,36 @@ k = 0
   k += 1
 end
 l = 17
-28.times do
-  Like.create(game: star_wars, user: User.all[l])
-  star_wars.like_count += 1
-  star_wars.save
-  l += 1
-end
-n = 35
-30.times do
-  Like.create(game: ff_ten, user: User.all[n])
-  ff_ten.like_count += 1
-  ff_ten.save
-  n += 1
-end
+# 28.times do
+#   Like.create(game: star_wars, user: User.all[l])
+#   star_wars.like_count += 1
+#   star_wars.save
+#   l += 1
+# end
+# n = 35
+# 30.times do
+#   Like.create(game: ff_ten, user: User.all[n])
+#   ff_ten.like_count += 1
+#   ff_ten.save
+#   n += 1
+# end
 
 
-m = 10
-34.times do
-  Like.create(game: dark, user: User.all[m])
-  dark.like_count += 1
-  dark.save
-  m += 1
-end
+# m = 10
+# 34.times do
+#   Like.create(game: dark, user: User.all[m])
+#   dark.like_count += 1
+#   dark.save
+#   m += 1
+# end
 
-o = 15
-22.times do
-  Like.create(game: dark_two, user: User.all[o])
-  dark_two.like_count += 1
-  dark_two.save
-  o += 1
-end
+# o = 15
+# 22.times do
+#   Like.create(game: dark_two, user: User.all[o])
+#   dark_two.like_count += 1
+#   dark_two.save
+#   o += 1
+# end
 
 
 

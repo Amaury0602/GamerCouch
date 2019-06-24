@@ -33,17 +33,19 @@ class Game < ApplicationRecord
       other_sql = ActiveRecord::Base.connection.execute("SELECT games.id FROM games
                                                          JOIN likes ON games.id = likes.game_id
                                                          WHERE likes.user_id IN (#{users.join(",")})").values.flatten
-      my_sql = ActiveRecord::Base.connection.execute("SELECT games.id FROM games
-                                                      JOIN likes ON games.id = likes.game_id
-                                                      WHERE likes.user_id = #{user.id}").values.flatten
-      @matchings = other_sql.map { |g_id| Game.find(g_id) } & my_sql.map{ |g_id| Game.find(g_id) }
-      @matchings.reject { |instance| instance == self }
-      hash = {}
-      @matchings.each do |jeu|
-        hash[jeu.name] = jeu.likes.where(user_id: self.users).size.fdiv(self.likes.size) * 100
-      end
-      hash = hash.sort_by { |game, score| score }.reverse
+    else
+      other_sql = []
     end
+    my_sql = ActiveRecord::Base.connection.execute("SELECT games.id FROM games
+                                                    JOIN likes ON games.id = likes.game_id
+                                                    WHERE likes.user_id = #{user.id}").values.flatten
+    @matchings = other_sql.map { |g_id| Game.find(g_id) } & my_sql.map{ |g_id| Game.find(g_id) }
+    @matchings.reject { |instance| instance == self }
+    hash = {}
+    @matchings.each do |jeu|
+      hash[jeu] = jeu.likes.where(user_id: self.users).size.fdiv(self.likes.size) * 100
+    end
+    hash = hash.sort_by { |game, score| score }.reverse
   end
 
   def three_most_liked
