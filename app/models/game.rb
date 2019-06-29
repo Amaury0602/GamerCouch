@@ -79,14 +79,3 @@ def matching_score(user)
     end
   end
 end
-
-
-
-
-# game, tu prends ses users
-
-# Ces users: tu prends leurs likes.game.name
-
-# on croise mes likes + les jeux likés par les users (pour un jeu donné) game1, game2, game3
-
-# game : game1.likes.count / game.likes.count
