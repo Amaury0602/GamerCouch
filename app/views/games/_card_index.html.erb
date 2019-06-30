@@ -1,15 +1,14 @@
 <div class="card-product-index">
 
   <div class="card-product-index-left">
-
-
-    <div class="card-product-index-img">
+      <div class="card-product-index-img">
       <% if game.photo.present? %>
         <%= cl_image_tag game.photo, class: "img" %>
       <% else %>
         <%= image_tag "loading.png", class: "img" %>
       <% end %>
     </div>
+
 
 
     <div class="card-product-infos" id="game-<%= game.id %>">
@@ -47,15 +46,19 @@
       <h2>No match found</h2>
     <% else %>
       <% score = game.matching_score(current_user) %>
-      <% if score <= 25 %>
-        <% class_name = "badder" %>
-      <% elsif score < 50 %>
-        <% class_name = "less-bad" %>
-      <% elsif score < 75 %>
-        <% class_name = "good" %>
-      <% else %>
-        <% class_name = "very-good" %>
+      <% if !score.nil? %>
+        <% if score <= 25 %>
+          <% class_name = "badder" %>
+        <% elsif score < 50 %>
+          <% class_name = "less-bad" %>
+        <% elsif score < 75 %>
+          <% class_name = "good" %>
+        <% else %>
+          <% class_name = "very-good" %>
+        <% end %>
       <% end %>
+
+
       <div id="match-score" class="<%= class_name %>">
         <div style="padding-left: 12px;">
           <%= "#{game.matching_score(current_user)}"%>
