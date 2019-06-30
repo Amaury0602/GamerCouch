@@ -16,18 +16,6 @@ class Game < ApplicationRecord
     }
 
   def match(user)
-    # other_users = []
-    # self.likes.each do |like|
-    #   other_users << like.user
-    # end
-    # @other_liked_games = []
-    # other_users.each do |user|
-    #   user.likes.each do |like|
-    #     @other_liked_games << like.game
-    #   end
-    # end
-    # @matchings = user.games_liked & @other_liked_games
-    # @matchings = @matchings.reject { |game| game == self }
     users = Like.where("game_id= ?", self.id).pluck(:user_id)
     if !users.empty?
       other_sql = ActiveRecord::Base.connection.execute("SELECT games.id FROM games
@@ -45,7 +33,7 @@ class Game < ApplicationRecord
     @matchings.each do |jeu|
       hash[jeu] = jeu.likes.where(user_id: self.users).size.fdiv(self.likes.size) * 100
     end
-    hash = hash.sort_by { |game, score| score }.reverse
+    return hash = hash.sort_by { |game, score| score }.reverse
   end
 
   def three_most_liked
@@ -66,7 +54,7 @@ def matching_score(user)
   total = []
   result = 0
   n = 0
-  if self.nil?
+  if !self.nil?
     self.match(user).each do |game|
       total << game[1]
     end
