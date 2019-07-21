@@ -53,8 +53,10 @@
           <% class_name = "less-bad" %>
         <% elsif score < 75 %>
           <% class_name = "good" %>
-        <% else %>
+        <% elsif score <= 99 %>
           <% class_name = "very-good" %>
+        <% else %>
+          <% class_name = "perfect" %>
         <% end %>
       <% end %>
 
